@@ -1,0 +1,395 @@
+:root {
+    --primary: #002B5C; /* PGA Navy Blue */
+    --primary-light: #00438E;
+    --gold: #CBA052; /* PGA Gold */
+    --gold-light: #E1BA76;
+    --bg-dark: #fbfbfb; /* Clean bright background */
+    --bg-panel: rgba(255, 255, 255, 0.85); /* Glassmorphism on light */
+    --border: rgba(0, 43, 92, 0.15); /* Navy-tinted borders */
+    --text: #111827; /* Dark text for readability */
+    --text-muted: #4b5563;
+    --sidebar-bg: #001A36;
+    --sidebar-text: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text);
+    background-image: radial-gradient(circle at 10% 20%, rgba(0, 43, 92, 0.04), transparent 40%),
+                      radial-gradient(circle at 90% 80%, rgba(203, 160, 82, 0.04), transparent 40%);
+    min-height: 100vh;
+}
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    background: var(--sidebar-bg);
+    border-right: 2px solid var(--gold);
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 1.5rem;
+    color: var(--sidebar-text);
+    box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.logo-box {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.logo-icon {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-icon img {
+    max-width: 120px;
+    height: auto;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+}
+
+.logo-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.logo-subtitle {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.nav-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 8px;
+}
+
+.nav-btn.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--gold-light);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.top-header {
+    padding: 2.5rem 3rem;
+    border-bottom: 1px solid var(--border);
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.header-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.header-content p {
+    color: var(--primary);
+    font-weight: 500;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+}
+
+.content-wrapper {
+    padding: 2rem 3rem;
+    position: relative;
+}
+
+/* Views */
+.view-section {
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.view-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.mt-8 {
+    margin-top: 2rem;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 43, 92, 0.05); /* Tint shadow with navy */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    overflow: hidden;
+}
+
+.card {
+    width: 100%;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+    font-family: 'Playfair Display', serif;
+    padding: 0;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th, td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    background: rgba(0, 43, 92, 0.05);
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+tr {
+    transition: background 0.2s ease;
+}
+
+tr:hover {
+    background: rgba(0, 43, 92, 0.03);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+.font-bold {
+    font-weight: 600;
+}
+
+.text-gold {
+    color: var(--primary); /* change gold text to primary for contrast in light mode */
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.badge {
+    background: var(--primary);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+}
+
+.badge-gold {
+    background: var(--gold);
+    color: white;
+}
+.badge-gold:hover {
+    background: var(--gold-light);
+    color: var(--primary);
+}
+
+/* Grids & Flex */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 3px solid transparent;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-top-color: var(--gold);
+}
+
+.stat-card h4 {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.stat-value {
+    font-size: 2.8rem;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 0.2rem;
+    color: var(--primary);
+}
+
+.stat-sub {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.grid-2-col .card {
+    padding: 1.5rem;
+}
+
+.info-list {
+    list-style: none;
+}
+
+.info-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+}
+
+.info-list li:last-child {
+    border-bottom: none;
+}
+
+.info-list strong {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* Animations */
+.highlight-pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(203, 160, 82, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(203, 160, 82, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(203, 160, 82, 0); }
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 1rem;
+    }
+    .nav-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav-btn {
+        padding: 0.5rem 1rem;
+    }
+    .logo-box {
+        margin-bottom: 1rem;
+    }
+    .content-wrapper {
+        padding: 1rem;
+    }
+    .grid-2-col {
+        grid-template-columns: 1fr;
+    }
+    th, td {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+}

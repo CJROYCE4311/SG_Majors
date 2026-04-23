@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sterling Grove Majors Tournaments hub. Join the elite series of major golf tournaments.">
+    <title>Sterling Grove Majors</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sg-green: #394A3E; /* Sterling Grove deep green */
+            --sg-green-light: #5A7061;
+            --sg-gold: #B89C5D; /* Elegant gold accent */
+            --sg-bg: #F7F6F2; /* Warm off-white */
+            --sg-surface: #FFFFFF;
+            --sg-text: #2B332C;
+            --sg-text-muted: #6B756C;
+            --sg-border: #E8E5DD;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--sg-bg);
+            color: var(--sg-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .header {
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            background-color: var(--sg-surface);
+            border-bottom: 1px solid var(--sg-border);
+        }
+
+        .brand-eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            font-size: 0.8rem;
+            color: var(--sg-gold);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            color: var(--sg-green);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            font-weight: 500;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--sg-text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .majors-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .majors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .major-card {
+            background: var(--sg-surface);
+            border: 1px solid var(--sg-border);
+            text-decoration: none;
+            color: var(--sg-text);
+            transition: all 0.5s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            overflow: hidden;
+        }
+
+        .major-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(57, 74, 62, 0.08); /* Green tinted shadow */
+        }
+
+        .card-image {
+            height: 200px;
+            background-color: var(--sg-bg);
+            border-bottom: 1px solid var(--sg-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: var(--sg-green-light);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-image::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, rgba(184, 156, 93, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .major-card:hover .card-image {
+            color: var(--sg-green);
+        }
+        
+        .major-card:hover .card-image::after {
+            opacity: 1;
+        }
+
+        .card-content {
+            padding: 3rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .major-date {
+            font-size: 0.85rem;
+            color: var(--sg-gold);
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+        }
+
+        .major-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--sg-green);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .major-desc {
+            font-size: 0.95rem;
+            color: var(--sg-text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        .major-action {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--sg-green);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 0.3rem;
+            margin-top: auto;
+        }
+
+        .major-action::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--sg-gold);
+            transition: width 0.3s ease;
+        }
+
+        .major-card:hover .major-action::after {
+            width: 100%;
+        }
+
+        /* Feature/Future constraints */
+        .future-site {
+            cursor: default;
+        }
+        
+        .future-site:hover {
+            transform: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+        }
+        
+        .future-site .major-action {
+            color: var(--sg-text-muted);
+        }
+
+        .future-site:hover .major-action::after {
+            width: 0;
+            background-color: transparent;
+        }
+
+        .future-site .card-image {
+            color: #C1C6C2;
+        }
+        
+        .future-site:hover .card-image {
+            color: #C1C6C2;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--sg-text-muted);
+            font-size: 0.85rem;
+            background-color: var(--sg-surface);
+            border-top: 1px solid var(--sg-border);
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .title {
+                font-size: 3rem;
+            }
+            .header {
+                padding: 4rem 1.5rem 2rem;
+            }
+            .card-content {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="brand-eyebrow">Sterling Grove Golf & Country Club</div>
+        <h1 class="title">The Majors Series</h1>
+        <p class="subtitle">Experience our premier championship events. Four tests of golf, defining the pinnacle of competition at Sterling Grove.</p>
+    </header>
+
+    <main class="majors-section">
+        <div class="majors-grid">
+            
+            <!-- Masters Tournament -->
+            <a href="Masters_Tournament/index.html" class="major-card">
+                <div class="card-image">⛳</div>
+                <div class="card-content">
+                    <div class="major-date">April 11 - 12, 2026</div>
+                    <h2 class="major-title">The Masters</h2>
+                    <p class="major-desc">A tradition unlike any other. The inaugural invitational kicks off the major season.</p>
+                    <div class="major-action">Enter Tournament</div>
+                </div>
+            </a>
+
+            <!-- PGA Championship -->
+            <a href="PGA_Championship/index.html" class="major-card">
+                <div class="card-image">🏆</div>
+                <div class="card-content">
+                    <div class="major-date">May 16 - 17, 2026</div>
+                    <h2 class="major-title">PGA Championship</h2>
+                    <p class="major-desc">A two-man invitational pairing Sterling Grove's finest with the pros of the PGA.</p>
+                    <div class="major-action">Enter Tournament</div>
+                </div>
+            </a>
+
+            <!-- US Open (Future Site) -->
+            <div class="major-card future-site">
+                <div class="card-image">🇺🇸</div>
+                <div class="card-content">
+                    <div class="major-date">June 20 - 21, 2026</div>
+                    <h2 class="major-title">The U.S. Open</h2>
+                    <p class="major-desc">Our toughest test of golf. Premium conditions and a challenging setup await.</p>
+                    <div class="major-action">Future Site</div>
+                </div>
+            </div>
+
+            <!-- The Open Championship (Future Site) -->
+            <div class="major-card future-site">
+                <div class="card-image">🏺</div>
+                <div class="card-content">
+                    <div class="major-date">July 18 - 19, 2026</div>
+                    <h2 class="major-title">The Open</h2>
+                    <p class="major-desc">The final major of the year. Navigate the elements and cement your legacy.</p>
+                    <div class="major-action">Future Site</div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Sterling Grove Majors Tournaments. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

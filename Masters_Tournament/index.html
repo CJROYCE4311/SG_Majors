@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 Masters Invitational | Sterling Grove CC</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo-box">
+                <div class="logo-icon"><img src="SG_masters_logo.png" alt="Sterling Grove Masters Logo"></div>
+                <h1 class="logo-title">Masters</h1>
+                <p class="logo-subtitle">Sterling Grove</p>
+            </div>
+            
+            <nav class="nav-menu">
+                <button class="nav-btn active" data-tab="leaderboard">
+                    <span class="icon">🏆</span> Leaderboards
+                </button>
+                <button class="nav-btn" data-tab="calcutta">
+                    <span class="icon">💰</span> Calcutta
+                </button>
+                <button class="nav-btn" data-tab="pros">
+                    <span class="icon">⛳</span> Pro Scores
+                </button>
+                <button class="nav-btn" data-tab="info">
+                    <span class="icon">📜</span> Information
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>2026 Invitational</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-content">
+                    <h2>Welcome to the 1st Annual Masters Invitational</h2>
+                    <p>April 10 - 12, 2026</p>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                
+                <!-- Leaderboards View -->
+                <section id="leaderboard" class="view-section active">
+                    <h3 class="section-title">Tiger Flight</h3>
+                    <div class="card glass-panel" id="tiger-flight-table"></div>
+
+                    <h3 class="section-title mt-8">Rory Flight</h3>
+                    <div class="card glass-panel" id="rory-flight-table"></div>
+                </section>
+
+                <!-- Calcutta View -->
+                <section id="calcutta" class="view-section">
+                    <div class="stats-grid">
+                        <div class="stat-card glass-panel">
+                            <h4>Total Pot</h4>
+                            <div class="stat-value text-gold">$6,300</div>
+                        </div>
+                        <div class="stat-card glass-panel">
+                            <h4>1st Place</h4>
+                            <div class="stat-value">$3,150</div>
+                            <p class="stat-sub">Team Sticks (Feutz)</p>
+                        </div>
+                        <div class="stat-card glass-panel highlight-pulse">
+                            <h4>2nd Place</h4>
+                            <div class="stat-value">$1,575</div>
+                            <p class="stat-sub">Team DeLaFunk (Royce)</p>
+                        </div>
+                    </div>
+
+                    <h3 class="section-title mt-8">Final Calcutta Payouts</h3>
+                    <div class="card glass-panel" id="calcutta-payouts"></div>
+
+                    <h3 class="section-title mt-8">Auction Board</h3>
+                    <div class="card glass-panel" id="calcutta-board"></div>
+                </section>
+
+                <!-- Pros View -->
+                <section id="pros" class="view-section">
+                    <h3 class="section-title">Selected Pros Weekend Scores</h3>
+                    <div class="card glass-panel" id="pro-scores-table"></div>
+                </section>
+
+                <!-- Info View -->
+                <section id="info" class="view-section">
+                    <div class="grid-2-col">
+                        <div class="card glass-panel">
+                            <h3 class="card-title">Event Snapshot</h3>
+                            <ul class="info-list">
+                                <li><strong>Location:</strong> Sterling Grove Country Club</li>
+                                <li><strong>Dates:</strong> April 10 - 12, 2026</li>
+                                <li><strong>Commissioners:</strong> Eric Weiss & Paul Benga</li>
+                                <li><strong>Field:</strong> 20 two-man teams (2 Flights)</li>
+                                <li><strong>Entry:</strong> $200 / team</li>
+                            </ul>
+                        </div>
+                        <div class="card glass-panel">
+                            <h3 class="card-title">Format & Logistics</h3>
+                            <ul class="info-list">
+                                <li><strong>Day 1:</strong> 2-man shamble using 75% handicap</li>
+                                <li><strong>Day 2:</strong> 2-man best ball using 90% handicap</li>
+                                <li><strong>Scoring:</strong> 2-man net score + two selected Pros (Rounds 3 & 4)</li>
+                                <li>Pick-a-Pro completed Friday night, along with the Calcutta.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
