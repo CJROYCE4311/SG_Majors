@@ -40,6 +40,13 @@ const starterTasks = [
   },
   {
     id: crypto.randomUUID(),
+    title: "Expand PGA admin app to edit website sections and regenerate markdown",
+    column: "done",
+    priority: "high",
+    due: "2026-04-29",
+  },
+  {
+    id: crypto.randomUUID(),
     title: "Add Calcutta pot, auction cost, payout percentage, and projected payout display",
     column: "done",
     priority: "normal",
@@ -47,7 +54,7 @@ const starterTasks = [
   },
   {
     id: crypto.randomUUID(),
-    title: "Run Mac mini scoreboard server with SCOREBOARD_ADMIN_TOKEN",
+    title: "Run Mac mini PGA admin server with SCOREBOARD_ADMIN_TOKEN",
     column: "todo",
     priority: "high",
     due: "2026-05-08",
@@ -61,7 +68,7 @@ const starterTasks = [
   },
   {
     id: crypto.randomUUID(),
-    title: "Create publish/update workflow from Mac mini to public scoreboard URL",
+    title: "Configure Mac mini Git auth for admin Commit and Push button",
     column: "todo",
     priority: "high",
     due: "2026-05-11",

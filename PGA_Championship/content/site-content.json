@@ -1,0 +1,566 @@
+{
+  "updatedAt": "2026-04-29T20:46:05.347Z",
+  "overview": {
+    "stats": [
+      {
+        "label": "Friday Night",
+        "value": "May 15",
+        "sub": "A/B draft and Calcutta"
+      },
+      {
+        "label": "Day 1",
+        "value": "Shamble",
+        "sub": "Both balls count, par 144"
+      },
+      {
+        "label": "Day 2",
+        "value": "Best Ball",
+        "sub": "Team low ball, par 72"
+      },
+      {
+        "label": "Confirmed",
+        "value": "{{playerCount}}",
+        "sub": "Current players",
+        "highlight": true
+      }
+    ],
+    "snapshot": [
+      {
+        "label": "Dates",
+        "text": "Weekend runs Friday, May 15, 2026 through Sunday, May 17, 2026."
+      },
+      {
+        "label": "Rounds",
+        "text": "Tournament rounds are Saturday, May 16 and Sunday, May 17."
+      },
+      {
+        "label": "Field",
+        "text": "Current field is 17 confirmed players; two-man teams are still pending."
+      },
+      {
+        "label": "Flight",
+        "text": "One flight is expected unless participation grows enough to justify flights."
+      },
+      {
+        "label": "Buy-in",
+        "text": "$200 per two-man team once teams are formed."
+      },
+      {
+        "label": "Main Scoring",
+        "text": "Sterling Grove team score plus drafted A/B PGA Championship weekend pro scores."
+      },
+      {
+        "label": "Calcutta",
+        "text": "Calcutta is based on Sterling Grove team score only."
+      },
+      {
+        "label": "Rules",
+        "text": "Net scores follow USGA Rules of Golf and World Handicap System guidance, subject to announced local event rules."
+      }
+    ]
+  },
+  "players": {
+    "intro": "Team assignments can be updated as pairings are confirmed. Single-player rows show players who still need a partner.",
+    "teams": [
+      {
+        "teamName": "TBD 1",
+        "player1": "James Feutz",
+        "player1Handicap": "+0.6",
+        "player2": "",
+        "player2Handicap": "",
+        "totalHandicap": ""
+      },
+      {
+        "teamName": "TBD 2",
+        "player1": "Eric Weiss",
+        "player1Handicap": "0.4",
+        "player2": "",
+        "player2Handicap": "",
+        "totalHandicap": ""
+      },
+      {
+        "teamName": "TBD 3",
+        "player1": "Jon Vrolyks",
+        "player1Handicap": "4.8",
+        "player2": "",
+        "player2Handicap": "",
+        "totalHandicap": ""
+      },
+      {
+        "teamName": "TBD 4",
+        "player1": "Zane Eisenbarth",
+        "player1Handicap": "5.4",
+        "player2": "",
+        "player2Handicap": "",
+        "totalHandicap": ""
+      },
+      {
+        "teamName": "TBD 5",
+        "player1": "Paul Benga",
+        "player1Handicap": "6.4",
+        "player2": "",
+        "player2Handicap": "",
+        "totalHandicap": ""
+      },
+      {
+        "teamName": "TBD 6",
+        "player1": "Michael Falagrady",
+        "player1Handicap": "6.9",
+        "player2": "",
+        "player2Handicap": "",
+        "totalHandicap": ""
+      },
+      {
+        "teamName": "TBD 7",
+        "player1": "Travis Ingram",
+        "player1Handicap": "6.9",
+        "player2": "",
+        "player2Handicap": "",
+        "totalHandicap": ""
+      },
+      {
+        "teamName": "TBD 8",
+        "player1": "Mark Lewis",
+        "player1Handicap": "9.4",
+        "player2": "",
+        "player2Handicap": "",
+        "totalHandicap": ""
+      },
+      {
+        "teamName": "TBD 9",
+        "player1": "Shane Bolosan",
+        "player1Handicap": "9.4",
+        "player2": "",
+        "player2Handicap": "",
+        "totalHandicap": ""
+      },
+      {
+        "teamName": "TBD 10",
+        "player1": "Scott Lucas",
+        "player1Handicap": "9.7",
+        "player2": "",
+        "player2Handicap": "",
+        "totalHandicap": ""
+      },
+      {
+        "teamName": "TBD 11",
+        "player1": "Rich McKeon",
+        "player1Handicap": "10.9",
+        "player2": "",
+        "player2Handicap": "",
+        "totalHandicap": ""
+      },
+      {
+        "teamName": "TBD 12",
+        "player1": "Christopher Royce",
+        "player1Handicap": "13.5",
+        "player2": "",
+        "player2Handicap": "",
+        "totalHandicap": ""
+      },
+      {
+        "teamName": "TBD 13",
+        "player1": "Vasan Srinivasan",
+        "player1Handicap": "15.1",
+        "player2": "",
+        "player2Handicap": "",
+        "totalHandicap": ""
+      },
+      {
+        "teamName": "TBD 14",
+        "player1": "Mark Albedyll",
+        "player1Handicap": "16.0",
+        "player2": "",
+        "player2Handicap": "",
+        "totalHandicap": ""
+      },
+      {
+        "teamName": "TBD 15",
+        "player1": "Patrick Schueppert",
+        "player1Handicap": "16.5",
+        "player2": "",
+        "player2Handicap": "",
+        "totalHandicap": ""
+      },
+      {
+        "teamName": "TBD 16",
+        "player1": "Robert Hill \"Captain\"",
+        "player1Handicap": "19.4",
+        "player2": "",
+        "player2Handicap": "",
+        "totalHandicap": ""
+      },
+      {
+        "teamName": "TBD 17",
+        "player1": "Eric Lamb",
+        "player1Handicap": "26.2",
+        "player2": "",
+        "player2Handicap": "",
+        "totalHandicap": ""
+      }
+    ],
+    "players": [
+      {
+        "name": "James Feutz",
+        "handicap": "+0.6",
+        "whsId": "5660746"
+      },
+      {
+        "name": "Eric Weiss",
+        "handicap": "0.4",
+        "whsId": "9002584"
+      },
+      {
+        "name": "Jon Vrolyks",
+        "handicap": "4.8",
+        "whsId": "464737"
+      },
+      {
+        "name": "Zane Eisenbarth",
+        "handicap": "5.4",
+        "whsId": "11664981"
+      },
+      {
+        "name": "Paul Benga",
+        "handicap": "6.4",
+        "whsId": "164216"
+      },
+      {
+        "name": "Michael Falagrady",
+        "handicap": "6.9",
+        "whsId": "95016"
+      },
+      {
+        "name": "Travis Ingram",
+        "handicap": "6.9",
+        "whsId": "3210029"
+      },
+      {
+        "name": "Mark Lewis",
+        "handicap": "9.4",
+        "whsId": "8450232"
+      },
+      {
+        "name": "Shane Bolosan",
+        "handicap": "9.4",
+        "whsId": "11994127"
+      },
+      {
+        "name": "Scott Lucas",
+        "handicap": "9.7",
+        "whsId": "TBD"
+      },
+      {
+        "name": "Rich McKeon",
+        "handicap": "10.9",
+        "whsId": "TBD"
+      },
+      {
+        "name": "Christopher Royce",
+        "handicap": "13.5",
+        "whsId": "11809990"
+      },
+      {
+        "name": "Vasan Srinivasan",
+        "handicap": "15.1",
+        "whsId": "401762"
+      },
+      {
+        "name": "Mark Albedyll",
+        "handicap": "16.0",
+        "whsId": "TBD"
+      },
+      {
+        "name": "Patrick Schueppert",
+        "handicap": "16.5",
+        "whsId": "11278400"
+      },
+      {
+        "name": "Robert Hill \"Captain\"",
+        "handicap": "19.4",
+        "whsId": "11246342"
+      },
+      {
+        "name": "Eric Lamb",
+        "handicap": "26.2",
+        "whsId": "TBD"
+      }
+    ]
+  },
+  "format": {
+    "body": "Saturday: Shamble\n- Both players tee off, then the team chooses the best drive.\n- After the selected drive, both players place within one club-length, not nearer the hole, in the same condition.\n- Each player plays his own ball from the selected drive location until holed.\n- Both balls count on every hole.\n- Saturday team par is 144.\n- No 6-drive requirement.\n\nSunday: Best Ball\n- Each player plays his own ball from tee to green.\n- The team's lower score on each hole counts.\n- Sunday team par is 72.\n- Sunday pairings should be set after Saturday results.",
+    "saturdayTitle": "Saturday: Shamble",
+    "saturday": [
+      "Both players tee off, then the team chooses the best drive.",
+      "After the selected drive, both players place within one club-length, not nearer the hole, in the same condition.",
+      "Each player plays his own ball from the selected drive location until holed.",
+      "Both balls count on every hole.",
+      "Saturday team par is 144.",
+      "No 6-drive requirement."
+    ],
+    "sundayTitle": "Sunday: Best Ball",
+    "sunday": [
+      "Each player plays his own ball from tee to green.",
+      "The team's lower score on each hole counts.",
+      "Sunday team par is 72.",
+      "Sunday pairings should be set after Saturday results."
+    ]
+  },
+  "pickapro": {
+    "title": "Friday Night Draft",
+    "intro": "After the PGA Championship cut is official, the committee will publish the eligible A and B player lists. Each Sterling Grove team drafts one A player and one B player from players who made the cut.",
+    "aPlayers": [],
+    "bPlayers": [],
+    "items": [
+      {
+        "label": "Eligibility",
+        "text": "Only PGA Championship players who make the cut are eligible."
+      },
+      {
+        "label": "Duration",
+        "text": "Each team keeps its selected pros for Round 3 and Round 4."
+      },
+      {
+        "label": "Duplication",
+        "text": "Multiple Sterling Grove teams may draft the same pros."
+      },
+      {
+        "label": "Scoring",
+        "text": "Only weekend PGA Championship scores count toward the main competition."
+      },
+      {
+        "label": "PGA Par",
+        "text": "Drafted A/B players contribute a combined par of 288."
+      }
+    ]
+  },
+  "calcutta": {
+    "format": [
+      "One Calcutta runs across all teams.",
+      "Auction starts at $50 per team and increases in $25 increments.",
+      "If a team is not the highest bidder on itself, it may buy back half of the winning bid.",
+      "Calcutta scoring is based on Sterling Grove team golf scores only, not the added PGA Championship pro scores.",
+      "The scoreboard should show team cost, total pot, buyer, buyback status, and projected/final payouts."
+    ],
+    "payouts": [
+      {
+        "label": "1st Place",
+        "value": "50%"
+      },
+      {
+        "label": "2nd Place",
+        "value": "25%"
+      },
+      {
+        "label": "3rd Place",
+        "value": "15%"
+      },
+      {
+        "label": "4th Place",
+        "value": "10%"
+      }
+    ]
+  },
+  "scoreboard": {
+    "mainLeaderboard": [
+      "Sterling Grove team weekend par: 216.",
+      "Drafted A/B PGA player weekend par: 288.",
+      "Main tournament total par: 504.",
+      "Ranks teams by Sterling Grove score plus A/B PGA player scores.",
+      "Expected setup is one flight unless participation grows."
+    ],
+    "calcuttaBoard": [
+      "Ranks teams by Sterling Grove team score only.",
+      "Shows players, Day 1, Day 2, team total, net to par, owner, cost, and payout.",
+      "Payouts: 1st 50%, 2nd 25%, 3rd 15%, 4th 10%.",
+      "PGA player scores do not affect Calcutta standings."
+    ],
+    "notes": [
+      {
+        "label": "Main standings",
+        "text": "team scores plus drafted A/B PGA Championship scores."
+      },
+      {
+        "label": "Calcutta standings",
+        "text": "Sterling Grove team score only."
+      },
+      {
+        "label": "Live scoring",
+        "text": "Squabbit scoring is required, and signed paper scorecards remain official."
+      },
+      {
+        "label": "Updates",
+        "text": "standings will be updated during tournament weekend as scores are available."
+      }
+    ]
+  },
+  "rules": {
+    "items": [
+      {
+        "label": "USGA",
+        "text": "USGA Rules of Golf apply for the event."
+      },
+      {
+        "label": "Net Scoring",
+        "text": "Follows USGA/WHS procedures unless an event-specific local rule is announced before play."
+      },
+      {
+        "label": "Saturday",
+        "text": "Shamble with both balls counting, par 144."
+      },
+      {
+        "label": "Sunday",
+        "text": "Best ball, par 72."
+      },
+      {
+        "label": "Live Scoring",
+        "text": "Squabbit live scoring is required. Players must enter individual scores so Saturday can count both balls and Sunday can count the team best ball."
+      },
+      {
+        "label": "Official Scorecard",
+        "text": "The signed paper scorecard is official and controls if there is any discrepancy with Squabbit."
+      },
+      {
+        "label": "Play It Down",
+        "text": "All balls are played down. Native grass is regular field of play; if a ball is not found, it is lost and the player must re-tee or play from the previous spot."
+      },
+      {
+        "label": "Hole 8",
+        "text": "The well-marked red penalty area on hole 8 is the exception and will be played as a red penalty area."
+      },
+      {
+        "label": "Free Relief",
+        "text": "Free relief is available from immovable obstructions such as cart paths, sprinkler heads, drains, fixed benches, paved roads, utility boxes, bathroom buildings, and permanently attached signs when they interfere with lie, stance, or intended swing."
+      },
+      {
+        "label": "Relief Procedure",
+        "text": "In the general area, find the nearest point of complete relief no closer to the hole, then drop within one club-length. The ball must come to rest in the relief area."
+      },
+      {
+        "label": "Line of Sight",
+        "text": "Line-of-sight relief is not normally allowed unless the ball is on the putting green or a special local rule applies."
+      },
+      {
+        "label": "Rulings",
+        "text": "If there is confusion or doubt, play a second ball and ask the committee for a ruling after the round."
+      },
+      {
+        "label": "Handicaps",
+        "text": "Handicaps should be locked the week of the event."
+      }
+    ]
+  },
+  "markdown": {
+    "logistics": [
+      "Everyone will gather at the club on Friday night, May 15, 2026, after the PGA Championship cut has been made.",
+      "The group will try to secure the Flex Room for the Friday night gathering; details to follow.",
+      "Friday night activities include drafting A/B PGA Championship players who make the cut and bidding on the Calcutta.",
+      "Each two-man team will draft one A player and one B player from the eligible PGA Championship players who make the cut.",
+      "The selected PGA Championship players' weekend scores from Round 3 and Round 4 will be added to each team's Sterling Grove golf scores for the flight competition.",
+      "The group may meet again after the Sunday round to watch the finish of the PGA Championship and settle Calcutta payouts.",
+      "Players need to send Christopher Royce who their partners will be.",
+      "The field currently has 17 players, and the group should encourage additional participation.",
+      "If a registered player knows someone who wants to play, that person should contact Christopher Royce or receive the Squabbit sign-up link and the WhatsApp group invite."
+    ],
+    "flightCompetition": [
+      "Entry fee: $200 per two-man team.",
+      "Flight structure: expected to be one flight because the field currently has 17 players.",
+      "Target field: at least 20 players / 10 teams.",
+      "If participation grows significantly, the committee can decide whether flights are needed.",
+      "Final team count, purse, and payouts should be confirmed once teams are finalized.",
+      "Final flight names, team assignments, and payouts should be confirmed once the team count is final."
+    ],
+    "pickaproDetails": [
+      "The A/B player board should be finalized after the PGA Championship cut line is official.",
+      "Only players who make the cut may be included on the board.",
+      "The committee should separate the board into A players and B players before the draft begins.",
+      "Each Sterling Grove team drafts one A player and one B player.",
+      "A team keeps its selected pros for both Round 3 and Round 4.",
+      "If a selected pro withdraws after the Friday night selection, the committee should decide whether a replacement is allowed before Round 3 begins.",
+      "If no replacement is allowed, the withdrawn player's posted score or committee-assigned score should be applied consistently to every affected team."
+    ],
+    "liveScoreboard": [
+      "The public website should include a live or updated scoreboard for tournament weekend.",
+      "The scoreboard should show Sterling Grove team scores, drafted A/B PGA player scores, combined tournament standings, and Calcutta standings.",
+      "Main tournament standings should include Sterling Grove team score plus drafted A/B PGA player weekend scores.",
+      "Calcutta standings should use Sterling Grove team scores only.",
+      "Calcutta display should include team cost, total pot, payout percentages, owner/buyer, buyback status, and projected/final payouts.",
+      "The scoreboard should be hosted from an always-on system, preferably the Mac mini server, or published to a public static URL from the Mac mini.",
+      "The first scoreboard build uses `PGA_Championship/data/scoreboard.json` as source data and `PGA_Championship/data/scoreboard-data.js` for the public website.",
+      "The local admin editor is `PGA_Championship/scoreboard_admin.html`, with server support in `PGA_Championship/scoreboard_server.mjs`.",
+      "The build should be finished locally first; once the scoreboard is roughly 90% complete, move the entire `SG_Majors` folder to the Mac mini and continue there.",
+      "Implementation details are tracked in `live_scoreboard_plan_2026.md`."
+    ],
+    "ruleDetails": [
+      {
+        "title": "Playing the Ball Down and Native Grass",
+        "items": [
+          "All balls will be played down unless an event-specific rule says otherwise.",
+          "The marked red penalty area on hole 8 is the exception and will be played as a red penalty area.",
+          "All native grass areas outside the marked hole 8 red penalty area are part of the general area / regular field of play.",
+          "There is no automatic free relief from native grass.",
+          "If a ball cannot be found in native grass, it is a lost ball.",
+          "For a lost ball, the player must proceed under stroke-and-distance by re-teeing or playing again from the previous spot."
+        ]
+      },
+      {
+        "title": "Free Relief From Abnormal Course Conditions and Immovable Obstructions",
+        "intro": "Free relief is available when an abnormal course condition or immovable obstruction interferes under the Rules of Golf.",
+        "items": [
+          "Common examples include cart path, sprinkler head, drain, fixed bench, paved road, utility box, bathroom building, and permanently attached sign.",
+          "Free relief is available when the ball touches or lies on or in the obstruction.",
+          "Free relief is available when the obstruction physically interferes with the player's stance.",
+          "Free relief is available when the obstruction physically interferes with the player's area of intended swing.",
+          "On the putting green only, free relief also applies when the obstruction is on the player's line of play.",
+          "Line-of-sight relief is not normally allowed unless the ball is on the putting green, or unless the course has adopted a special local rule for situations such as sprinkler heads near the green.",
+          "For a ball in the general area, including fairway or rough, find the nearest point of complete relief no closer to the hole.",
+          "Drop the original ball or another ball within one club-length of that point.",
+          "The ball must come to rest in the relief area.",
+          "The relief area must be in the general area and not nearer the hole.",
+          "Complete relief means the obstruction no longer interferes with the player's lie, stance, or swing."
+        ]
+      },
+      {
+        "title": "Scorecards and Rulings",
+        "items": [
+          "Squabbit live scoring is required for the event.",
+          "The paper scorecard is the official scorecard.",
+          "Squabbit is used for live scoring and leaderboard visibility, but the signed paper scorecard controls if there is any discrepancy.",
+          "Ruling questions should be addressed by the tournament commissioners or committee.",
+          "In case of confusion or doubt, players should play a second ball and have the ruling determined after the round.",
+          "Tournament scores should not be posted to GHIN unless the committee determines the round is acceptable for posting.",
+          "If a player is out of the hole, he should pick up to maintain pace of play.",
+          "Otherwise, everyone should putt out. Failure to do so may result in disqualification.",
+          "Scorecards must be signed by both the competitor and marker and turned in immediately after the round.",
+          "Pairings, tee times, and Sunday order of play should be set by the tournament committee after Saturday results."
+        ]
+      }
+    ],
+    "handicapping": [
+      "Course setup: Sterling Grove blue tees unless the committee announces otherwise.",
+      "Saturday shamble handicap allowance should be confirmed by the committee before play.",
+      "Sunday best ball handicap allowance should be confirmed by the committee before play.",
+      "Course handicap should be calculated using the active Sterling Grove tee rating, slope, and par for the tees played.",
+      "Handicaps should be locked the week of the event to prevent late changes.",
+      "Net strokes should be allocated by hole handicap under USGA/WHS procedures."
+    ],
+    "tieProcedures": [
+      "Flight competition ties should be resolved using the Masters Tournament procedure unless the committee announces a PGA-specific procedure before play.",
+      "Preferred tiebreak order: Day 2 back 9 net team score, Day 2 back 6 net team score, Day 2 back 3 net team score, Day 2 18th hole net team score, committee decision or playoff if needed.",
+      "Calcutta ties should use Sterling Grove team golf scores only, because Calcutta scoring excludes PGA Championship pro scores."
+    ],
+    "files": [
+      "pga_championship_players.csv",
+      "pga_championship_teams.csv",
+      "pga_championship_pro_picks.csv",
+      "pga_championship_scores.csv",
+      "pga_championship_calcutta_board.csv",
+      "live_scoreboard_plan_2026.md",
+      "content/site-content.json",
+      "data/scoreboard.json",
+      "data/scoreboard-data.js",
+      "scoreboard_admin.html",
+      "scoreboard_server.mjs"
+    ]
+  }
+}

@@ -14,15 +14,29 @@ The scoreboard needs to show:
 
 ## Current Build
 
-The first live scoreboard shell has been added to the PGA Championship website.
+The first live scoreboard shell has been added to the PGA Championship website, and the private admin app now controls the player-facing PGA website content.
 
 - Public scoreboard tab: `PGA_Championship/index.html`.
+- Private site content source: `PGA_Championship/content/site-content.json`.
+- Generated rules / instructions markdown: `PGA_Championship/sterling_grove_pga_championship_2026.md`.
 - Source data: `PGA_Championship/data/scoreboard.json`.
 - File-friendly website data: `PGA_Championship/data/scoreboard-data.js`.
 - Admin editor: `PGA_Championship/scoreboard_admin.html`.
 - Mac mini server: `PGA_Championship/scoreboard_server.mjs`.
 
-The public page can be opened directly from a file URL because it reads from `scoreboard-data.js`. The Mac mini server should use `scoreboard.json` as the source of truth, write the matching JS data file, and optionally commit/push the updated data to the public website repo.
+The public page can be opened directly from a file URL because it reads from `scoreboard-data.js`. The Mac mini server uses `scoreboard.json` as the score source of truth, writes the matching JS data file, and can commit/push the managed PGA site files to the public website repo.
+
+The private admin app has one editable area for each player-facing PGA website tab:
+
+- Overview
+- Players, including team name, player 1, player 1 handicap, player 2, player 2 handicap, and total handicap
+- Format
+- A/B Players, including the selectable A-player and B-player PGA professional pools
+- Calcutta
+- Scorecard / Scoreboard
+- Rules
+
+Saving site content writes `content/site-content.json`, regenerates the matching public sections in `index.html`, and regenerates `sterling_grove_pga_championship_2026.md`. Publishing stages only the managed PGA content/scoreboard files, commits them, and pushes the current branch.
 
 Build direction: finish this locally first. Once the scoreboard is roughly 90% complete and tested, move the entire `SG_Majors` folder to the Mac mini and continue work there. Do not keep two active copies of the project.
 
@@ -154,23 +168,46 @@ This is the fastest reliable version and the current first build.
 Pros:
 
 - Simple.
-- Easy to host on GitHub Pages or the Mac mini.
+- Easy to host on Netlify or the Mac mini.
 - Low risk during tournament weekend.
 
 Cons:
 
 - Manual data edits unless an admin tool is added.
 
-### Phase 2: Local Admin Editor
+### Phase 2: Private PGA Site Admin Editor
 
-Add an admin-only score entry page on the Mac mini:
+Run an admin-only site and score editor on the Mac mini:
 
 - `PGA_Championship/scoreboard_admin.html`
 - Run it through `PGA_Championship/scoreboard_server.mjs`.
-- Protect score saves with `SCOREBOARD_ADMIN_TOKEN`.
+- Protect private content loads, saves, and publish actions with `SCOREBOARD_ADMIN_TOKEN`.
+- Admin editor writes website section content to `content/site-content.json`.
+- Admin editor can update team names, player names, player handicaps, pairings, and team total handicaps from the Players tab.
+- Admin editor uses one simple text box for the Format tab, since the format should rarely change.
+- Admin editor uses the A/B Players tab to maintain the eligible PGA professional A-player and B-player pools.
+- Admin editor uses the Scorecard tab to select one A player and one B player for each Sterling Grove team from those pools.
+- Scorecard A/B selections are saved into `data/scoreboard.json` and mirrored into `data/scoreboard-data.js` for the public scoreboard.
+- Scorecard also has expandable Calcutta entries per team, with owner dropdowns from the tournament player list, cost entry, and a running total pot.
+- Server regenerates the public PGA page sections in `index.html`.
+- Server regenerates `sterling_grove_pga_championship_2026.md`.
 - Admin editor writes to `scoreboard.json`.
 - Server writes the matching `scoreboard-data.js` file for the public website.
 - Public scoreboard can be refreshed after score updates.
+
+Local-only run command:
+
+```bash
+SCOREBOARD_ADMIN_TOKEN='set-a-real-token' node PGA_Championship/scoreboard_server.mjs
+```
+
+Phone-accessible LAN run command from the Mac mini:
+
+```bash
+SCOREBOARD_HOST=0.0.0.0 SCOREBOARD_PORT=4173 SCOREBOARD_ADMIN_TOKEN='set-a-real-token' node PGA_Championship/scoreboard_server.mjs
+```
+
+Then open `http://<mac-mini-lan-ip>:4173/scoreboard_admin.html` from the phone, enter the token, save changes, and use Commit and Push when the public site should be updated.
 
 Pros:
 
@@ -183,11 +220,11 @@ Cons:
 
 ### Phase 3: Git Push Workflow
 
-If the public website is hosted from GitHub Pages:
+If the public website is hosted from Netlify:
 
-- Admin editor updates `scoreboard.json` on the Mac mini.
-- Mac mini commits and pushes the updated scoreboard data files to GitHub.
-- GitHub Pages publishes the new scoreboard.
+- Admin editor updates the managed PGA files on the Mac mini.
+- Mac mini commits and pushes the updated files to GitHub.
+- Netlify builds from `netlify.toml` and publishes only the allowlisted player-facing files in `dist`.
 
 Pros:
 
@@ -196,7 +233,7 @@ Pros:
 
 Cons:
 
-- GitHub Pages may take a short time to update.
+- Netlify may take a short time to update after each push.
 - Requires GitHub auth/token setup on the Mac mini.
 
 ## Recommended Deployment Plan
@@ -208,10 +245,10 @@ Use this current machine as the build machine until the scoreboard is mostly com
 3. Move the entire `SG_Majors` folder to the Mac mini.
 4. Verify the site, admin editor, and server from the Mac mini.
 5. Continue edits only from the Mac mini after the move.
-6. Decide public hosting:
-   - Preferred: GitHub Pages for public scoreboard URL.
+6. Public hosting:
+   - Preferred: Netlify public site build from the Git repo.
    - Alternate: Mac mini served publicly through Tailscale Funnel, Cloudflare Tunnel, or another HTTPS tunnel.
-7. If using GitHub Pages:
+7. If using Netlify:
    - Configure the Mac mini with GitHub credentials.
    - Run the admin server with `SCOREBOARD_ADMIN_TOKEN`.
    - Use the admin page save button to update data and the publish button to commit/push.
@@ -248,11 +285,10 @@ Use this current machine as the build machine until the scoreboard is mostly com
 - Players
 - Buyer
 - Auction price
-- Buyback
 - Total pot contribution
 - SG-only score
 - SG-only to par
-- Projected payout
+- Projected or final payout
 
 ### Admin Entry
 
@@ -269,8 +305,8 @@ Use this current machine as the build machine until the scoreboard is mostly com
 - Confirm whether Sterling Grove team scores shown in the scoreboard are gross or net.
 - Confirm Saturday and Sunday handicap allowances, if net scoring is used.
 - Confirm whether Calcutta pot includes buybacks.
-- Confirm public hosting choice: GitHub Pages or Mac mini tunnel.
-- Confirm admin update method: edit JSON manually first, then add admin editor later.
+- Confirm Netlify site settings and build hook / deploy trigger timing.
+- Confirm admin update method: use the private admin editor for site sections and scoreboard data.
 - Confirm migration timing: move the entire `SG_Majors` folder to the Mac mini only after the local build is mostly complete.
 
 ## First Build Recommendation

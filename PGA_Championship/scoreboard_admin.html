@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PGA Scoreboard Admin</title>
+    <title>PGA Championship Admin</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -11,9 +11,9 @@
         }
 
         .admin-shell {
-            max-width: 1100px;
+            max-width: 1180px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1.25rem;
         }
 
         .admin-header {
@@ -21,27 +21,53 @@
             justify-content: space-between;
             align-items: flex-end;
             gap: 1rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .admin-header p {
+            color: var(--text-muted);
+            max-width: 720px;
+        }
+
+        .admin-panel {
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .admin-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 1rem;
+        }
+
+        .admin-actions,
+        .section-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
         }
 
         .admin-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin: 1rem 0;
+            margin-top: 1rem;
         }
 
         .admin-actions button,
-        .admin-actions a {
+        .section-tabs button,
+        .admin-header a {
             border: none;
             border-radius: 8px;
-            background: var(--primary);
-            color: #fff;
             cursor: pointer;
             font: inherit;
-            font-weight: 600;
-            padding: 0.75rem 1rem;
+            font-weight: 700;
+            min-height: 44px;
+            padding: 0.72rem 0.95rem;
             text-decoration: none;
+        }
+
+        .admin-actions button,
+        .admin-header a {
+            background: var(--primary);
+            color: #fff;
         }
 
         .admin-actions .secondary {
@@ -49,44 +75,146 @@
             color: var(--primary);
         }
 
-        .admin-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+        .admin-actions .publish {
+            background: var(--gold);
+            color: var(--primary);
+        }
+
+        .section-tabs {
+            margin: 0 0 1rem;
+        }
+
+        .section-tabs button {
+            background: #e5e7eb;
+            color: var(--primary);
+        }
+
+        .section-tabs button.active {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .editor-section {
+            display: none;
+        }
+
+        .editor-section.active {
+            display: block;
+        }
+
+        .field-row {
             margin-bottom: 1rem;
         }
 
         label {
             display: block;
             color: var(--primary);
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 0.35rem;
         }
 
+        .field-hint {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            margin: -0.1rem 0 0.4rem;
+        }
+
         input,
+        select,
         textarea {
             width: 100%;
             border: 1px solid var(--border);
             border-radius: 8px;
             font: inherit;
-            padding: 0.75rem;
+            padding: 0.78rem;
         }
 
         textarea {
-            min-height: 58vh;
+            min-height: 170px;
+            resize: vertical;
+        }
+
+        .compact-textarea {
+            min-height: 108px;
+        }
+
+        .json-textarea {
+            min-height: 55vh;
             font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
             font-size: 0.9rem;
             line-height: 1.5;
         }
 
-        .status-box {
+        .admin-subsection {
+            border-top: 1px solid var(--border);
+            margin-top: 1rem;
+            padding-top: 1rem;
+        }
+
+        .team-admin-list {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .team-admin-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .team-admin-card summary {
+            align-items: center;
+            cursor: pointer;
+            display: flex;
+            gap: 0.8rem;
+            justify-content: space-between;
+            padding: 0.85rem 1rem;
+        }
+
+        .team-admin-card summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .team-admin-card summary::after {
+            color: var(--primary);
+            content: '+';
+            font-weight: 800;
+        }
+
+        .team-admin-card[open] summary::after {
+            content: '-';
+        }
+
+        .team-admin-body {
+            border-top: 1px solid var(--border);
+            padding: 1rem;
+        }
+
+        .team-admin-title {
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .team-admin-detail {
             color: var(--text-muted);
-            margin-top: 0.75rem;
+            font-size: 0.88rem;
+            margin-top: 0.2rem;
+        }
+
+        .status-box {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            min-height: 44px;
+            padding: 0.8rem;
         }
 
         @media (max-width: 768px) {
             .admin-shell {
-                padding: 1rem;
+                padding: 0.85rem;
             }
 
             .admin-header,
@@ -95,6 +223,12 @@
                 flex-direction: column;
                 align-items: stretch;
             }
+
+            .admin-actions button,
+            .section-tabs button,
+            .admin-header a {
+                flex: 1 1 auto;
+            }
         }
     </style>
 </head>
@@ -102,95 +236,900 @@
     <main class="admin-shell">
         <header class="admin-header">
             <div>
-                <h1 class="section-title">PGA Scoreboard Admin</h1>
-                <p class="stat-sub">Edit the scoreboard data, save it on the Mac mini server, then publish the public site.</p>
+                <h1 class="section-title">PGA Championship Admin</h1>
+                <p>Edit the player-facing PGA website sections, regenerate the markdown rules file, save live scoreboard data, then commit and push from the Mac mini server.</p>
             </div>
-            <a class="badge badge-gold" href="index.html">Public Site</a>
+            <a href="index.html">Public Site</a>
         </header>
 
-        <section class="card glass-panel scoreboard-card">
+        <section class="card glass-panel admin-panel">
             <div class="admin-grid">
                 <div>
                     <label for="adminToken">Admin token</label>
-                    <input id="adminToken" type="password" autocomplete="off" placeholder="Required for server save and publish">
+                    <input id="adminToken" type="password" autocomplete="off" placeholder="Required for private content, save, and publish">
                 </div>
                 <div>
                     <label for="adminStatus">Status</label>
                     <input id="adminStatus" type="text" readonly value="Ready">
                 </div>
             </div>
-
             <div class="admin-actions">
-                <button id="loadServer" type="button">Load Server Data</button>
-                <button id="saveServer" type="button">Save to Server</button>
-                <button id="publishServer" type="button">Commit and Push</button>
-                <button id="downloadJson" class="secondary" type="button">Download JSON</button>
-                <button id="downloadJs" class="secondary" type="button">Download JS Data</button>
+                <button id="loadLatest" type="button">Load Latest</button>
+                <button id="saveSection" type="button">Save Current Section</button>
+                <button id="saveAll" type="button">Save All</button>
+                <button id="publishServer" class="publish" type="button">Commit and Push</button>
+                <button id="downloadContent" class="secondary" type="button">Download Content JSON</button>
+                <button id="downloadScoreboard" class="secondary" type="button">Download Scoreboard JSON</button>
             </div>
+            <div id="statusMessage" class="status-box">Enter the Mac mini admin token, load latest, make edits, save, then publish.</div>
+        </section>
 
-            <label for="scoreboardEditor">Scoreboard data</label>
-            <textarea id="scoreboardEditor" spellcheck="false"></textarea>
-            <p class="status-box">
-                Main standings use Sterling Grove team score plus A/B PGA scores. Calcutta standings use Sterling Grove team score only.
-            </p>
+        <nav class="section-tabs" aria-label="Admin sections">
+            <button class="active" type="button" data-section="overview">Overview</button>
+            <button type="button" data-section="players">Players</button>
+            <button type="button" data-section="format">Format</button>
+            <button type="button" data-section="pickapro">A/B Players</button>
+            <button type="button" data-section="calcutta">Calcutta</button>
+            <button type="button" data-section="scoreboard">Scorecard</button>
+            <button type="button" data-section="rules">Rules</button>
+        </nav>
+
+        <section id="section-overview" class="editor-section active card glass-panel admin-panel">
+            <h2 class="card-title">Overview</h2>
+            <div class="field-row">
+                <label for="overviewStats">Stat cards</label>
+                <p class="field-hint">One per line: Label | Value | Subtext | highlight. Use {{playerCount}} for the live player count.</p>
+                <textarea id="overviewStats"></textarea>
+            </div>
+            <div class="field-row">
+                <label for="overviewSnapshot">Event snapshot</label>
+                <p class="field-hint">One per line: Label | Text.</p>
+                <textarea id="overviewSnapshot"></textarea>
+            </div>
+        </section>
+
+        <section id="section-players" class="editor-section card glass-panel admin-panel">
+            <h2 class="card-title">Players</h2>
+            <div class="field-row">
+                <label for="playersIntro">Player intro</label>
+                <textarea id="playersIntro" class="compact-textarea"></textarea>
+            </div>
+            <div class="field-row">
+                <label for="playersList">Teams and players</label>
+                <p class="field-hint">One per line: Team Name | Player 1 | P1 HDCP | Player 2 | P2 HDCP | Total HDCP. Leave total blank to auto-calculate when both handicaps are entered.</p>
+                <textarea id="playersList"></textarea>
+            </div>
+        </section>
+
+        <section id="section-format" class="editor-section card glass-panel admin-panel">
+            <h2 class="card-title">Format</h2>
+            <div class="field-row">
+                <label for="formatEntry">Format information</label>
+                <p class="field-hint">Plain text entry. Use short headings like "Saturday: Shamble" and dash bullets for details.</p>
+                <textarea id="formatEntry"></textarea>
+            </div>
+        </section>
+
+        <section id="section-pickapro" class="editor-section card glass-panel admin-panel">
+            <h2 class="card-title">A/B Players</h2>
+            <div class="field-row">
+                <label for="pickaproTitle">Draft title</label>
+                <input id="pickaproTitle" type="text">
+            </div>
+            <div class="field-row">
+                <label for="pickaproIntro">Draft intro</label>
+                <textarea id="pickaproIntro" class="compact-textarea"></textarea>
+            </div>
+            <div class="admin-grid">
+                <div class="field-row">
+                    <label for="pickaproAPlayers">A players</label>
+                    <p class="field-hint">One PGA professional per line.</p>
+                    <textarea id="pickaproAPlayers"></textarea>
+                </div>
+                <div class="field-row">
+                    <label for="pickaproBPlayers">B players</label>
+                    <p class="field-hint">One PGA professional per line.</p>
+                    <textarea id="pickaproBPlayers"></textarea>
+                </div>
+            </div>
+            <div class="field-row">
+                <label for="pickaproItems">Draft details</label>
+                <p class="field-hint">One per line: Label | Text.</p>
+                <textarea id="pickaproItems"></textarea>
+            </div>
+        </section>
+
+        <section id="section-calcutta" class="editor-section card glass-panel admin-panel">
+            <h2 class="card-title">Calcutta</h2>
+            <div class="field-row">
+                <label for="calcuttaFormat">Format details</label>
+                <textarea id="calcuttaFormat"></textarea>
+            </div>
+            <div class="field-row">
+                <label for="calcuttaPayouts">Payout schedule</label>
+                <p class="field-hint">One per line: Label | Value.</p>
+                <textarea id="calcuttaPayouts" class="compact-textarea"></textarea>
+            </div>
+        </section>
+
+        <section id="section-scoreboard" class="editor-section card glass-panel admin-panel">
+            <h2 class="card-title">Scorecard</h2>
+            <div class="field-row">
+                <label>Team A/B PGA picks</label>
+                <p class="field-hint">Choose one A player and one B player for each team. These selections are saved into the scoreboard data and appear on the public scoreboard.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Team</th>
+                                <th>Players</th>
+                                <th>A Player</th>
+                                <th>B Player</th>
+                            </tr>
+                        </thead>
+                        <tbody id="teamPickRows">
+                            <tr><td colspan="4" class="empty-state">Load latest content to build team pick rows.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="admin-subsection">
+                <div class="field-row">
+                    <label>Calcutta entries</label>
+                    <p class="field-hint">Expand each team to choose the owner and enter the amount paid. The running pot total updates as costs change.</p>
+                    <div class="stats-grid" style="margin-bottom: 1rem;">
+                        <div class="stat-card glass-panel">
+                            <h4>Total Pot</h4>
+                            <div class="stat-value compact" id="calcuttaPotTotal">$0</div>
+                            <p class="stat-sub">Sum of team costs entered below</p>
+                        </div>
+                    </div>
+                    <div id="calcuttaTeamCards" class="team-admin-list">
+                        <div class="empty-state">Load latest content to build Calcutta entries.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="admin-grid">
+                <div>
+                    <div class="field-row">
+                        <label for="mainLeaderboardNotes">Main leaderboard notes</label>
+                        <textarea id="mainLeaderboardNotes"></textarea>
+                    </div>
+                    <div class="field-row">
+                        <label for="calcuttaBoardNotes">Calcutta board notes</label>
+                        <textarea id="calcuttaBoardNotes"></textarea>
+                    </div>
+                    <div class="field-row">
+                        <label for="scoreboardPlayerNotes">Player notes</label>
+                        <p class="field-hint">One per line: Label | Text.</p>
+                        <textarea id="scoreboardPlayerNotes"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <div class="field-row">
+                        <label for="scoreboardEditor">Live scoreboard data</label>
+                        <p class="field-hint">This controls teams, scores, A/B pro picks, Calcutta buyers, costs, and payouts.</p>
+                        <textarea id="scoreboardEditor" class="json-textarea" spellcheck="false"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-rules" class="editor-section card glass-panel admin-panel">
+            <h2 class="card-title">Rules</h2>
+            <div class="field-row">
+                <label for="rulesItems">Public rules and scoring notes</label>
+                <p class="field-hint">One per line: Label | Text.</p>
+                <textarea id="rulesItems"></textarea>
+            </div>
         </section>
     </main>
 
     <script src="data/scoreboard-data.js"></script>
     <script>
-        const editor = document.getElementById('scoreboardEditor');
+        const storageKey = 'pgaChampionshipAdminToken';
         const token = document.getElementById('adminToken');
         const statusInput = document.getElementById('adminStatus');
-        const currentData = window.PGA_SCOREBOARD_DATA || { teams: [] };
+        const statusMessage = document.getElementById('statusMessage');
+        const scoreboardEditor = document.getElementById('scoreboardEditor');
+        let activeSection = 'overview';
+        let siteContent = null;
+        let scoreboardData = window.PGA_SCOREBOARD_DATA || { teams: [] };
 
-        editor.value = JSON.stringify(currentData, null, 2);
+        const fields = {
+            overviewStats: document.getElementById('overviewStats'),
+            overviewSnapshot: document.getElementById('overviewSnapshot'),
+            playersIntro: document.getElementById('playersIntro'),
+            playersList: document.getElementById('playersList'),
+            formatEntry: document.getElementById('formatEntry'),
+            pickaproTitle: document.getElementById('pickaproTitle'),
+            pickaproIntro: document.getElementById('pickaproIntro'),
+            pickaproAPlayers: document.getElementById('pickaproAPlayers'),
+            pickaproBPlayers: document.getElementById('pickaproBPlayers'),
+            pickaproItems: document.getElementById('pickaproItems'),
+            calcuttaFormat: document.getElementById('calcuttaFormat'),
+            calcuttaPayouts: document.getElementById('calcuttaPayouts'),
+            mainLeaderboardNotes: document.getElementById('mainLeaderboardNotes'),
+            calcuttaBoardNotes: document.getElementById('calcuttaBoardNotes'),
+            scoreboardPlayerNotes: document.getElementById('scoreboardPlayerNotes'),
+            rulesItems: document.getElementById('rulesItems')
+        };
 
-        document.getElementById('loadServer').addEventListener('click', loadServerData);
-        document.getElementById('saveServer').addEventListener('click', saveServerData);
-        document.getElementById('publishServer').addEventListener('click', publishServerData);
-        document.getElementById('downloadJson').addEventListener('click', () => downloadFile('scoreboard.json', 'application/json', JSON.stringify(readEditorData(), null, 2) + '\\n'));
-        document.getElementById('downloadJs').addEventListener('click', () => downloadFile('scoreboard-data.js', 'text/javascript', toDataScript(readEditorData())));
+        token.value = localStorage.getItem(storageKey) || '';
+        scoreboardEditor.value = JSON.stringify(scoreboardData, null, 2);
 
-        async function loadServerData() {
-            setStatus('Loading from server...');
-            const response = await fetch('/api/scoreboard');
-            if (!response.ok) throwStatus('Server data load failed');
-            editor.value = JSON.stringify(await response.json(), null, 2);
-            setStatus('Loaded server data');
+        document.querySelectorAll('[data-section]').forEach((button) => {
+            button.addEventListener('click', () => switchSection(button.dataset.section));
+        });
+
+        token.addEventListener('input', () => {
+            localStorage.setItem(storageKey, token.value);
+        });
+
+        document.getElementById('loadLatest').addEventListener('click', () => run('Loading latest content...', loadLatest));
+        document.getElementById('saveSection').addEventListener('click', () => run('Saving current section...', saveCurrentSection));
+        document.getElementById('saveAll').addEventListener('click', () => run('Saving all content...', saveAll));
+        document.getElementById('publishServer').addEventListener('click', () => run('Publishing managed PGA changes...', publishServerData));
+        document.getElementById('downloadContent').addEventListener('click', () => downloadFile('site-content.json', 'application/json', JSON.stringify(formToContent(), null, 2) + '\n'));
+        document.getElementById('downloadScoreboard').addEventListener('click', () => downloadFile('scoreboard.json', 'application/json', JSON.stringify(readScoreboardEditor(), null, 2) + '\n'));
+        fields.playersList.addEventListener('input', renderAdminTeamControls);
+        fields.pickaproAPlayers.addEventListener('input', renderTeamPickRows);
+        fields.pickaproBPlayers.addEventListener('input', renderTeamPickRows);
+
+        if (token.value) {
+            run('Loading saved admin content...', loadLatest);
+        } else {
+            run('Loading public scoreboard data...', loadScoreboardData);
         }
 
-        async function saveServerData() {
-            setStatus('Saving...');
+        function switchSection(section) {
+            activeSection = section;
+            document.querySelectorAll('[data-section]').forEach((button) => {
+                button.classList.toggle('active', button.dataset.section === section);
+            });
+            document.querySelectorAll('.editor-section').forEach((panel) => {
+                panel.classList.toggle('active', panel.id === `section-${section}`);
+            });
+        }
+
+        async function loadLatest() {
+            await loadSiteContent();
+            await loadScoreboardData();
+            renderAdminTeamControls();
+            return 'Loaded private site content and scoreboard data.';
+        }
+
+        async function loadSiteContent() {
+            requireToken();
+            const response = await fetch('/api/site-content', { headers: tokenHeaders() });
+            if (!response.ok) throw new Error(await response.text());
+            siteContent = await response.json();
+            contentToForm(siteContent);
+        }
+
+        async function loadScoreboardData() {
+            const response = await fetch('/api/scoreboard');
+            if (!response.ok) throw new Error(await response.text());
+            scoreboardData = await response.json();
+            scoreboardEditor.value = JSON.stringify(scoreboardData, null, 2);
+            renderAdminTeamControls();
+        }
+
+        async function saveCurrentSection() {
+            const contentResult = await saveSiteContent();
+            if (activeSection === 'scoreboard') {
+                const scoreboardResult = await saveScoreboardData();
+                return `${contentResult} ${scoreboardResult}`;
+            }
+            return `${contentResult} Public ${activeSection} section and markdown regenerated.`;
+        }
+
+        async function saveAll() {
+            const contentResult = await saveSiteContent();
+            const scoreboardResult = await saveScoreboardData();
+            return `${contentResult} ${scoreboardResult}`;
+        }
+
+        async function saveSiteContent() {
+            requireToken();
+            requireSiteContentLoaded();
+            const content = formToContent();
+            const response = await fetch('/api/site-content', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...tokenHeaders()
+                },
+                body: JSON.stringify(content)
+            });
+            if (!response.ok) throw new Error(await response.text());
+            const result = await response.json();
+            siteContent = { ...content, updatedAt: result.updatedAt };
+            return result.message || 'Site content saved.';
+        }
+
+        async function saveScoreboardData() {
+            requireToken();
+            syncAdminControlsToScoreboardData();
             const response = await fetch('/api/scoreboard', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-Scoreboard-Token': token.value
+                    ...tokenHeaders()
                 },
-                body: JSON.stringify(readEditorData())
+                body: JSON.stringify(readScoreboardEditor())
             });
-            if (!response.ok) throwStatus(await response.text());
-            setStatus('Saved scoreboard data');
+            if (!response.ok) throw new Error(await response.text());
+            const result = await response.json();
+            scoreboardData = readScoreboardEditor();
+            return result.message || 'Scoreboard data saved.';
         }
 
         async function publishServerData() {
-            setStatus('Publishing...');
+            requireToken();
             const response = await fetch('/api/publish', {
                 method: 'POST',
-                headers: { 'X-Scoreboard-Token': token.value }
+                headers: tokenHeaders()
             });
-            if (!response.ok) throwStatus(await response.text());
-            setStatus('Published changes to git');
+            if (!response.ok) throw new Error(await response.text());
+            const result = await response.json();
+            return result.message || 'Published changes to git.';
         }
 
-        function readEditorData() {
-            const data = JSON.parse(editor.value);
-            if (!Array.isArray(data.teams)) throwStatus('Data must include a teams array');
+        function contentToForm(content) {
+            fields.overviewStats.value = joinPiped(content.overview?.stats, ['label', 'value', 'sub', 'highlight']);
+            fields.overviewSnapshot.value = joinPiped(content.overview?.snapshot, ['label', 'text']);
+            fields.playersIntro.value = content.players?.intro || '';
+            fields.playersList.value = joinPiped(teamRowsFromContent(content), ['teamName', 'player1', 'player1Handicap', 'player2', 'player2Handicap', 'totalHandicap']);
+            fields.formatEntry.value = formatToText(content.format);
+            fields.pickaproTitle.value = content.pickapro?.title || '';
+            fields.pickaproIntro.value = content.pickapro?.intro || '';
+            fields.pickaproAPlayers.value = joinLines(content.pickapro?.aPlayers);
+            fields.pickaproBPlayers.value = joinLines(content.pickapro?.bPlayers);
+            fields.pickaproItems.value = joinPiped(content.pickapro?.items, ['label', 'text']);
+            fields.calcuttaFormat.value = joinLines(content.calcutta?.format);
+            fields.calcuttaPayouts.value = joinPiped(content.calcutta?.payouts, ['label', 'value']);
+            fields.mainLeaderboardNotes.value = joinLines(content.scoreboard?.mainLeaderboard);
+            fields.calcuttaBoardNotes.value = joinLines(content.scoreboard?.calcuttaBoard);
+            fields.scoreboardPlayerNotes.value = joinPiped(content.scoreboard?.notes, ['label', 'text']);
+            fields.rulesItems.value = joinPiped(content.rules?.items, ['label', 'text']);
+        }
+
+        function formToContent() {
+            const baseMarkdown = siteContent?.markdown || {};
+            const teams = parseTeams(fields.playersList.value);
+            return {
+                updatedAt: siteContent?.updatedAt || new Date().toISOString(),
+                overview: {
+                    stats: parseStats(fields.overviewStats.value),
+                    snapshot: parsePiped(fields.overviewSnapshot.value, ['label', 'text'])
+                },
+                players: {
+                    intro: fields.playersIntro.value.trim(),
+                    teams,
+                    players: playersFromTeams(teams, siteContent?.players?.players)
+                },
+                format: {
+                    body: fields.formatEntry.value.trim(),
+                    saturdayTitle: siteContent?.format?.saturdayTitle || 'Saturday',
+                    saturday: siteContent?.format?.saturday || [],
+                    sundayTitle: siteContent?.format?.sundayTitle || 'Sunday',
+                    sunday: siteContent?.format?.sunday || []
+                },
+                pickapro: {
+                    title: fields.pickaproTitle.value.trim(),
+                    intro: fields.pickaproIntro.value.trim(),
+                    aPlayers: parseLines(fields.pickaproAPlayers.value),
+                    bPlayers: parseLines(fields.pickaproBPlayers.value),
+                    items: parsePiped(fields.pickaproItems.value, ['label', 'text'])
+                },
+                calcutta: {
+                    format: parseLines(fields.calcuttaFormat.value),
+                    payouts: parsePiped(fields.calcuttaPayouts.value, ['label', 'value'])
+                },
+                scoreboard: {
+                    mainLeaderboard: parseLines(fields.mainLeaderboardNotes.value),
+                    calcuttaBoard: parseLines(fields.calcuttaBoardNotes.value),
+                    notes: parsePiped(fields.scoreboardPlayerNotes.value, ['label', 'text'])
+                },
+                rules: {
+                    items: parsePiped(fields.rulesItems.value, ['label', 'text'])
+                },
+                markdown: baseMarkdown
+            };
+        }
+
+        function renderAdminTeamControls() {
+            renderTeamPickRows();
+            renderCalcuttaTeamCards();
+        }
+
+        function renderTeamPickRows() {
+            const body = document.getElementById('teamPickRows');
+            if (!body) return;
+
+            const teams = parseTeams(fields.playersList.value);
+            const aPlayers = parseLines(fields.pickaproAPlayers.value);
+            const bPlayers = parseLines(fields.pickaproBPlayers.value);
+            const data = safeScoreboardData();
+
+            if (!teams.length) {
+                body.innerHTML = '<tr><td colspan="4" class="empty-state">Add teams in the Players tab first.</td></tr>';
+                return;
+            }
+
+            body.innerHTML = teams.map((team, index) => {
+                const existing = findExistingScoreboardTeam(data.teams, team, index);
+                const aPick = existing?.pros?.a?.name || '';
+                const bPick = existing?.pros?.b?.name || '';
+                return `
+                    <tr data-team-index="${index}">
+                        <td class="font-bold">${escapeHtml(team.teamName || `Team ${index + 1}`)}</td>
+                        <td>${escapeHtml([team.player1, team.player2].filter(Boolean).join(' / ') || '--')}</td>
+                        <td>${renderPickSelect('a', aPlayers, aPick)}</td>
+                        <td>${renderPickSelect('b', bPlayers, bPick)}</td>
+                    </tr>
+                `;
+            }).join('');
+
+            body.querySelectorAll('select[data-pick]').forEach((select) => {
+                select.addEventListener('change', syncScorecardToScoreboardData);
+            });
+        }
+
+        function renderCalcuttaTeamCards() {
+            const target = document.getElementById('calcuttaTeamCards');
+            if (!target) return;
+
+            const teams = parseTeams(fields.playersList.value);
+            const data = safeScoreboardData();
+            const owners = playerOwnerOptions(teams);
+
+            if (!teams.length) {
+                target.innerHTML = '<div class="empty-state">Add teams in the Players tab first.</div>';
+                updateCalcuttaPotTotal();
+                return;
+            }
+
+            target.innerHTML = teams.map((team, index) => {
+                const existing = findExistingScoreboardTeam(data.teams, team, index);
+                const owner = existing?.calcutta?.owner || existing?.calcutta?.buyer || '';
+                const cost = existing?.calcutta?.auctionPrice ?? '';
+                return `
+                    <details class="team-admin-card" data-calcutta-index="${index}">
+                        <summary>
+                            <span>
+                                <span class="team-admin-title">${escapeHtml(team.teamName || `Team ${index + 1}`)}</span>
+                                <span class="team-admin-detail">${escapeHtml([team.player1, team.player2].filter(Boolean).join(' / ') || '--')}</span>
+                            </span>
+                            <span class="badge badge-gold" data-card-cost>${formatMoneyText(cost)}</span>
+                        </summary>
+                        <div class="team-admin-body">
+                            <div class="admin-grid">
+                                <div class="field-row">
+                                    <label for="calcuttaOwner${index}">Owner</label>
+                                    ${renderOwnerSelect(index, owners, owner)}
+                                </div>
+                                <div class="field-row">
+                                    <label for="calcuttaCost${index}">Cost</label>
+                                    <input id="calcuttaCost${index}" data-calcutta-cost type="number" min="0" step="25" inputmode="numeric" value="${escapeAttribute(cost)}" placeholder="0">
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+                `;
+            }).join('');
+
+            target.querySelectorAll('select[data-calcutta-owner], input[data-calcutta-cost]').forEach((input) => {
+                input.addEventListener('input', syncCalcuttaToScoreboardData);
+                input.addEventListener('change', syncCalcuttaToScoreboardData);
+            });
+
+            updateCalcuttaPotTotal();
+        }
+
+        function renderPickSelect(pick, pool, selectedValue) {
+            const options = ['']
+                .concat(pool)
+                .concat(selectedValue && !pool.includes(selectedValue) ? [selectedValue] : [])
+                .map((value) => {
+                    const label = value || 'Select player';
+                    const selected = value === selectedValue ? ' selected' : '';
+                    return `<option value="${escapeAttribute(value)}"${selected}>${escapeHtml(label)}</option>`;
+                })
+                .join('');
+            return `<select data-pick="${pick}">${options}</select>`;
+        }
+
+        function renderOwnerSelect(index, owners, selectedValue) {
+            const values = ['']
+                .concat(owners)
+                .concat(selectedValue && !owners.includes(selectedValue) ? [selectedValue] : []);
+            const options = values.map((value) => {
+                const label = value || 'Select owner';
+                const selected = value === selectedValue ? ' selected' : '';
+                return `<option value="${escapeAttribute(value)}"${selected}>${escapeHtml(label)}</option>`;
+            }).join('');
+            return `<select id="calcuttaOwner${index}" data-calcutta-owner>${options}</select>`;
+        }
+
+        function playerOwnerOptions(teams) {
+            const names = [];
+            const seen = new Set();
+            teams.forEach((team) => {
+                [team.player1, team.player2].forEach((name) => {
+                    const trimmed = String(name || '').trim();
+                    const key = trimmed.toLowerCase();
+                    if (!trimmed || seen.has(key)) return;
+                    seen.add(key);
+                    names.push(trimmed);
+                });
+            });
+            return names;
+        }
+
+        function syncScorecardToScoreboardData() {
+            const teams = parseTeams(fields.playersList.value);
+            if (!teams.length) return;
+
+            const data = safeScoreboardData();
+            const rows = Array.from(document.querySelectorAll('#teamPickRows tr[data-team-index]'));
+            const syncedTeams = teams.map((team, index) => {
+                const existing = findExistingScoreboardTeam(data.teams, team, index) || {};
+                const row = rows.find((candidate) => Number(candidate.dataset.teamIndex) === index);
+                const aPick = row?.querySelector('select[data-pick="a"]')?.value || '';
+                const bPick = row?.querySelector('select[data-pick="b"]')?.value || '';
+                return {
+                    ...existing,
+                    id: existing.id || slugify(team.teamName || `team-${index + 1}`),
+                    teamName: team.teamName || `Team ${index + 1}`,
+                    players: [team.player1, team.player2].filter(Boolean),
+                    handicapTotal: team.totalHandicap || calculateTeamHandicap(team.player1Handicap, team.player2Handicap),
+                    pros: {
+                        ...(existing.pros || {}),
+                        a: {
+                            ...(existing.pros?.a || {}),
+                            name: aPick
+                        },
+                        b: {
+                            ...(existing.pros?.b || {}),
+                            name: bPick
+                        }
+                    }
+                };
+            });
+
+            const nextData = {
+                ...data,
+                teams: mergeTeamCollections(data.teams, syncedTeams)
+            };
+            scoreboardData = nextData;
+            scoreboardEditor.value = JSON.stringify(nextData, null, 2);
+        }
+
+        function syncCalcuttaToScoreboardData() {
+            const teams = parseTeams(fields.playersList.value);
+            if (!teams.length) return;
+
+            const data = safeScoreboardData();
+            const cards = Array.from(document.querySelectorAll('#calcuttaTeamCards [data-calcutta-index]'));
+            const syncedTeams = teams.map((team, index) => {
+                const existing = findExistingScoreboardTeam(data.teams, team, index) || {};
+                const card = cards.find((candidate) => Number(candidate.dataset.calcuttaIndex) === index);
+                const owner = card?.querySelector('select[data-calcutta-owner]')?.value || '';
+                const cost = numberOrBlank(card?.querySelector('input[data-calcutta-cost]')?.value);
+                return {
+                    ...existing,
+                    id: existing.id || slugify(team.teamName || `team-${index + 1}`),
+                    teamName: team.teamName || `Team ${index + 1}`,
+                    players: [team.player1, team.player2].filter(Boolean),
+                    handicapTotal: team.totalHandicap || calculateTeamHandicap(team.player1Handicap, team.player2Handicap),
+                    calcutta: {
+                        ...(existing.calcutta || {}),
+                        owner,
+                        buyer: owner,
+                        auctionPrice: cost
+                    }
+                };
+            });
+
+            const nextData = {
+                ...data,
+                teams: mergeTeamCollections(data.teams, syncedTeams)
+            };
+            scoreboardData = nextData;
+            scoreboardEditor.value = JSON.stringify(nextData, null, 2);
+            updateCalcuttaPotTotal();
+            updateCardCostBadges();
+        }
+
+        function syncAdminControlsToScoreboardData() {
+            syncScorecardToScoreboardData();
+            syncCalcuttaToScoreboardData();
+        }
+
+        function mergeTeamCollections(_existingTeams, syncedTeams) {
+            return syncedTeams;
+        }
+
+        function updateCalcuttaPotTotal() {
+            const target = document.getElementById('calcuttaPotTotal');
+            if (!target) return;
+            const costs = Array.from(document.querySelectorAll('#calcuttaTeamCards input[data-calcutta-cost]'));
+            const total = costs.length
+                ? costs.reduce((sum, input) => sum + moneyNumber(input.value), 0)
+                : safeScoreboardData().teams.reduce((sum, team) => sum + moneyNumber(team.calcutta?.auctionPrice), 0);
+            target.textContent = formatMoneyText(total);
+        }
+
+        function updateCardCostBadges() {
+            document.querySelectorAll('#calcuttaTeamCards [data-calcutta-index]').forEach((card) => {
+                const input = card.querySelector('input[data-calcutta-cost]');
+                const badge = card.querySelector('[data-card-cost]');
+                if (badge) badge.textContent = formatMoneyText(input?.value || 0);
+            });
+        }
+
+        function numberOrBlank(value) {
+            if (value === null || value === undefined || value === '') return '';
+            const number = Number(value);
+            return Number.isFinite(number) ? number : '';
+        }
+
+        function moneyNumber(value) {
+            const number = numberOrBlank(value);
+            return typeof number === 'number' ? number : 0;
+        }
+
+        function formatMoneyText(value) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                maximumFractionDigits: 0
+            }).format(moneyNumber(value));
+        }
+
+        function safeScoreboardData() {
+            try {
+                const data = JSON.parse(scoreboardEditor.value || '{}');
+                return {
+                    ...data,
+                    teams: Array.isArray(data.teams) ? data.teams : []
+                };
+            } catch {
+                return {
+                    ...scoreboardData,
+                    teams: Array.isArray(scoreboardData?.teams) ? scoreboardData.teams : []
+                };
+            }
+        }
+
+        function findExistingScoreboardTeam(teams, team, index) {
+            if (!Array.isArray(teams)) return null;
+            const id = slugify(team.teamName || `team-${index + 1}`);
+            const playerKey = [team.player1, team.player2].filter(Boolean).join('|').toLowerCase();
+            return teams.find((existing) => existing.id === id)
+                || teams.find((existing) => existing.teamName && existing.teamName === team.teamName)
+                || teams.find((existing) => Array.isArray(existing.players) && existing.players.join('|').toLowerCase() === playerKey)
+                || null;
+        }
+
+        function formatToText(format) {
+            if (format?.body) return format.body;
+            const sections = [];
+            if (format?.saturdayTitle || Array.isArray(format?.saturday)) {
+                sections.push([
+                    format.saturdayTitle || 'Saturday',
+                    ...formatBullets(format.saturday)
+                ].join('\n'));
+            }
+            if (format?.sundayTitle || Array.isArray(format?.sunday)) {
+                sections.push([
+                    format.sundayTitle || 'Sunday',
+                    ...formatBullets(format.sunday)
+                ].join('\n'));
+            }
+            return sections.join('\n\n');
+        }
+
+        function formatBullets(items) {
+            return Array.isArray(items) ? items.map((item) => `- ${item}`) : [];
+        }
+
+        function teamRowsFromContent(content) {
+            if (Array.isArray(content.players?.teams) && content.players.teams.length) {
+                return content.players.teams.map(normalizeTeamRow);
+            }
+            return teamsFromPlayers(content.players?.players);
+        }
+
+        function teamsFromPlayers(players) {
+            return Array.isArray(players)
+                ? players.map((player, index) => normalizeTeamRow({
+                    teamName: `TBD ${index + 1}`,
+                    player1: player?.name || '',
+                    player1Handicap: player?.handicap || '',
+                    player2: '',
+                    player2Handicap: '',
+                    totalHandicap: ''
+                }))
+                : [];
+        }
+
+        function parseTeams(value) {
+            return parseLines(value).map((line) => {
+                const [teamName = '', player1 = '', player1Handicap = '', player2 = '', player2Handicap = '', totalHandicap = ''] = line.split('|').map((part) => part.trim());
+                return normalizeTeamRow({
+                    teamName,
+                    player1,
+                    player1Handicap,
+                    player2,
+                    player2Handicap,
+                    totalHandicap: totalHandicap || calculateTeamHandicap(player1Handicap, player2Handicap)
+                });
+            });
+        }
+
+        function normalizeTeamRow(team) {
+            return {
+                teamName: team.teamName || '',
+                player1: team.player1 || '',
+                player1Handicap: team.player1Handicap || '',
+                player2: team.player2 || '',
+                player2Handicap: team.player2Handicap || '',
+                totalHandicap: team.totalHandicap || ''
+            };
+        }
+
+        function playersFromTeams(teams, previousPlayers = []) {
+            const whsByName = new Map((Array.isArray(previousPlayers) ? previousPlayers : [])
+                .filter((player) => player?.name)
+                .map((player) => [player.name.toLowerCase(), player.whsId || '']));
+            const seen = new Set();
+            const players = [];
+
+            teams.forEach((team) => {
+                [
+                    [team.player1, team.player1Handicap],
+                    [team.player2, team.player2Handicap]
+                ].forEach(([name, handicap]) => {
+                    const trimmedName = String(name || '').trim();
+                    if (!trimmedName) return;
+                    const key = trimmedName.toLowerCase();
+                    if (seen.has(key)) return;
+                    seen.add(key);
+                    players.push({
+                        name: trimmedName,
+                        handicap: String(handicap || '').trim(),
+                        whsId: whsByName.get(key) || ''
+                    });
+                });
+            });
+
+            return players;
+        }
+
+        function calculateTeamHandicap(player1Handicap, player2Handicap) {
+            const player1 = handicapValue(player1Handicap);
+            const player2 = handicapValue(player2Handicap);
+            if (player1 === null || player2 === null) return '';
+            return formatHandicap(player1 + player2);
+        }
+
+        function handicapValue(value) {
+            if (value === null || value === undefined || value === '') return null;
+            const text = String(value).trim();
+            const isPlusHandicap = text.startsWith('+');
+            const number = Number(text.replace(/^\+/, ''));
+            if (!Number.isFinite(number)) return null;
+            return isPlusHandicap ? -number : number;
+        }
+
+        function formatHandicap(value) {
+            if (!Number.isFinite(value)) return '';
+            const rounded = Math.round(value * 10) / 10;
+            if (Object.is(rounded, -0)) return '0.0';
+            if (rounded < 0) return `+${Math.abs(rounded).toFixed(1)}`;
+            return rounded.toFixed(1);
+        }
+
+        function slugify(value) {
+            return String(value || '')
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-+|-+$/g, '') || 'team';
+        }
+
+        function parseStats(value) {
+            return parseLines(value).map((line) => {
+                const [label = '', statValue = '', sub = '', highlight = ''] = line.split('|').map((part) => part.trim());
+                return {
+                    label,
+                    value: statValue,
+                    sub,
+                    highlight: /^(true|yes|highlight)$/i.test(highlight)
+                };
+            });
+        }
+
+        function parsePiped(value, keys) {
+            return parseLines(value).map((line) => {
+                const parts = line.split('|').map((part) => part.trim());
+                return keys.reduce((entry, key, index) => {
+                    entry[key] = parts[index] || '';
+                    return entry;
+                }, {});
+            });
+        }
+
+        function parseLines(value) {
+            return String(value || '')
+                .split('\n')
+                .map((line) => line.trim())
+                .filter(Boolean);
+        }
+
+        function joinLines(items) {
+            return Array.isArray(items) ? items.join('\n') : '';
+        }
+
+        function joinPiped(items, keys) {
+            return Array.isArray(items)
+                ? items.map((item) => keys.map((key) => formatPipedValue(item?.[key])).join(' | ')).join('\n')
+                : '';
+        }
+
+        function formatPipedValue(value) {
+            if (typeof value === 'boolean') return value ? 'true' : '';
+            return value ?? '';
+        }
+
+        function escapeHtml(value) {
+            return String(value ?? '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function escapeAttribute(value) {
+            return escapeHtml(value);
+        }
+
+        function readScoreboardEditor() {
+            const data = JSON.parse(scoreboardEditor.value);
+            if (!Array.isArray(data.teams)) throw new Error('Scoreboard data must include a teams array.');
             return data;
         }
 
-        function toDataScript(data) {
-            return `window.PGA_SCOREBOARD_DATA = ${JSON.stringify(data, null, 2)};\\n`;
+        function tokenHeaders() {
+            localStorage.setItem(storageKey, token.value);
+            return { 'X-Scoreboard-Token': token.value };
+        }
+
+        function requireToken() {
+            if (!token.value.trim()) throw new Error('Enter the admin token first.');
+        }
+
+        function requireSiteContentLoaded() {
+            if (!siteContent) throw new Error('Load latest private site content before saving.');
+        }
+
+        async function run(pendingMessage, task) {
+            setStatus(pendingMessage);
+            try {
+                const message = await task();
+                setStatus(message || 'Done.');
+            } catch (error) {
+                setStatus(error.message || 'Something went wrong.');
+                console.error(error);
+            }
+        }
+
+        function setStatus(message) {
+            statusInput.value = message;
+            statusMessage.textContent = message;
         }
 
         function downloadFile(filename, type, content) {
@@ -201,16 +1140,7 @@
             link.download = filename;
             link.click();
             URL.revokeObjectURL(url);
-            setStatus(`Prepared ${filename}`);
-        }
-
-        function setStatus(message) {
-            statusInput.value = message;
-        }
-
-        function throwStatus(message) {
-            setStatus(message);
-            throw new Error(message);
+            setStatus(`Prepared ${filename}.`);
         }
     </script>
 </body>

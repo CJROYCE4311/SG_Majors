@@ -102,8 +102,19 @@ Pulled from the Sterling Grove member directory for PGA Championship coordinatio
   - public scoreboard tab in `index.html`
   - source data in `data/scoreboard.json`
   - file-friendly public data in `data/scoreboard-data.js`
-  - local admin editor in `scoreboard_admin.html`
-  - Mac mini server scaffold in `scoreboard_server.mjs`
+  - private admin editor in `scoreboard_admin.html`
+  - Mac mini admin server in `scoreboard_server.mjs`
+  - private website section source in `content/site-content.json`
+  - generated public website sections and rules markdown from the private content source
+- The admin editor has editable areas for Overview, Players, Format, A/B Players, Calcutta, Scoreboard, and Rules.
+- The Players editor now controls team name, player 1, player 1 handicap, player 2, player 2 handicap, and total handicap.
+- The Format editor is one simple text box for rare format updates.
+- The A/B Players editor controls the selectable PGA professional A-player and B-player pools.
+- The Scorecard editor lets each Sterling Grove team select one A player and one B player from those pools, then saves those picks into the scoreboard data.
+- The Scorecard editor includes expandable Calcutta entries per team, owner dropdowns from the player list, cost entry, and a running pot total.
+- Saving site content regenerates `index.html` and `sterling_grove_pga_championship_2026.md`.
+- Saving scoreboard data updates `data/scoreboard.json` and `data/scoreboard-data.js`.
+- Commit and Push publishes only the managed PGA site and scoreboard files, after the Mac mini has Git credentials configured.
 - Preferred hosting/operator setup: finish the build locally first, then move the entire `SG_Majors` folder to the always-on Mac mini server, run the admin server there, and publish updates from there.
 - See `live_scoreboard_plan_2026.md` for the full implementation and deployment plan.
 

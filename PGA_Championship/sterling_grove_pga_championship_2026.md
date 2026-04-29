@@ -1,40 +1,43 @@
 # 1st Annual PGA Championship Invitational at Sterling Grove CC
 
+_Last generated from `content/site-content.json` on 4/29/2026, 1:46:05 PM Arizona time._
+
 ## Event Snapshot
 
-- Event: 2026 PGA Championship Invitational at Sterling Grove Country Club
-- Weekend: Friday, May 15, 2026 through Sunday, May 17, 2026
-- Tournament rounds: Saturday, May 16, 2026 and Sunday, May 17, 2026
-- Location: Sterling Grove Country Club
-- Competition: Pick-a-Pro flight tournament plus Calcutta
-- Event type: invitational using a PGA Championship pick-a-pro format with Sterling Grove team play
-- Field: 17 confirmed players so far; two-man teams and flights are not formed yet
-- Entry fee: $200 per two-man team for the flight competition
-- Flight expectation: one flight unless participation grows enough to justify multiple flights
+- Dates: Weekend runs Friday, May 15, 2026 through Sunday, May 17, 2026.
+- Rounds: Tournament rounds are Saturday, May 16 and Sunday, May 17.
+- Field: Current field is 17 confirmed players; two-man teams are still pending.
+- Flight: One flight is expected unless participation grows enough to justify flights.
+- Buy-in: $200 per two-man team once teams are formed.
+- Main Scoring: Sterling Grove team score plus drafted A/B PGA Championship weekend pro scores.
+- Calcutta: Calcutta is based on Sterling Grove team score only.
+- Rules: Net scores follow USGA Rules of Golf and World Handicap System guidance, subject to announced local event rules.
 
-## Confirmed Player Pool
+## Team Assignments
 
-Teams have not been formed yet. Current confirmed players:
+Team assignments can be updated as pairings are confirmed. Single-player rows show players who still need a partner.
 
-| Player | HDCP | WHS Id |
-| --- | ---: | --- |
-| James Feutz | +0.6 | 5660746 |
-| Eric Weiss | 0.4 | 9002584 |
-| Jon Vrolyks | 4.8 | 464737 |
-| Zane Eisenbarth | 5.4 | 11664981 |
-| Paul Benga | 6.4 | 164216 |
-| Michael Falagrady | 6.9 | 95016 |
-| Travis Ingram | 6.9 | 3210029 |
-| Mark Lewis | 9.4 | 8450232 |
-| Shane Bolosan | 9.4 | 11994127 |
-| Scott Lucas | 9.7 | TBD |
-| Rich McKeon | 10.9 | TBD |
-| Christopher Royce | 13.5 | 11809990 |
-| Vasan Srinivasan | 15.1 | 401762 |
-| Mark Albedyll | 16.0 | TBD |
-| Patrick Schueppert | 16.5 | 11278400 |
-| Robert Hill "Captain" | 19.4 | 11246342 |
-| Eric Lamb | 26.2 | TBD |
+Current confirmed players: 17
+
+| Team | Player 1 | P1 HDCP | Player 2 | P2 HDCP | Total HDCP |
+| --- | --- | ---: | --- | ---: | ---: |
+| TBD 1 | James Feutz | +0.6 | TBD | TBD | -- |
+| TBD 2 | Eric Weiss | 0.4 | TBD | TBD | -- |
+| TBD 3 | Jon Vrolyks | 4.8 | TBD | TBD | -- |
+| TBD 4 | Zane Eisenbarth | 5.4 | TBD | TBD | -- |
+| TBD 5 | Paul Benga | 6.4 | TBD | TBD | -- |
+| TBD 6 | Michael Falagrady | 6.9 | TBD | TBD | -- |
+| TBD 7 | Travis Ingram | 6.9 | TBD | TBD | -- |
+| TBD 8 | Mark Lewis | 9.4 | TBD | TBD | -- |
+| TBD 9 | Shane Bolosan | 9.4 | TBD | TBD | -- |
+| TBD 10 | Scott Lucas | 9.7 | TBD | TBD | -- |
+| TBD 11 | Rich McKeon | 10.9 | TBD | TBD | -- |
+| TBD 12 | Christopher Royce | 13.5 | TBD | TBD | -- |
+| TBD 13 | Vasan Srinivasan | 15.1 | TBD | TBD | -- |
+| TBD 14 | Mark Albedyll | 16.0 | TBD | TBD | -- |
+| TBD 15 | Patrick Schueppert | 16.5 | TBD | TBD | -- |
+| TBD 16 | Robert Hill "Captain" | 19.4 | TBD | TBD | -- |
+| TBD 17 | Eric Lamb | 26.2 | TBD | TBD | -- |
 
 ## Weekend Logistics
 
@@ -50,27 +53,19 @@ Teams have not been formed yet. Current confirmed players:
 
 ## Official Format
 
-- Day 1 format: 2-man shamble.
-- Day 1 date: Saturday, May 16, 2026.
-- Day 1 tee shots: both players tee off, then the team selects the best drive.
-- Day 1 play after selected drive: both players play their own ball from the selected drive location until holed.
-- Day 1 scoring: both players' scores count on every hole.
-- Day 1 team par: 144.
-- Day 1 drive rule: no minimum drive requirement.
-- Day 2 format: 2-man best ball.
-- Day 2 date: Sunday, May 17, 2026.
-- Day 2 scoring: each player plays his own ball, and the team's lower score on each hole counts.
-- Day 2 team par: 72.
-- Sterling Grove team weekend par: 216.
-- Drafted A/B PGA player weekend par: 288.
-- Main tournament total par: 504.
-- Main tournament scoring: Sterling Grove team score plus selected A player and B player Round 3 and Round 4 scores from the PGA Championship.
-- Pick-a-Pro format: each team drafts one A player and one B player on Friday night.
-- Eligible pro pool: only PGA Championship players who make the cut are eligible for selection.
-- A/B pools: the tournament committee will publish the A player list and B player list before Friday night selections begin.
-- Multiple teams may select the same PGA Championship players.
-- Only weekend professional scores count.
-- Net scores follow USGA Rules of Golf and World Handicap System guidance, subject to any announced local event rules.
+Saturday: Shamble
+- Both players tee off, then the team chooses the best drive.
+- After the selected drive, both players place within one club-length, not nearer the hole, in the same condition.
+- Each player plays his own ball from the selected drive location until holed.
+- Both balls count on every hole.
+- Saturday team par is 144.
+- No 6-drive requirement.
+
+Sunday: Best Ball
+- Each player plays his own ball from tee to green.
+- The team's lower score on each hole counts.
+- Sunday team par is 72.
+- Sunday pairings should be set after Saturday results.
 
 ## Flight Competition
 
@@ -81,18 +76,74 @@ Teams have not been formed yet. Current confirmed players:
 - Final team count, purse, and payouts should be confirmed once teams are finalized.
 - Final flight names, team assignments, and payouts should be confirmed once the team count is final.
 
+## Friday Night A/B Player Draft
+
+After the PGA Championship cut is official, the committee will publish the eligible A and B player lists. Each Sterling Grove team drafts one A player and one B player from players who made the cut.
+
+### A Players
+
+- A player list will be published after the cut.
+
+### B Players
+
+- B player list will be published after the cut.
+
+### Draft Notes
+
+- Eligibility: Only PGA Championship players who make the cut are eligible.
+- Duration: Each team keeps its selected pros for Round 3 and Round 4.
+- Duplication: Multiple Sterling Grove teams may draft the same pros.
+- Scoring: Only weekend PGA Championship scores count toward the main competition.
+- PGA Par: Drafted A/B players contribute a combined par of 288.
+
+- The A/B player board should be finalized after the PGA Championship cut line is official.
+- Only players who make the cut may be included on the board.
+- The committee should separate the board into A players and B players before the draft begins.
+- Each Sterling Grove team drafts one A player and one B player.
+- A team keeps its selected pros for both Round 3 and Round 4.
+- If a selected pro withdraws after the Friday night selection, the committee should decide whether a replacement is allowed before Round 3 begins.
+- If no replacement is allowed, the withdrawn player's posted score or committee-assigned score should be applied consistently to every affected team.
+
 ## Calcutta
 
-- The Calcutta will be run on Friday night, May 15, 2026, using the same format as the Masters Tournament.
-- Auction coverage: one Calcutta across all flights.
-- Auction opening bid: $50 per team.
-- Auction increments: $25.
-- Calcutta scoring: based on Sterling Grove team golf scores only, not the added PGA Championship pro scores.
-- Buyback rule: if a team is not the highest bidder for itself, the team may buy back half of the winning bid.
-- Calcutta payouts: 1st 50%, 2nd 25%, 3rd 15%, 4th 10%.
-- Final dollar payouts will be calculated after the total Calcutta pot is known.
+- One Calcutta runs across all teams.
+- Auction starts at $50 per team and increases in $25 increments.
+- If a team is not the highest bidder on itself, it may buy back half of the winning bid.
+- Calcutta scoring is based on Sterling Grove team golf scores only, not the added PGA Championship pro scores.
+- The scoreboard should show team cost, total pot, buyer, buyback status, and projected/final payouts.
+
+### Payout Schedule
+
+- 1st Place: 50%
+- 2nd Place: 25%
+- 3rd Place: 15%
+- 4th Place: 10%
 
 ## Live Scoreboard Requirements
+
+### Main Leaderboard
+
+- Sterling Grove team weekend par: 216.
+- Drafted A/B PGA player weekend par: 288.
+- Main tournament total par: 504.
+- Ranks teams by Sterling Grove score plus A/B PGA player scores.
+- Expected setup is one flight unless participation grows.
+
+### Calcutta Board
+
+- Ranks teams by Sterling Grove team score only.
+- Shows players, Day 1, Day 2, team total, net to par, owner, cost, and payout.
+- Payouts: 1st 50%, 2nd 25%, 3rd 15%, 4th 10%.
+- PGA player scores do not affect Calcutta standings.
+
+### Player Notes
+
+- Main standings: team scores plus drafted A/B PGA Championship scores.
+- Calcutta standings: Sterling Grove team score only.
+- Live scoring: Squabbit scoring is required, and signed paper scorecards remain official.
+- Updates: standings will be updated during tournament weekend as scores are available.
+
+### Implementation Notes
 
 - The public website should include a live or updated scoreboard for tournament weekend.
 - The scoreboard should show Sterling Grove team scores, drafted A/B PGA player scores, combined tournament standings, and Calcutta standings.
@@ -107,22 +158,19 @@ Teams have not been formed yet. Current confirmed players:
 
 ## Rules and Scoring
 
-- USGA Rules of Golf apply for the event.
-- Net scoring must follow USGA/WHS handicap procedures unless a local tournament rule is announced before play.
-- Day 1 placement rule: after the selected drive, both players place the ball within one club-length of the selected drive, not nearer the hole, and in the same condition.
-- Day 1 shamble scoring: each player plays his own ball from the selected drive location until holed, and both balls count.
-- Day 2 best ball scoring: each player plays his own ball, and the team's lower net score on each hole counts.
-- Squabbit live scoring is required for the event.
-- Players must enter individual scores in Squabbit so Saturday can count both balls and Sunday can count the team best ball.
-- The paper scorecard is the official scorecard.
-- Squabbit is used for live scoring and leaderboard visibility, but the signed paper scorecard controls if there is any discrepancy.
-- Ruling questions should be addressed by the tournament commissioners or committee.
-- In case of confusion or doubt, players should play a second ball and have the ruling determined after the round.
-- Tournament scores should not be posted to GHIN unless the committee determines the round is acceptable for posting.
-- If a player is out of the hole, he should pick up to maintain pace of play.
-- Otherwise, everyone should putt out. Failure to do so may result in disqualification.
-- Scorecards must be signed by both the competitor and marker and turned in immediately after the round.
-- Pairings, tee times, and Sunday order of play should be set by the tournament committee after Saturday results.
+- USGA: USGA Rules of Golf apply for the event.
+- Net Scoring: Follows USGA/WHS procedures unless an event-specific local rule is announced before play.
+- Saturday: Shamble with both balls counting, par 144.
+- Sunday: Best ball, par 72.
+- Live Scoring: Squabbit live scoring is required. Players must enter individual scores so Saturday can count both balls and Sunday can count the team best ball.
+- Official Scorecard: The signed paper scorecard is official and controls if there is any discrepancy with Squabbit.
+- Play It Down: All balls are played down. Native grass is regular field of play; if a ball is not found, it is lost and the player must re-tee or play from the previous spot.
+- Hole 8: The well-marked red penalty area on hole 8 is the exception and will be played as a red penalty area.
+- Free Relief: Free relief is available from immovable obstructions such as cart paths, sprinkler heads, drains, fixed benches, paved roads, utility boxes, bathroom buildings, and permanently attached signs when they interfere with lie, stance, or intended swing.
+- Relief Procedure: In the general area, find the nearest point of complete relief no closer to the hole, then drop within one club-length. The ball must come to rest in the relief area.
+- Line of Sight: Line-of-sight relief is not normally allowed unless the ball is on the putting green or a special local rule applies.
+- Rulings: If there is confusion or doubt, play a second ball and ask the committee for a ruling after the round.
+- Handicaps: Handicaps should be locked the week of the event.
 
 ## Playing the Ball Down and Native Grass
 
@@ -137,34 +185,30 @@ Teams have not been formed yet. Current confirmed players:
 
 Free relief is available when an abnormal course condition or immovable obstruction interferes under the Rules of Golf.
 
-Common examples include:
-
-- Cart path.
-- Sprinkler head.
-- Drain.
-- Fixed bench.
-- Paved road.
-- Utility box.
-- Bathroom building.
-- Permanently attached sign.
-
-Free relief is available when any of the following apply:
-
-- The ball touches or lies on or in the obstruction.
-- The obstruction physically interferes with the player's stance.
-- The obstruction physically interferes with the player's area of intended swing.
-- On the putting green only, the obstruction is on the player's line of play.
-
-Line-of-sight relief is not normally allowed unless the ball is on the putting green, or unless the course has adopted a special local rule for situations such as sprinkler heads near the green.
-
-For a ball in the general area, including fairway or rough, take relief this way:
-
-- Find the nearest point of complete relief, no closer to the hole.
+- Common examples include cart path, sprinkler head, drain, fixed bench, paved road, utility box, bathroom building, and permanently attached sign.
+- Free relief is available when the ball touches or lies on or in the obstruction.
+- Free relief is available when the obstruction physically interferes with the player's stance.
+- Free relief is available when the obstruction physically interferes with the player's area of intended swing.
+- On the putting green only, free relief also applies when the obstruction is on the player's line of play.
+- Line-of-sight relief is not normally allowed unless the ball is on the putting green, or unless the course has adopted a special local rule for situations such as sprinkler heads near the green.
+- For a ball in the general area, including fairway or rough, find the nearest point of complete relief no closer to the hole.
 - Drop the original ball or another ball within one club-length of that point.
 - The ball must come to rest in the relief area.
 - The relief area must be in the general area and not nearer the hole.
+- Complete relief means the obstruction no longer interferes with the player's lie, stance, or swing.
 
-Complete relief means the obstruction no longer interferes with the player's lie, stance, or swing.
+## Scorecards and Rulings
+
+- Squabbit live scoring is required for the event.
+- The paper scorecard is the official scorecard.
+- Squabbit is used for live scoring and leaderboard visibility, but the signed paper scorecard controls if there is any discrepancy.
+- Ruling questions should be addressed by the tournament commissioners or committee.
+- In case of confusion or doubt, players should play a second ball and have the ruling determined after the round.
+- Tournament scores should not be posted to GHIN unless the committee determines the round is acceptable for posting.
+- If a player is out of the hole, he should pick up to maintain pace of play.
+- Otherwise, everyone should putt out. Failure to do so may result in disqualification.
+- Scorecards must be signed by both the competitor and marker and turned in immediately after the round.
+- Pairings, tee times, and Sunday order of play should be set by the tournament committee after Saturday results.
 
 ## Handicapping Basis
 
@@ -175,36 +219,22 @@ Complete relief means the obstruction no longer interferes with the player's lie
 - Handicaps should be locked the week of the event to prevent late changes.
 - Net strokes should be allocated by hole handicap under USGA/WHS procedures.
 
-## Friday Night A/B Player Draft
-
-- The A/B player board should be finalized after the PGA Championship cut line is official.
-- Only players who make the cut may be included on the board.
-- The committee should separate the board into A players and B players before the draft begins.
-- Each Sterling Grove team drafts one A player and one B player.
-- A team keeps its selected pros for both Round 3 and Round 4.
-- If a selected pro withdraws after the Friday night selection, the committee should decide whether a replacement is allowed before Round 3 begins.
-- If no replacement is allowed, the withdrawn player's posted score or committee-assigned score should be applied consistently to every affected team.
-
 ## Tie Procedures
 
 - Flight competition ties should be resolved using the Masters Tournament procedure unless the committee announces a PGA-specific procedure before play.
-- Preferred tiebreak order:
-- Day 2 back 9 net team score.
-- Day 2 back 6 net team score.
-- Day 2 back 3 net team score.
-- Day 2 18th hole net team score.
-- Committee decision or playoff, if needed.
+- Preferred tiebreak order: Day 2 back 9 net team score, Day 2 back 6 net team score, Day 2 back 3 net team score, Day 2 18th hole net team score, committee decision or playoff if needed.
 - Calcutta ties should use Sterling Grove team golf scores only, because Calcutta scoring excludes PGA Championship pro scores.
 
 ## Files To Complete
 
-- `pga_championship_players.csv`: confirmed player list, handicap indexes, and WHS IDs.
-- `pga_championship_teams.csv`: team list, player names, flights, and handicaps once teams are formed.
-- `pga_championship_pro_picks.csv`: Friday night A/B player selections and weekend pro scores.
-- `pga_championship_scores.csv`: Sterling Grove Day 1 and Day 2 team scores.
-- `pga_championship_calcutta_board.csv`: auction prices, owners, buybacks, and final payouts.
-- `live_scoreboard_plan_2026.md`: implementation plan for the public scoreboard and Mac mini deployment.
-- `data/scoreboard.json`: source data for teams, scores, PGA picks, and Calcutta.
-- `data/scoreboard-data.js`: public website data file for the live scoreboard tab.
-- `scoreboard_admin.html`: local admin editor for scoreboard updates.
-- `scoreboard_server.mjs`: Mac mini server for saving and publishing scoreboard data.
+- pga_championship_players.csv
+- pga_championship_teams.csv
+- pga_championship_pro_picks.csv
+- pga_championship_scores.csv
+- pga_championship_calcutta_board.csv
+- live_scoreboard_plan_2026.md
+- content/site-content.json
+- data/scoreboard.json
+- data/scoreboard-data.js
+- scoreboard_admin.html
+- scoreboard_server.mjs

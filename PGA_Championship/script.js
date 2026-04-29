@@ -40,7 +40,7 @@ function renderScoreboard(data) {
     setText('scoreboard-tournament-par', String(scoring.tournamentPar || 504));
 
     renderMainLeaderboard(mainRows);
-    renderCalcuttaBoard(calcuttaRows);
+    renderCalcuttaBoard(calcuttaRows, payouts, pot);
     renderPgaPicks(enrichedTeams);
 }
 
@@ -100,11 +100,11 @@ function renderMainLeaderboard(teams) {
     `).join('');
 }
 
-function renderCalcuttaBoard(teams) {
+function renderCalcuttaBoard(teams, payouts, pot) {
     const body = document.getElementById('calcutta-board-body');
     if (!body) return;
     if (!teams.length) {
-        body.innerHTML = emptyRow(8, 'Calcutta bids will appear after Friday night auction.');
+        body.innerHTML = emptyRow(10, 'Calcutta bids will appear after Friday night auction.');
         return;
     }
 
@@ -112,12 +112,14 @@ function renderCalcuttaBoard(teams) {
         <tr>
             <td>${rankLabel(team.sgTotal, index)}</td>
             <td class="font-bold">${escapeHtml(team.teamName || team.id || 'TBD')}</td>
-            <td>${formatScore(team.sgTotal)}</td>
+            <td>${escapeHtml(formatPlayers(team.players))}</td>
+            <td>${formatScore(team.saturday)}</td>
+            <td>${formatScore(team.sunday)}</td>
+            <td class="font-bold">${formatScore(team.sgTotal)}</td>
             <td>${formatToPar(team.sgToPar)}</td>
-            <td>${escapeHtml(team.calcutta?.buyer || '--')}</td>
+            <td>${escapeHtml(team.calcutta?.owner || team.calcutta?.buyer || '--')}</td>
             <td>${formatMoney(team.calcutta?.auctionPrice)}</td>
-            <td>${formatMoney(team.calcutta?.buybackAmount)}</td>
-            <td class="font-bold">${formatMoney(team.projectedPayout)}</td>
+            <td class="font-bold">${formatMoney(calcuttaPayoutForTeam(team, index, payouts, pot))}</td>
         </tr>
     `).join('');
 }
@@ -148,7 +150,7 @@ function setScoreboardEmptyState(message) {
     setText('scoreboard-status', message);
     const emptyTables = [
         ['main-leaderboard-body', 9],
-        ['calcutta-board-body', 8],
+        ['calcutta-board-body', 10],
         ['pga-picks-body', 8],
     ];
     emptyTables.forEach(([id, colspan]) => {
@@ -192,6 +194,15 @@ function compareScores(a, b) {
 function projectedPayoutForPlace(place, payouts, pot) {
     const match = payouts.find((payout) => Number(payout.place) === Number(place));
     return match ? pot * Number(match.percent || 0) : null;
+}
+
+function calcuttaPayoutForTeam(team, index, payouts, pot) {
+    const explicitPayout = scoreValue(team.calcutta?.payout);
+    if (typeof explicitPayout === 'number') return explicitPayout;
+    const finalPlace = scoreValue(team.calcutta?.finalPlace);
+    if (typeof finalPlace === 'number') return projectedPayoutForPlace(finalPlace, payouts, pot);
+    if (typeof team.sgTotal === 'number') return projectedPayoutForPlace(index + 1, payouts, pot);
+    return null;
 }
 
 function rankLabel(score, index) {
