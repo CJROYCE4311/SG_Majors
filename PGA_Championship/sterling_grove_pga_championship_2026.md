@@ -112,16 +112,59 @@ Teams have not been formed yet. Current confirmed players:
 - Day 1 placement rule: after the selected drive, both players place the ball within one club-length of the selected drive, not nearer the hole, and in the same condition.
 - Day 1 shamble scoring: each player plays his own ball from the selected drive location until holed, and both balls count.
 - Day 2 best ball scoring: each player plays his own ball, and the team's lower net score on each hole counts.
-- Players should enter individual scores in the tournament scoring app so Saturday can count both balls and Sunday can count the team best ball.
+- Squabbit live scoring is required for the event.
+- Players must enter individual scores in Squabbit so Saturday can count both balls and Sunday can count the team best ball.
+- The paper scorecard is the official scorecard.
+- Squabbit is used for live scoring and leaderboard visibility, but the signed paper scorecard controls if there is any discrepancy.
 - Ruling questions should be addressed by the tournament commissioners or committee.
 - In case of confusion or doubt, players should play a second ball and have the ruling determined after the round.
 - Tournament scores should not be posted to GHIN unless the committee determines the round is acceptable for posting.
 - If a player is out of the hole, he should pick up to maintain pace of play.
 - Otherwise, everyone should putt out. Failure to do so may result in disqualification.
-- Paper scorecards and the tournament scoring app may both be used.
-- The paper scorecard is final unless the committee announces a different official scoring source before play.
 - Scorecards must be signed by both the competitor and marker and turned in immediately after the round.
 - Pairings, tee times, and Sunday order of play should be set by the tournament committee after Saturday results.
+
+## Playing the Ball Down and Native Grass
+
+- All balls will be played down unless an event-specific rule says otherwise.
+- The marked red penalty area on hole 8 is the exception and will be played as a red penalty area.
+- All native grass areas outside the marked hole 8 red penalty area are part of the general area / regular field of play.
+- There is no automatic free relief from native grass.
+- If a ball cannot be found in native grass, it is a lost ball.
+- For a lost ball, the player must proceed under stroke-and-distance by re-teeing or playing again from the previous spot.
+
+## Free Relief From Abnormal Course Conditions and Immovable Obstructions
+
+Free relief is available when an abnormal course condition or immovable obstruction interferes under the Rules of Golf.
+
+Common examples include:
+
+- Cart path.
+- Sprinkler head.
+- Drain.
+- Fixed bench.
+- Paved road.
+- Utility box.
+- Bathroom building.
+- Permanently attached sign.
+
+Free relief is available when any of the following apply:
+
+- The ball touches or lies on or in the obstruction.
+- The obstruction physically interferes with the player's stance.
+- The obstruction physically interferes with the player's area of intended swing.
+- On the putting green only, the obstruction is on the player's line of play.
+
+Line-of-sight relief is not normally allowed unless the ball is on the putting green, or unless the course has adopted a special local rule for situations such as sprinkler heads near the green.
+
+For a ball in the general area, including fairway or rough, take relief this way:
+
+- Find the nearest point of complete relief, no closer to the hole.
+- Drop the original ball or another ball within one club-length of that point.
+- The ball must come to rest in the relief area.
+- The relief area must be in the general area and not nearer the hole.
+
+Complete relief means the obstruction no longer interferes with the player's lie, stance, or swing.
 
 ## Handicapping Basis
 
