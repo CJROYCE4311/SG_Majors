@@ -99,6 +99,10 @@ body {
     gap: 0.8rem;
 }
 
+.nav-menu a.nav-btn {
+    text-decoration: none;
+}
+
 .nav-btn:hover {
     background: rgba(255, 255, 255, 0.1);
     color: #fff;

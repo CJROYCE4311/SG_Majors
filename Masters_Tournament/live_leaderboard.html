@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sample live leaderboard view using final 2026 Sterling Grove Masters data.">
+    <title>Masters Live Leaderboard Sample | Sterling Grove CC</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="live_leaderboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-box">
+                <div class="logo-icon"><img src="SG_masters_logo.png" alt="Sterling Grove Masters Logo"></div>
+                <h1 class="logo-title">Masters</h1>
+                <p class="logo-subtitle">Live Sample</p>
+                <div class="mt-2 text-center" style="margin-top: 5px;">
+                    <a href="index.html" style="color: rgba(255, 255, 255, 0.7); font-size: 0.8rem; text-decoration: none;">Back to Masters</a>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <a class="nav-btn active" href="#summary">Summary</a>
+                <a class="nav-btn" href="#flights">Flights</a>
+                <a class="nav-btn" href="#calcutta">Calcutta</a>
+                <a class="nav-btn" href="#pros">Pros</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>Final Masters Data</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-content">
+                    <h2>Masters Live Leaderboard Sample</h2>
+                    <p>Built from the completed April 2026 Masters tournament data</p>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <section id="summary">
+                    <div class="scoreboard-hero glass-panel">
+                        <div>
+                            <p class="eyebrow">Final Results Model</p>
+                            <h3>How the PGA leaderboard can feel with real data loaded</h3>
+                            <p>
+                                This sample uses the completed Masters results. Masters Day 1 used one shamble team score,
+                                while the PGA Championship Saturday format will count both balls.
+                            </p>
+                        </div>
+                        <div class="hero-score">
+                            <span>Total Par</span>
+                            <strong id="total-par">432</strong>
+                        </div>
+                    </div>
+
+                    <div class="stats-grid sample-stats">
+                        <div class="stat-card glass-panel">
+                            <h4>Status</h4>
+                            <div class="stat-value compact" id="event-status">Final</div>
+                            <p class="stat-sub" id="event-updated">--</p>
+                        </div>
+                        <div class="stat-card glass-panel">
+                            <h4>Teams</h4>
+                            <div class="stat-value compact" id="team-count">20</div>
+                            <p class="stat-sub">Tiger and Rory flights</p>
+                        </div>
+                        <div class="stat-card glass-panel">
+                            <h4>Calcutta Pot</h4>
+                            <div class="stat-value compact" id="calcutta-pot">$6,300</div>
+                            <p class="stat-sub">Team score only</p>
+                        </div>
+                        <div class="stat-card glass-panel">
+                            <h4>Team Par</h4>
+                            <div class="stat-value compact" id="team-par">144</div>
+                            <p class="stat-sub">Day 1 one ball + Day 2 best ball</p>
+                        </div>
+                    </div>
+
+                    <div class="grid-2-col">
+                        <div class="card glass-panel scoreboard-card">
+                            <h3 class="card-title">Masters Scoring</h3>
+                            <ul class="info-list">
+                                <li><strong>Day 1:</strong> one shamble team score, par 72.</li>
+                                <li><strong>Day 2:</strong> one best-ball team score, par 72.</li>
+                                <li><strong>Pros:</strong> A and B player weekend scores, par 288.</li>
+                                <li><strong>Main standings:</strong> flight score = team score + pro score.</li>
+                            </ul>
+                        </div>
+                        <div class="card glass-panel scoreboard-card">
+                            <h3 class="card-title">PGA Difference</h3>
+                            <ul class="info-list">
+                                <li><strong>PGA Saturday:</strong> both shamble balls count, par 144.</li>
+                                <li><strong>PGA Sunday:</strong> best ball, par 72.</li>
+                                <li><strong>PGA team par:</strong> 216 before adding A/B pro scores.</li>
+                                <li><strong>PGA total par:</strong> 504 after adding A/B pro scores.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="flights" class="mt-8">
+                    <div class="section-row">
+                        <h3 class="section-title">Flight Leaderboards</h3>
+                        <span class="badge badge-gold">Final</span>
+                    </div>
+                    <div class="flight-grid" id="flight-leaderboards"></div>
+                </section>
+
+                <section id="calcutta" class="mt-8">
+                    <div class="section-row">
+                        <h3 class="section-title">Calcutta Scoreboard</h3>
+                        <span class="badge">Team score only</span>
+                    </div>
+                    <div class="card glass-panel scoreboard-card">
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Team</th>
+                                        <th>Flight</th>
+                                        <th>Players</th>
+                                        <th>Day 1</th>
+                                        <th>Day 2</th>
+                                        <th>Team Total</th>
+                                        <th>To Par</th>
+                                        <th>Owner</th>
+                                        <th>Cost</th>
+                                        <th>Payout</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="calcutta-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="grid-2-col mt-8">
+                        <div class="card glass-panel scoreboard-card">
+                            <h3 class="card-title">Final Calcutta Payouts</h3>
+                            <div class="table-wrap">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Place</th>
+                                            <th>Team</th>
+                                            <th>Owner</th>
+                                            <th>Payout</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="calcutta-payouts-body"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card glass-panel scoreboard-card">
+                            <h3 class="card-title">Sample Takeaway</h3>
+                            <ul class="info-list">
+                                <li>Calcutta rankings ignore pro scores.</li>
+                                <li>Team Sticks won the Calcutta with a 130 team total.</li>
+                                <li>Team DeLaFunk won Tiger Flight even though Team Sticks had the better team-only score.</li>
+                                <li>This is the same split logic needed for the PGA scoreboard.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="pros" class="mt-8">
+                    <div class="section-row">
+                        <h3 class="section-title">Selected Pro Scores</h3>
+                        <span class="badge">Rounds 3 and 4</span>
+                    </div>
+                    <div class="card glass-panel scoreboard-card">
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Pro</th>
+                                        <th>Round 3</th>
+                                        <th>Round 4</th>
+                                        <th>Total</th>
+                                        <th>To Par</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="pros-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="data/scoreboard-data.js"></script>
+    <script src="live_leaderboard.js"></script>
+</body>
+</html>

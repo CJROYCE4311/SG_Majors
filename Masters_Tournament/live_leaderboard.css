@@ -1,0 +1,163 @@
+.scoreboard-hero {
+    align-items: center;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+}
+
+.scoreboard-hero h3 {
+    color: var(--primary);
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+}
+
+.scoreboard-hero p {
+    color: var(--text-muted);
+    max-width: 760px;
+}
+
+.eyebrow {
+    color: var(--primary);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.hero-score {
+    align-items: center;
+    aspect-ratio: 1;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 150px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.hero-score span {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.hero-score strong {
+    color: var(--primary);
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+}
+
+.compact {
+    font-size: 1.65rem;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+}
+
+.sample-stats {
+    margin-bottom: 1.5rem;
+}
+
+.scoreboard-card {
+    padding: 1.5rem;
+}
+
+.section-row {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.section-row .section-title {
+    margin-bottom: 1rem;
+}
+
+.flight-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.flight-title-row {
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+}
+
+.flight-title-row .card-title {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+.team-cell {
+    min-width: 220px;
+}
+
+.team-name {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.team-detail {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    margin-top: 0.25rem;
+}
+
+.score-pill {
+    background: rgba(0, 89, 54, 0.08);
+    border-radius: 999px;
+    color: var(--primary);
+    display: inline-block;
+    font-weight: 700;
+    min-width: 54px;
+    padding: 0.25rem 0.55rem;
+    text-align: center;
+}
+
+.money {
+    color: var(--primary);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.muted {
+    color: var(--text-muted);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.nav-menu a.nav-btn {
+    text-decoration: none;
+}
+
+@media (max-width: 900px) {
+    .scoreboard-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-score {
+        aspect-ratio: auto;
+        border-radius: 8px;
+        min-width: 0;
+        width: 100%;
+    }
+}
