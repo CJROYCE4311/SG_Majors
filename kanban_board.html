@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Task Board</title>
+    <link rel="stylesheet" href="./kanban_board.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Sterling Grove Majors</p>
+          <h1>Task Board</h1>
+        </div>
+        <div class="toolbar" aria-label="Board tools">
+          <label class="search">
+            <span>Search</span>
+            <input id="searchInput" type="search" placeholder="Find tasks" autocomplete="off" />
+          </label>
+          <button class="icon-button" id="themeToggle" type="button" title="Toggle theme" aria-label="Toggle theme">
+            <span aria-hidden="true">◐</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="composer" aria-label="Add task">
+        <input id="taskTitle" type="text" placeholder="Add a task" maxlength="120" />
+        <select id="taskColumn" aria-label="Column">
+          <option value="todo">To Do</option>
+          <option value="doing">Doing</option>
+          <option value="waiting">Waiting</option>
+          <option value="done">Done</option>
+        </select>
+        <select id="taskPriority" aria-label="Priority">
+          <option value="normal">Normal</option>
+          <option value="high">High</option>
+          <option value="low">Low</option>
+        </select>
+        <input id="taskDue" type="date" aria-label="Due date" />
+        <button id="addTask" type="button">Add</button>
+      </section>
+
+      <section class="board-meta" aria-live="polite">
+        <div id="statusLine">Ready</div>
+        <button id="resetSeed" type="button">Restore Starter Tasks</button>
+      </section>
+
+      <section class="board" id="board" aria-label="Kanban board">
+        <article class="column" data-column="todo">
+          <header>
+            <h2>To Do</h2>
+            <span class="count" data-count="todo">0</span>
+          </header>
+          <div class="dropzone" data-dropzone="todo"></div>
+        </article>
+
+        <article class="column" data-column="doing">
+          <header>
+            <h2>Doing</h2>
+            <span class="count" data-count="doing">0</span>
+          </header>
+          <div class="dropzone" data-dropzone="doing"></div>
+        </article>
+
+        <article class="column" data-column="waiting">
+          <header>
+            <h2>Waiting</h2>
+            <span class="count" data-count="waiting">0</span>
+          </header>
+          <div class="dropzone" data-dropzone="waiting"></div>
+        </article>
+
+        <article class="column" data-column="done">
+          <header>
+            <h2>Done</h2>
+            <span class="count" data-count="done">0</span>
+          </header>
+          <div class="dropzone" data-dropzone="done"></div>
+        </article>
+      </section>
+    </main>
+
+    <template id="cardTemplate">
+      <article class="task-card" draggable="true">
+        <div class="card-topline">
+          <span class="priority"></span>
+          <select class="move-select" aria-label="Move task">
+            <option value="todo">To Do</option>
+            <option value="doing">Doing</option>
+            <option value="waiting">Waiting</option>
+            <option value="done">Done</option>
+          </select>
+        </div>
+        <label class="title-label">
+          <span>Task</span>
+          <textarea class="title" rows="2"></textarea>
+        </label>
+        <div class="card-fields">
+          <label>
+            <span>Priority</span>
+            <select class="priority-select">
+              <option value="normal">Normal</option>
+              <option value="high">High</option>
+              <option value="low">Low</option>
+            </select>
+          </label>
+          <label>
+            <span>Due</span>
+            <input class="due-input" type="date" />
+          </label>
+        </div>
+        <div class="card-actions">
+          <button class="duplicate" type="button">Duplicate</button>
+          <button class="remove" type="button">Remove</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="./kanban_board.js"></script>
+  </body>
+</html>

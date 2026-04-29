@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGA Scoreboard Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #f5f7fb;
+        }
+
+        .admin-shell {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .admin-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 1rem 0;
+        }
+
+        .admin-actions button,
+        .admin-actions a {
+            border: none;
+            border-radius: 8px;
+            background: var(--primary);
+            color: #fff;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 600;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+        }
+
+        .admin-actions .secondary {
+            background: #e5e7eb;
+            color: var(--primary);
+        }
+
+        .admin-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font: inherit;
+            padding: 0.75rem;
+        }
+
+        textarea {
+            min-height: 58vh;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .status-box {
+            color: var(--text-muted);
+            margin-top: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            .admin-shell {
+                padding: 1rem;
+            }
+
+            .admin-header,
+            .admin-grid {
+                grid-template-columns: 1fr;
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="admin-shell">
+        <header class="admin-header">
+            <div>
+                <h1 class="section-title">PGA Scoreboard Admin</h1>
+                <p class="stat-sub">Edit the scoreboard data, save it on the Mac mini server, then publish the public site.</p>
+            </div>
+            <a class="badge badge-gold" href="index.html">Public Site</a>
+        </header>
+
+        <section class="card glass-panel scoreboard-card">
+            <div class="admin-grid">
+                <div>
+                    <label for="adminToken">Admin token</label>
+                    <input id="adminToken" type="password" autocomplete="off" placeholder="Required for server save and publish">
+                </div>
+                <div>
+                    <label for="adminStatus">Status</label>
+                    <input id="adminStatus" type="text" readonly value="Ready">
+                </div>
+            </div>
+
+            <div class="admin-actions">
+                <button id="loadServer" type="button">Load Server Data</button>
+                <button id="saveServer" type="button">Save to Server</button>
+                <button id="publishServer" type="button">Commit and Push</button>
+                <button id="downloadJson" class="secondary" type="button">Download JSON</button>
+                <button id="downloadJs" class="secondary" type="button">Download JS Data</button>
+            </div>
+
+            <label for="scoreboardEditor">Scoreboard data</label>
+            <textarea id="scoreboardEditor" spellcheck="false"></textarea>
+            <p class="status-box">
+                Main standings use Sterling Grove team score plus A/B PGA scores. Calcutta standings use Sterling Grove team score only.
+            </p>
+        </section>
+    </main>
+
+    <script src="data/scoreboard-data.js"></script>
+    <script>
+        const editor = document.getElementById('scoreboardEditor');
+        const token = document.getElementById('adminToken');
+        const statusInput = document.getElementById('adminStatus');
+        const currentData = window.PGA_SCOREBOARD_DATA || { teams: [] };
+
+        editor.value = JSON.stringify(currentData, null, 2);
+
+        document.getElementById('loadServer').addEventListener('click', loadServerData);
+        document.getElementById('saveServer').addEventListener('click', saveServerData);
+        document.getElementById('publishServer').addEventListener('click', publishServerData);
+        document.getElementById('downloadJson').addEventListener('click', () => downloadFile('scoreboard.json', 'application/json', JSON.stringify(readEditorData(), null, 2) + '\\n'));
+        document.getElementById('downloadJs').addEventListener('click', () => downloadFile('scoreboard-data.js', 'text/javascript', toDataScript(readEditorData())));
+
+        async function loadServerData() {
+            setStatus('Loading from server...');
+            const response = await fetch('/api/scoreboard');
+            if (!response.ok) throwStatus('Server data load failed');
+            editor.value = JSON.stringify(await response.json(), null, 2);
+            setStatus('Loaded server data');
+        }
+
+        async function saveServerData() {
+            setStatus('Saving...');
+            const response = await fetch('/api/scoreboard', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Scoreboard-Token': token.value
+                },
+                body: JSON.stringify(readEditorData())
+            });
+            if (!response.ok) throwStatus(await response.text());
+            setStatus('Saved scoreboard data');
+        }
+
+        async function publishServerData() {
+            setStatus('Publishing...');
+            const response = await fetch('/api/publish', {
+                method: 'POST',
+                headers: { 'X-Scoreboard-Token': token.value }
+            });
+            if (!response.ok) throwStatus(await response.text());
+            setStatus('Published changes to git');
+        }
+
+        function readEditorData() {
+            const data = JSON.parse(editor.value);
+            if (!Array.isArray(data.teams)) throwStatus('Data must include a teams array');
+            return data;
+        }
+
+        function toDataScript(data) {
+            return `window.PGA_SCOREBOARD_DATA = ${JSON.stringify(data, null, 2)};\\n`;
+        }
+
+        function downloadFile(filename, type, content) {
+            const blob = new Blob([content], { type });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            link.click();
+            URL.revokeObjectURL(url);
+            setStatus(`Prepared ${filename}`);
+        }
+
+        function setStatus(message) {
+            statusInput.value = message;
+        }
+
+        function throwStatus(message) {
+            setStatus(message);
+            throw new Error(message);
+        }
+    </script>
+</body>
+</html>

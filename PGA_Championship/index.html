@@ -36,6 +36,9 @@
                 <button class="nav-btn" data-tab="calcutta">
                     <span class="icon">💰</span> Calcutta
                 </button>
+                <button class="nav-btn" data-tab="scoreboard">
+                    <span class="icon">📊</span> Scoreboard
+                </button>
                 <button class="nav-btn" data-tab="rules">
                     <span class="icon">📜</span> Rules
                 </button>
@@ -64,21 +67,21 @@
                         <div class="stat-card glass-panel">
                             <h4>Friday Night</h4>
                             <div class="stat-value text-gold" style="font-size: 1.8rem;">May 15</div>
-                            <p class="stat-sub">A/B selection & Calcutta</p>
+                            <p class="stat-sub">A/B draft & Calcutta</p>
                         </div>
                         <div class="stat-card glass-panel">
                             <h4>Day 1</h4>
                             <div class="stat-value text-gold" style="font-size: 1.8rem;">Shamble</div>
-                            <p class="stat-sub">75% handicap</p>
+                            <p class="stat-sub">Both balls count, par 144</p>
                         </div>
                         <div class="stat-card glass-panel">
                             <h4>Day 2</h4>
                             <div class="stat-value text-gold" style="font-size: 1.8rem;">Best Ball</div>
-                            <p class="stat-sub">90% handicap</p>
+                            <p class="stat-sub">Team low ball, par 72</p>
                         </div>
                         <div class="stat-card glass-panel highlight-pulse">
                             <h4>Confirmed</h4>
-                            <div class="stat-value text-gold" style="font-size: 1.8rem;">13</div>
+                            <div class="stat-value text-gold" style="font-size: 1.8rem;">17</div>
                             <p class="stat-sub">Current Players</p>
                         </div>
                     </div>
@@ -88,9 +91,11 @@
                         <ul class="info-list">
                             <li><strong>Dates:</strong> Weekend runs Friday, May 15, 2026 through Sunday, May 17, 2026.</li>
                             <li><strong>Rounds:</strong> Tournament rounds are Saturday, May 16 and Sunday, May 17.</li>
-                            <li><strong>Field:</strong> Current field is 13 confirmed players; two-man teams and flights are still pending.</li>
+                            <li><strong>Field:</strong> Current field is 17 confirmed players; two-man teams are still pending.</li>
+                            <li><strong>Flight:</strong> One flight is expected unless participation grows enough to justify flights.</li>
                             <li><strong>Buy-in:</strong> $200 per two-man team once teams are formed.</li>
-                            <li><strong>Scoring:</strong> Flight scoring combines Sterling Grove net team scores with selected PGA Championship weekend pro scores.</li>
+                            <li><strong>Main Scoring:</strong> Sterling Grove team score plus drafted A/B PGA Championship weekend pro scores.</li>
+                            <li><strong>Calcutta:</strong> Calcutta is based on Sterling Grove team score only.</li>
                             <li><strong>Rules:</strong> Net scores follow USGA Rules of Golf and World Handicap System guidance, subject to announced local event rules.</li>
                         </ul>
                     </div>
@@ -125,10 +130,14 @@
                                     <tr><td>Travis Ingram</td><td>6.9</td><td>3210029</td></tr>
                                     <tr><td>Mark Lewis</td><td>9.4</td><td>8450232</td></tr>
                                     <tr><td>Shane Bolosan</td><td>9.4</td><td>11994127</td></tr>
+                                    <tr><td>Scott Lucas</td><td>9.7</td><td>TBD</td></tr>
+                                    <tr><td>Rich McKeon</td><td>10.9</td><td>TBD</td></tr>
                                     <tr><td>Christopher Royce</td><td>13.5</td><td>11809990</td></tr>
                                     <tr><td>Vasan Srinivasan</td><td>15.1</td><td>401762</td></tr>
+                                    <tr><td>Mark Albedyll</td><td>16.0</td><td>TBD</td></tr>
                                     <tr><td>Patrick Schueppert</td><td>16.5</td><td>11278400</td></tr>
                                     <tr><td>Robert Hill "Captain"</td><td>19.4</td><td>11246342</td></tr>
+                                    <tr><td>Eric Lamb</td><td>26.2</td><td>TBD</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -142,18 +151,20 @@
                         <div class="card glass-panel">
                             <h3 class="card-title">Saturday: Shamble</h3>
                             <ul class="info-list">
-                                <li>2-man shamble using 75% of course handicap.</li>
-                                <li>Each player must contribute 6 drives.</li>
+                                <li>Both players tee off, then the team chooses the best drive.</li>
                                 <li>After the selected drive, both players place within one club-length, not nearer the hole, in the same condition.</li>
                                 <li>Each player plays his own ball from the selected drive location until holed.</li>
+                                <li>Both balls count on every hole.</li>
+                                <li>Saturday team par is 144.</li>
+                                <li>No 6-drive requirement.</li>
                             </ul>
                         </div>
                         <div class="card glass-panel">
                             <h3 class="card-title">Sunday: Best Ball</h3>
                             <ul class="info-list">
-                                <li>2-man best ball using 90% of course handicap.</li>
                                 <li>Each player plays his own ball from tee to green.</li>
-                                <li>The team's lower net score on each hole counts.</li>
+                                <li>The team's lower score on each hole counts.</li>
+                                <li>Sunday team par is 72.</li>
                                 <li>Sunday pairings should be set after Saturday results.</li>
                             </ul>
                         </div>
@@ -162,18 +173,19 @@
 
                 <!-- A/B Players View -->
                 <section id="pickapro" class="view-section">
-                    <h3 class="section-title">A/B Player Selection</h3>
+                    <h3 class="section-title">A/B Player Draft</h3>
                     <div class="card glass-panel" style="padding: 1.5rem;">
-                        <h3 class="card-title" style="border-bottom: none; margin-bottom: 0.5rem; padding-bottom: 0;">Friday Night Selection</h3>
+                        <h3 class="card-title" style="border-bottom: none; margin-bottom: 0.5rem; padding-bottom: 0;">Friday Night Draft</h3>
                         <p style="margin-bottom: 1.5rem; color: var(--text-muted); border-bottom: 1px solid var(--border); padding-bottom: 1rem;">
                             After the PGA Championship cut is official, the committee will publish the eligible A and B player lists.
-                            Each Sterling Grove team picks one A player and one B player from players who made the cut.
+                            Each Sterling Grove team drafts one A player and one B player from players who made the cut.
                         </p>
                         <ul class="info-list">
                             <li><strong>Eligibility:</strong> Only PGA Championship players who make the cut are eligible.</li>
                             <li><strong>Duration:</strong> Each team keeps its selected pros for Round 3 and Round 4.</li>
-                            <li><strong>Duplication:</strong> Multiple Sterling Grove teams may select the same pros.</li>
-                            <li><strong>Scoring:</strong> Only weekend PGA Championship scores count toward the flight competition.</li>
+                            <li><strong>Duplication:</strong> Multiple Sterling Grove teams may draft the same pros.</li>
+                            <li><strong>Scoring:</strong> Only weekend PGA Championship scores count toward the main competition.</li>
+                            <li><strong>PGA Par:</strong> Drafted A/B players contribute a combined par of 288.</li>
                         </ul>
                     </div>
                 </section>
@@ -184,10 +196,11 @@
                     <div class="card glass-panel" style="padding: 1.5rem; margin-bottom: 2rem;">
                         <h3 class="card-title" style="border-bottom: none; margin-bottom: 0.5rem; padding-bottom: 0;">Format Details</h3>
                         <ul class="info-list">
-                            <li style="border-top: 1px solid var(--border);">One Calcutta runs across all flights.</li>
+                            <li style="border-top: 1px solid var(--border);">One Calcutta runs across all teams.</li>
                             <li>Auction starts at $50 per team and increases in $25 increments.</li>
                             <li>If a team is not the highest bidder on itself, it may buy back half of the winning bid.</li>
                             <li>Calcutta scoring is based on Sterling Grove team golf scores only, not the added PGA Championship pro scores.</li>
+                            <li>The scoreboard should show team cost, total pot, buyer, buyback status, and projected/final payouts.</li>
                         </ul>
                     </div>
                     
@@ -212,6 +225,144 @@
                     </div>
                 </section>
 
+                <!-- Scoreboard View -->
+                <section id="scoreboard" class="view-section">
+                    <h3 class="section-title">Live Scoreboard</h3>
+                    <div class="stats-grid scoreboard-summary">
+                        <div class="stat-card glass-panel">
+                            <h4>Last Updated</h4>
+                            <div class="stat-value compact" id="scoreboard-updated">--</div>
+                            <p class="stat-sub" id="scoreboard-status">Loading scoreboard data</p>
+                        </div>
+                        <div class="stat-card glass-panel">
+                            <h4>Teams Entered</h4>
+                            <div class="stat-value compact" id="scoreboard-team-count">--</div>
+                            <p class="stat-sub">One flight expected</p>
+                        </div>
+                        <div class="stat-card glass-panel">
+                            <h4>Calcutta Pot</h4>
+                            <div class="stat-value compact" id="scoreboard-pot">--</div>
+                            <p class="stat-sub">Sterling Grove team score only</p>
+                        </div>
+                        <div class="stat-card glass-panel">
+                            <h4>Total Par</h4>
+                            <div class="stat-value compact" id="scoreboard-tournament-par">504</div>
+                            <p class="stat-sub">SG 216 + PGA 288</p>
+                        </div>
+                    </div>
+
+                    <div class="grid-2-col">
+                        <div class="card glass-panel">
+                            <h3 class="card-title">Main Leaderboard</h3>
+                            <ul class="info-list">
+                                <li>Sterling Grove team weekend par: 216.</li>
+                                <li>Drafted A/B PGA player weekend par: 288.</li>
+                                <li>Main tournament total par: 504.</li>
+                                <li>Ranks teams by Sterling Grove score plus A/B PGA player scores.</li>
+                                <li>Expected setup is one flight unless participation grows.</li>
+                            </ul>
+                        </div>
+                        <div class="card glass-panel">
+                            <h3 class="card-title">Calcutta Board</h3>
+                            <ul class="info-list">
+                                <li>Ranks teams by Sterling Grove team score only.</li>
+                                <li>Shows auction cost, buyer, buyback status, and total pot.</li>
+                                <li>Payouts: 1st 50%, 2nd 25%, 3rd 15%, 4th 10%.</li>
+                                <li>PGA player scores do not affect Calcutta standings.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card glass-panel mt-8 scoreboard-card">
+                        <div class="card-header-row">
+                            <h3 class="card-title">Main Tournament Standings</h3>
+                            <span class="badge">Team + PGA</span>
+                        </div>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Team</th>
+                                        <th>Players</th>
+                                        <th>Sat</th>
+                                        <th>Sun</th>
+                                        <th>SG Total</th>
+                                        <th>PGA</th>
+                                        <th>Total</th>
+                                        <th>To Par</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="main-leaderboard-body">
+                                    <tr><td colspan="9">Loading scoreboard data...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card glass-panel mt-8 scoreboard-card">
+                        <div class="card-header-row">
+                            <h3 class="card-title">Calcutta Board</h3>
+                            <span class="badge badge-gold">Team score only</span>
+                        </div>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Team</th>
+                                        <th>SG Score</th>
+                                        <th>To Par</th>
+                                        <th>Buyer</th>
+                                        <th>Cost</th>
+                                        <th>Buyback</th>
+                                        <th>Projected Payout</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="calcutta-board-body">
+                                    <tr><td colspan="8">Loading Calcutta data...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card glass-panel mt-8 scoreboard-card">
+                        <div class="card-header-row">
+                            <h3 class="card-title">A/B PGA Picks</h3>
+                            <span class="badge">Weekend pro scores</span>
+                        </div>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Team</th>
+                                        <th>A Player</th>
+                                        <th>A R3</th>
+                                        <th>A R4</th>
+                                        <th>B Player</th>
+                                        <th>B R3</th>
+                                        <th>B R4</th>
+                                        <th>Pro Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="pga-picks-body">
+                                    <tr><td colspan="8">Loading PGA picks...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card glass-panel mt-8" style="padding: 1.5rem;">
+                        <h3 class="card-title">Build Direction</h3>
+                        <ul class="info-list">
+                            <li><strong>Data source:</strong> public scoreboard reads from <code>data/scoreboard-data.js</code>, with <code>data/scoreboard.json</code> as the source file.</li>
+                            <li><strong>Updater:</strong> finish the build locally first, then move the entire <code>SG_Majors</code> folder to the Mac mini and edit through <code>scoreboard_admin.html</code>.</li>
+                            <li><strong>Public URL:</strong> use GitHub Pages or a secure Mac mini tunnel for player access.</li>
+                            <li><strong>Full plan:</strong> see <a href="live_scoreboard_plan_2026.md">live_scoreboard_plan_2026.md</a>.</li>
+                        </ul>
+                    </div>
+                </section>
+
                 <!-- Rules View -->
                 <section id="rules" class="view-section">
                     <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem;">
@@ -222,6 +373,8 @@
                         <ul class="info-list">
                             <li><strong>USGA:</strong> USGA Rules of Golf apply for the event.</li>
                             <li><strong>Net Scoring:</strong> Follows USGA/WHS procedures unless an event-specific local rule is announced before play.</li>
+                            <li><strong>Saturday:</strong> Shamble with both balls counting, par 144.</li>
+                            <li><strong>Sunday:</strong> Best ball, par 72.</li>
                             <li><strong>Scorecards:</strong> Paper scorecards are final unless the committee announces a different official scoring source. Must be signed by the competitor and marker and turned in immediately after the round.</li>
                             <li><strong>Rulings:</strong> If there is confusion or doubt, play a second ball and ask the committee for a ruling after the round.</li>
                             <li><strong>Handicaps:</strong> Handicaps should be locked the week of the event.</li>
@@ -233,6 +386,7 @@
         </main>
     </div>
 
+    <script src="data/scoreboard-data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
