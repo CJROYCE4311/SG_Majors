@@ -105,7 +105,7 @@
                 <section id="players" class="view-section">
                     <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem;">
                         <h3 class="section-title" style="margin-bottom: 0;">Confirmed Players</h3>
-                        <a href="pga_championship_players.csv" class="badge badge-gold" style="text-decoration: none;">Download CSV</a>
+                        <span class="badge badge-gold">17 confirmed</span>
                     </div>
                     <div class="card glass-panel">
                         <div style="padding: 1.5rem; border-bottom: 1px solid var(--border);">
@@ -117,27 +117,26 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>HDCP</th>
-                                        <th>WHS Id</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td>James Feutz</td><td>+0.6</td><td>5660746</td></tr>
-                                    <tr><td>Eric Weiss</td><td>0.4</td><td>9002584</td></tr>
-                                    <tr><td>Jon Vrolyks</td><td>4.8</td><td>464737</td></tr>
-                                    <tr><td>Zane Eisenbarth</td><td>5.4</td><td>11664981</td></tr>
-                                    <tr><td>Paul Benga</td><td>6.4</td><td>164216</td></tr>
-                                    <tr><td>Michael Falagrady</td><td>6.9</td><td>95016</td></tr>
-                                    <tr><td>Travis Ingram</td><td>6.9</td><td>3210029</td></tr>
-                                    <tr><td>Mark Lewis</td><td>9.4</td><td>8450232</td></tr>
-                                    <tr><td>Shane Bolosan</td><td>9.4</td><td>11994127</td></tr>
-                                    <tr><td>Scott Lucas</td><td>9.7</td><td>TBD</td></tr>
-                                    <tr><td>Rich McKeon</td><td>10.9</td><td>TBD</td></tr>
-                                    <tr><td>Christopher Royce</td><td>13.5</td><td>11809990</td></tr>
-                                    <tr><td>Vasan Srinivasan</td><td>15.1</td><td>401762</td></tr>
-                                    <tr><td>Mark Albedyll</td><td>16.0</td><td>TBD</td></tr>
-                                    <tr><td>Patrick Schueppert</td><td>16.5</td><td>11278400</td></tr>
-                                    <tr><td>Robert Hill "Captain"</td><td>19.4</td><td>11246342</td></tr>
-                                    <tr><td>Eric Lamb</td><td>26.2</td><td>TBD</td></tr>
+                                    <tr><td>James Feutz</td><td>+0.6</td></tr>
+                                    <tr><td>Eric Weiss</td><td>0.4</td></tr>
+                                    <tr><td>Jon Vrolyks</td><td>4.8</td></tr>
+                                    <tr><td>Zane Eisenbarth</td><td>5.4</td></tr>
+                                    <tr><td>Paul Benga</td><td>6.4</td></tr>
+                                    <tr><td>Michael Falagrady</td><td>6.9</td></tr>
+                                    <tr><td>Travis Ingram</td><td>6.9</td></tr>
+                                    <tr><td>Mark Lewis</td><td>9.4</td></tr>
+                                    <tr><td>Shane Bolosan</td><td>9.4</td></tr>
+                                    <tr><td>Scott Lucas</td><td>9.7</td></tr>
+                                    <tr><td>Rich McKeon</td><td>10.9</td></tr>
+                                    <tr><td>Christopher Royce</td><td>13.5</td></tr>
+                                    <tr><td>Vasan Srinivasan</td><td>15.1</td></tr>
+                                    <tr><td>Mark Albedyll</td><td>16.0</td></tr>
+                                    <tr><td>Patrick Schueppert</td><td>16.5</td></tr>
+                                    <tr><td>Robert Hill "Captain"</td><td>19.4</td></tr>
+                                    <tr><td>Eric Lamb</td><td>26.2</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -353,22 +352,19 @@
                     </div>
 
                     <div class="card glass-panel mt-8" style="padding: 1.5rem;">
-                        <h3 class="card-title">Build Direction</h3>
+                        <h3 class="card-title">Player Notes</h3>
                         <ul class="info-list">
-                            <li><strong>Data source:</strong> public scoreboard reads from <code>data/scoreboard-data.js</code>, with <code>data/scoreboard.json</code> as the source file.</li>
-                            <li><strong>Updater:</strong> finish the build locally first, then move the entire <code>SG_Majors</code> folder to the Mac mini and edit through <code>scoreboard_admin.html</code>.</li>
-                            <li><strong>Public URL:</strong> use GitHub Pages or a secure Mac mini tunnel for player access.</li>
-                            <li><strong>Full plan:</strong> see <a href="live_scoreboard_plan_2026.md">live_scoreboard_plan_2026.md</a>.</li>
+                            <li><strong>Main standings:</strong> team scores plus drafted A/B PGA Championship scores.</li>
+                            <li><strong>Calcutta standings:</strong> Sterling Grove team score only.</li>
+                            <li><strong>Live scoring:</strong> Squabbit scoring is required, and signed paper scorecards remain official.</li>
+                            <li><strong>Updates:</strong> standings will be updated during tournament weekend as scores are available.</li>
                         </ul>
                     </div>
                 </section>
 
                 <!-- Rules View -->
                 <section id="rules" class="view-section">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem;">
-                        <h3 class="section-title" style="margin-bottom: 0;">Rules and Scoring</h3>
-                        <a href="sterling_grove_pga_championship_2026.md" class="badge badge-gold" style="text-decoration: none;">Full Rules Document</a>
-                    </div>
+                    <h3 class="section-title">Rules and Scoring</h3>
                     <div class="card glass-panel" style="padding: 1.5rem;">
                         <ul class="info-list">
                             <li><strong>USGA:</strong> USGA Rules of Golf apply for the event.</li>

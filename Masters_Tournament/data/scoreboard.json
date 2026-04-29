@@ -18,8 +18,7 @@
       "label": "Day 2 Best Ball",
       "par": 72,
       "description": "Masters used one team best-ball score on Day 2."
-    },
-    "pgaComparisonNote": "PGA Championship sample will differ because Saturday shamble uses both balls and par 144 for the team."
+    }
   },
   "calcutta": {
     "pot": 6300,
