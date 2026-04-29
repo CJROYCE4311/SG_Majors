@@ -295,8 +295,8 @@ function renderScoreboardSection(content) {
                         </div>
                         <div class="stat-card glass-panel">
                             <h4>Total Par</h4>
-                            <div class="stat-value compact" id="scoreboard-tournament-par">504</div>
-                            <p class="stat-sub">SG 216 + PGA 288</p>
+                            <div class="stat-value compact" id="scoreboard-tournament-par">496</div>
+                            <p class="stat-sub">SG 216 + PGA 280</p>
                         </div>
                     </div>
 

@@ -11,7 +11,7 @@
 - Event: 2026 PGA Championship Invitational at Sterling Grove Country Club
 - Tournament rounds: Saturday, May 16, 2026 and Sunday, May 17, 2026
 - Format: 2-man teams; Saturday shamble with both balls counting, Sunday best ball
-- Current status: players are registered, but teams and tee times still need to be finalized
+- Current status: 18 players are registered, 3 two-man teams are assigned, and tee times still need to be finalized
 
 ## Confirmed Registered Players
 
@@ -19,6 +19,7 @@
 | --- | ---: | --- |
 | James Feutz | +0.6 | 5660746 |
 | Eric Weiss | 0.4 | 9002584 |
+| Ron Marino | 4.4 | TBD |
 | Jon Vrolyks | 4.8 | 464737 |
 | Zane Eisenbarth | 5.4 | 11664981 |
 | Paul Benga | 6.4 | 164216 |
@@ -43,6 +44,7 @@ Pulled from the Sterling Grove member directory for PGA Championship coordinatio
 | --- | --- | --- | --- | --- | --- |
 | James Feutz | Mr. James Feutz | 2533801401 | 253-380-1401 | jamesfeutzgolf@gmail.com |  |
 | Eric Weiss | Eric Weiss |  | 6232623835 | ericweiss1019@gmail.com |  |
+| Ron Marino | TBD |  |  |  | Added from Squabbit; contact info not yet recorded. |
 | Jon Vrolyks | Not found |  |  |  | No matching Vrolyks/Vrolyk record found in member directory search. |
 | Zane Eisenbarth | Mr. Zane Eisenbarth |  | 315-491-0614 | zane.eisenbarth@yahoo.com |  |
 | Paul Benga | Mr Paul Benga |  | 480-620-2088 | benga7@gmail.com |  |
@@ -73,8 +75,9 @@ Pulled from the Sterling Grove member directory for PGA Championship coordinatio
 - Sunday scoring: both players play their own ball, and the team's lower score on each hole counts.
 - Sunday team par: 72.
 - Sterling Grove team weekend par: 216.
-- Drafted A/B PGA player weekend par: 288.
-- Main tournament total par: 504.
+- Drafted A/B PGA player weekend par: 280, based on a par-70 PGA Championship setup.
+- Drafted A/B PGA player daily par: 140 combined.
+- Main tournament total par: 496.
 - Main tournament standings include Sterling Grove team scores plus drafted A/B PGA player weekend scores.
 - Calcutta standings are based only on Sterling Grove team scores.
 - Players should enter individual scores in the scoring app so Saturday can count both balls and Sunday can count best ball correctly.
@@ -181,7 +184,7 @@ If you are able to grab a tee time for either day, please do it and post the day
 
 Also, please start pairing up into 2-man teams. Once you have a team, send me both player names or post them here. If you need a partner, just say so and we will help match people up.
 
-We have 17 players as of now and would love to get more participation. If you know someone who wants to play, have them contact me, or send them the Squabbit sign-up link and the WhatsApp group invite.
+We have 18 players as of now and would love to get more participation. If you know someone who wants to play, have them contact me, or send them the Squabbit sign-up link and the WhatsApp group invite.
 
 Thanks everyone.
 
@@ -196,4 +199,7 @@ Thanks everyone.
 
 | Team | Player 1 | Player 2 | Status |
 | --- | --- | --- | --- |
+| Bengram & Mash | Paul Benga | Travis Ingram | Assigned |
+| The Lewce Cannons | Christopher Royce | Mark Lewis | Assigned |
+| Marino Weiss Guys | Eric Weiss | Ron Marino | Assigned |
 | TBD | TBD | TBD | Needed |

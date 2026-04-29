@@ -58,19 +58,20 @@ Build direction: finish this locally first. Once the scoreboard is roughly 90% c
 - PGA scores count for Saturday and Sunday only.
 - Each drafted PGA player has two weekend rounds.
 - PGA player total par contribution:
-  - A player Saturday/Sunday par: 144.
-  - B player Saturday/Sunday par: 144.
-  - Combined A/B PGA par: 288.
+  - A player weekend par: 140.
+  - B player weekend par: 140.
+  - Combined A/B PGA par: 280.
+  - Combined A/B PGA par per PGA round day: 140.
 
 ### Tournament Buy-In / Main Competition Standings
 
 - Main tournament score uses Sterling Grove team score plus drafted PGA player scores.
-- Main competition total par: 504.
+- Main competition total par: 496.
   - Sterling Grove team weekend par: 216.
-  - Drafted A/B PGA weekend par: 288.
+  - Drafted A/B PGA weekend par: 280.
 - Ranking basis: lowest combined total score against par.
 - One flight is expected unless the field grows enough to require flights.
-- Current field: 17 players, which is likely one flight.
+- Current field: 18 players with 3 assigned teams, which is likely one flight.
 - Target field: at least 20 players / 10 teams.
 
 ### Calcutta Standings

@@ -1,12 +1,12 @@
 # 1st Annual PGA Championship Invitational at Sterling Grove CC
 
-_Last generated from `content/site-content.json` on 4/29/2026, 1:57:55 PM Arizona time._
+_Last generated from `content/site-content.json` on 4/29/2026, 2:58:49 PM Arizona time._
 
 ## Event Snapshot
 
 - Dates: Weekend runs Friday, May 15, 2026 through Sunday, May 17, 2026.
 - Rounds: Tournament rounds are Saturday, May 16 and Sunday, May 17.
-- Field: Current field is 17 confirmed players; two-man teams are still pending.
+- Field: Current field is 18 confirmed players; 3 two-man teams are assigned and 12 players still need partners.
 - Flight: One flight is expected unless participation grows enough to justify flights.
 - Buy-in: $200 per two-man team once teams are formed.
 - Main Scoring: Sterling Grove team score plus drafted A/B PGA Championship weekend pro scores.
@@ -15,29 +15,27 @@ _Last generated from `content/site-content.json` on 4/29/2026, 1:57:55 PM Arizon
 
 ## Team Assignments
 
-Team assignments can be updated as pairings are confirmed. Single-player rows show players who still need a partner.
+Three two-man teams are assigned. Single-player rows show players who still need a partner.
 
-Current confirmed players: 17
+Current confirmed players: 18
 
 | Team | Player 1 | P1 HDCP | Player 2 | P2 HDCP | Total HDCP |
 | --- | --- | ---: | --- | ---: | ---: |
+| Bengram & Mash | Paul Benga | 6.4 | Travis Ingram | 6.9 | 13.3 |
+| The Lewce Cannons | Christopher Royce | 13.5 | Mark Lewis | 9.4 | 22.9 |
+| Marino Weiss Guys | Eric Weiss | 0.4 | Ron Marino | 4.4 | 4.8 |
 | TBD 1 | James Feutz | +0.6 | TBD | TBD | -- |
-| TBD 2 | Eric Weiss | 0.4 | TBD | TBD | -- |
-| TBD 3 | Jon Vrolyks | 4.8 | TBD | TBD | -- |
-| TBD 4 | Zane Eisenbarth | 5.4 | TBD | TBD | -- |
-| TBD 5 | Paul Benga | 6.4 | TBD | TBD | -- |
-| TBD 6 | Michael Falagrady | 6.9 | TBD | TBD | -- |
-| TBD 7 | Travis Ingram | 6.9 | TBD | TBD | -- |
-| TBD 8 | Mark Lewis | 9.4 | TBD | TBD | -- |
-| TBD 9 | Shane Bolosan | 9.4 | TBD | TBD | -- |
-| TBD 10 | Scott Lucas | 9.7 | TBD | TBD | -- |
-| TBD 11 | Rich McKeon | 10.9 | TBD | TBD | -- |
-| TBD 12 | Christopher Royce | 13.5 | TBD | TBD | -- |
-| TBD 13 | Vasan Srinivasan | 15.1 | TBD | TBD | -- |
-| TBD 14 | Mark Albedyll | 16.0 | TBD | TBD | -- |
-| TBD 15 | Patrick Schueppert | 16.5 | TBD | TBD | -- |
-| TBD 16 | Robert Hill "Captain" | 19.4 | TBD | TBD | -- |
-| TBD 17 | Eric Lamb | 26.2 | TBD | TBD | -- |
+| TBD 2 | Jon Vrolyks | 4.8 | TBD | TBD | -- |
+| TBD 3 | Zane Eisenbarth | 5.4 | TBD | TBD | -- |
+| TBD 4 | Michael Falagrady | 6.9 | TBD | TBD | -- |
+| TBD 5 | Shane Bolosan | 9.4 | TBD | TBD | -- |
+| TBD 6 | Scott Lucas | 9.7 | TBD | TBD | -- |
+| TBD 7 | Rich McKeon | 10.9 | TBD | TBD | -- |
+| TBD 8 | Vasan Srinivasan | 15.1 | TBD | TBD | -- |
+| TBD 9 | Mark Albedyll | 16.0 | TBD | TBD | -- |
+| TBD 10 | Patrick Schueppert | 16.5 | TBD | TBD | -- |
+| TBD 11 | Robert Hill "Captain" | 19.4 | TBD | TBD | -- |
+| TBD 12 | Eric Lamb | 26.2 | TBD | TBD | -- |
 
 ## Weekend Logistics
 
@@ -47,8 +45,8 @@ Current confirmed players: 17
 - Each two-man team will draft one A player and one B player from the eligible PGA Championship players who make the cut.
 - The selected PGA Championship players' weekend scores from Round 3 and Round 4 will be added to each team's Sterling Grove golf scores for the flight competition.
 - The group may meet again after the Sunday round to watch the finish of the PGA Championship and settle Calcutta payouts.
-- Players need to send Christopher Royce who their partners will be.
-- The field currently has 17 players, and the group should encourage additional participation.
+- Players still needing partners should send Christopher Royce who their partners will be.
+- The field currently has 18 players, with 3 two-man teams assigned and 12 players still needing partners.
 - If a registered player knows someone who wants to play, that person should contact Christopher Royce or receive the Squabbit sign-up link and the WhatsApp group invite.
 
 ## Official Format
@@ -70,7 +68,7 @@ Sunday: Best Ball
 ## Flight Competition
 
 - Entry fee: $200 per two-man team.
-- Flight structure: expected to be one flight because the field currently has 17 players.
+- Flight structure: expected to be one flight because the field currently has 18 players.
 - Target field: at least 20 players / 10 teams.
 - If participation grows significantly, the committee can decide whether flights are needed.
 - Final team count, purse, and payouts should be confirmed once teams are finalized.
@@ -94,7 +92,7 @@ After the PGA Championship cut is official, the committee will publish the eligi
 - Duration: Each team keeps its selected pros for Round 3 and Round 4.
 - Duplication: Multiple Sterling Grove teams may draft the same pros.
 - Scoring: Only weekend PGA Championship scores count toward the main competition.
-- PGA Par: Drafted A/B players contribute a combined par of 288.
+- PGA Par: Drafted A/B players contribute a combined par of 280, or 140 per PGA round day.
 
 - The A/B player board should be finalized after the PGA Championship cut line is official.
 - Only players who make the cut may be included on the board.
@@ -123,8 +121,8 @@ After the PGA Championship cut is official, the committee will publish the eligi
 ### Main Leaderboard
 
 - Sterling Grove team weekend par: 216.
-- Drafted A/B PGA player weekend par: 288.
-- Main tournament total par: 504.
+- Drafted A/B PGA player weekend par: 280.
+- Main tournament total par: 496.
 - Ranks teams by Sterling Grove score plus A/B PGA player scores.
 - Expected setup is one flight unless participation grows.
 

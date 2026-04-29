@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-29T20:57:55.000Z",
+  "updatedAt": "2026-04-29T21:58:49.366Z",
   "overview": {
     "stats": [
       {
@@ -35,7 +35,7 @@
       },
       {
         "label": "Field",
-        "text": "Current field is 17 confirmed players; two-man teams are still pending."
+        "text": "Current field is 18 confirmed players; 3 two-man teams are assigned and 12 players still need partners."
       },
       {
         "label": "Flight",
@@ -60,8 +60,32 @@
     ]
   },
   "players": {
-    "intro": "Team assignments can be updated as pairings are confirmed. Single-player rows show players who still need a partner.",
+    "intro": "Three two-man teams are assigned. Single-player rows show players who still need a partner.",
     "teams": [
+      {
+        "teamName": "Bengram & Mash",
+        "player1": "Paul Benga",
+        "player1Handicap": "6.4",
+        "player2": "Travis Ingram",
+        "player2Handicap": "6.9",
+        "totalHandicap": "13.3"
+      },
+      {
+        "teamName": "The Lewce Cannons",
+        "player1": "Christopher Royce",
+        "player1Handicap": "13.5",
+        "player2": "Mark Lewis",
+        "player2Handicap": "9.4",
+        "totalHandicap": "22.9"
+      },
+      {
+        "teamName": "Marino Weiss Guys",
+        "player1": "Eric Weiss",
+        "player1Handicap": "0.4",
+        "player2": "Ron Marino",
+        "player2Handicap": "4.4",
+        "totalHandicap": "4.8"
+      },
       {
         "teamName": "TBD 1",
         "player1": "James Feutz",
@@ -72,14 +96,6 @@
       },
       {
         "teamName": "TBD 2",
-        "player1": "Eric Weiss",
-        "player1Handicap": "0.4",
-        "player2": "",
-        "player2Handicap": "",
-        "totalHandicap": ""
-      },
-      {
-        "teamName": "TBD 3",
         "player1": "Jon Vrolyks",
         "player1Handicap": "4.8",
         "player2": "",
@@ -87,7 +103,7 @@
         "totalHandicap": ""
       },
       {
-        "teamName": "TBD 4",
+        "teamName": "TBD 3",
         "player1": "Zane Eisenbarth",
         "player1Handicap": "5.4",
         "player2": "",
@@ -95,15 +111,7 @@
         "totalHandicap": ""
       },
       {
-        "teamName": "TBD 5",
-        "player1": "Paul Benga",
-        "player1Handicap": "6.4",
-        "player2": "",
-        "player2Handicap": "",
-        "totalHandicap": ""
-      },
-      {
-        "teamName": "TBD 6",
+        "teamName": "TBD 4",
         "player1": "Michael Falagrady",
         "player1Handicap": "6.9",
         "player2": "",
@@ -111,23 +119,7 @@
         "totalHandicap": ""
       },
       {
-        "teamName": "TBD 7",
-        "player1": "Travis Ingram",
-        "player1Handicap": "6.9",
-        "player2": "",
-        "player2Handicap": "",
-        "totalHandicap": ""
-      },
-      {
-        "teamName": "TBD 8",
-        "player1": "Mark Lewis",
-        "player1Handicap": "9.4",
-        "player2": "",
-        "player2Handicap": "",
-        "totalHandicap": ""
-      },
-      {
-        "teamName": "TBD 9",
+        "teamName": "TBD 5",
         "player1": "Shane Bolosan",
         "player1Handicap": "9.4",
         "player2": "",
@@ -135,7 +127,7 @@
         "totalHandicap": ""
       },
       {
-        "teamName": "TBD 10",
+        "teamName": "TBD 6",
         "player1": "Scott Lucas",
         "player1Handicap": "9.7",
         "player2": "",
@@ -143,7 +135,7 @@
         "totalHandicap": ""
       },
       {
-        "teamName": "TBD 11",
+        "teamName": "TBD 7",
         "player1": "Rich McKeon",
         "player1Handicap": "10.9",
         "player2": "",
@@ -151,15 +143,7 @@
         "totalHandicap": ""
       },
       {
-        "teamName": "TBD 12",
-        "player1": "Christopher Royce",
-        "player1Handicap": "13.5",
-        "player2": "",
-        "player2Handicap": "",
-        "totalHandicap": ""
-      },
-      {
-        "teamName": "TBD 13",
+        "teamName": "TBD 8",
         "player1": "Vasan Srinivasan",
         "player1Handicap": "15.1",
         "player2": "",
@@ -167,7 +151,7 @@
         "totalHandicap": ""
       },
       {
-        "teamName": "TBD 14",
+        "teamName": "TBD 9",
         "player1": "Mark Albedyll",
         "player1Handicap": "16.0",
         "player2": "",
@@ -175,7 +159,7 @@
         "totalHandicap": ""
       },
       {
-        "teamName": "TBD 15",
+        "teamName": "TBD 10",
         "player1": "Patrick Schueppert",
         "player1Handicap": "16.5",
         "player2": "",
@@ -183,7 +167,7 @@
         "totalHandicap": ""
       },
       {
-        "teamName": "TBD 16",
+        "teamName": "TBD 11",
         "player1": "Robert Hill \"Captain\"",
         "player1Handicap": "19.4",
         "player2": "",
@@ -191,7 +175,7 @@
         "totalHandicap": ""
       },
       {
-        "teamName": "TBD 17",
+        "teamName": "TBD 12",
         "player1": "Eric Lamb",
         "player1Handicap": "26.2",
         "player2": "",
@@ -209,6 +193,11 @@
         "name": "Eric Weiss",
         "handicap": "0.4",
         "whsId": "9002584"
+      },
+      {
+        "name": "Ron Marino",
+        "handicap": "4.4",
+        "whsId": "TBD"
       },
       {
         "name": "Jon Vrolyks",
@@ -330,7 +319,7 @@
       },
       {
         "label": "PGA Par",
-        "text": "Drafted A/B players contribute a combined par of 288."
+        "text": "Drafted A/B players contribute a combined par of 280, or 140 per PGA round day."
       }
     ]
   },
@@ -360,8 +349,8 @@
   "scoreboard": {
     "mainLeaderboard": [
       "Sterling Grove team weekend par: 216.",
-      "Drafted A/B PGA player weekend par: 288.",
-      "Main tournament total par: 504.",
+      "Drafted A/B PGA player weekend par: 280.",
+      "Main tournament total par: 496.",
       "Ranks teams by Sterling Grove score plus A/B PGA player scores.",
       "Expected setup is one flight unless participation grows."
     ],
@@ -454,13 +443,13 @@
       "Each two-man team will draft one A player and one B player from the eligible PGA Championship players who make the cut.",
       "The selected PGA Championship players' weekend scores from Round 3 and Round 4 will be added to each team's Sterling Grove golf scores for the flight competition.",
       "The group may meet again after the Sunday round to watch the finish of the PGA Championship and settle Calcutta payouts.",
-      "Players need to send Christopher Royce who their partners will be.",
-      "The field currently has 17 players, and the group should encourage additional participation.",
+      "Players still needing partners should send Christopher Royce who their partners will be.",
+      "The field currently has 18 players, with 3 two-man teams assigned and 12 players still needing partners.",
       "If a registered player knows someone who wants to play, that person should contact Christopher Royce or receive the Squabbit sign-up link and the WhatsApp group invite."
     ],
     "flightCompetition": [
       "Entry fee: $200 per two-man team.",
-      "Flight structure: expected to be one flight because the field currently has 17 players.",
+      "Flight structure: expected to be one flight because the field currently has 18 players.",
       "Target field: at least 20 players / 10 teams.",
       "If participation grows significantly, the committee can decide whether flights are needed.",
       "Final team count, purse, and payouts should be confirmed once teams are finalized.",

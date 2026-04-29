@@ -37,7 +37,7 @@ function renderScoreboard(data) {
     setText('scoreboard-status', data.event?.status || 'Scores will update here during tournament weekend.');
     setText('scoreboard-team-count', String(teams.length));
     setText('scoreboard-pot', formatMoney(pot));
-    setText('scoreboard-tournament-par', String(scoring.tournamentPar || 504));
+    setText('scoreboard-tournament-par', String(scoring.tournamentPar || 496));
 
     renderMainLeaderboard(mainRows);
     renderCalcuttaBoard(calcuttaRows, payouts, pot);
@@ -60,7 +60,8 @@ function enrichTeam(team, scoring, payouts, pot) {
         [saturday, scoring.saturday?.par || 144],
         [sunday, scoring.sunday?.par || 72],
     ]);
-    const proPar = completedPar(proScores.map((score) => [score, 72]));
+    const proRoundPar = scoring.pga?.roundPar || 70;
+    const proPar = completedPar(proScores.map((score) => [score, proRoundPar]));
     const mainPar = sgPar + proPar;
     const projectedPayout = projectedPayoutForPlace(team.calcutta?.finalPlace, payouts, pot);
 
