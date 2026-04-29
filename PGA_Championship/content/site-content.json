@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-29T20:46:05.347Z",
+  "updatedAt": "2026-04-29T20:57:55.000Z",
   "overview": {
     "stats": [
       {
@@ -340,23 +340,19 @@
       "Auction starts at $50 per team and increases in $25 increments.",
       "If a team is not the highest bidder on itself, it may buy back half of the winning bid.",
       "Calcutta scoring is based on Sterling Grove team golf scores only, not the added PGA Championship pro scores.",
-      "The scoreboard should show team cost, total pot, buyer, buyback status, and projected/final payouts."
+      "The scoreboard should show team owner, cost, total pot, and projected/final payouts."
     ],
     "payouts": [
       {
         "label": "1st Place",
-        "value": "50%"
+        "value": "60%"
       },
       {
         "label": "2nd Place",
-        "value": "25%"
+        "value": "30%"
       },
       {
         "label": "3rd Place",
-        "value": "15%"
-      },
-      {
-        "label": "4th Place",
         "value": "10%"
       }
     ]
@@ -372,7 +368,7 @@
     "calcuttaBoard": [
       "Ranks teams by Sterling Grove team score only.",
       "Shows players, Day 1, Day 2, team total, net to par, owner, cost, and payout.",
-      "Payouts: 1st 50%, 2nd 25%, 3rd 15%, 4th 10%.",
+      "Payouts: 1st 60%, 2nd 30%, 3rd 10%.",
       "PGA player scores do not affect Calcutta standings."
     ],
     "notes": [
@@ -484,7 +480,7 @@
       "The scoreboard should show Sterling Grove team scores, drafted A/B PGA player scores, combined tournament standings, and Calcutta standings.",
       "Main tournament standings should include Sterling Grove team score plus drafted A/B PGA player weekend scores.",
       "Calcutta standings should use Sterling Grove team scores only.",
-      "Calcutta display should include team cost, total pot, payout percentages, owner/buyer, buyback status, and projected/final payouts.",
+      "Calcutta display should include team owner, cost, total pot, payout percentages, and projected/final payouts.",
       "The scoreboard should be hosted from an always-on system, preferably the Mac mini server, or published to a public static URL from the Mac mini.",
       "The first scoreboard build uses `PGA_Championship/data/scoreboard.json` as source data and `PGA_Championship/data/scoreboard-data.js` for the public website.",
       "The local admin editor is `PGA_Championship/scoreboard_admin.html`, with server support in `PGA_Championship/scoreboard_server.mjs`.",

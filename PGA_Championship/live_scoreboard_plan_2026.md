@@ -85,15 +85,13 @@ Build direction: finish this locally first. Once the scoreboard is roughly 90% c
   - Sterling Grove total
   - score to par against 216
   - auction cost
-  - owner / buyer
-  - buyback status
+  - owner
   - projected or final payout
 - Calcutta payout percentages:
-  - 1st: 50%
-  - 2nd: 25%
-  - 3rd: 15%
-  - 4th: 10%
-- Total pot is the sum of all team auction prices plus any buybacks that are included in the Calcutta pot.
+  - 1st: 60%
+  - 2nd: 30%
+  - 3rd: 10%
+- Total pot is the sum of all team auction prices.
 
 ## Data Needed
 

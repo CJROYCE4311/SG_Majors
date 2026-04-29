@@ -1,6 +1,6 @@
 # 1st Annual PGA Championship Invitational at Sterling Grove CC
 
-_Last generated from `content/site-content.json` on 4/29/2026, 1:46:05 PM Arizona time._
+_Last generated from `content/site-content.json` on 4/29/2026, 1:57:55 PM Arizona time._
 
 ## Event Snapshot
 
@@ -110,14 +110,13 @@ After the PGA Championship cut is official, the committee will publish the eligi
 - Auction starts at $50 per team and increases in $25 increments.
 - If a team is not the highest bidder on itself, it may buy back half of the winning bid.
 - Calcutta scoring is based on Sterling Grove team golf scores only, not the added PGA Championship pro scores.
-- The scoreboard should show team cost, total pot, buyer, buyback status, and projected/final payouts.
+- The scoreboard should show team owner, cost, total pot, and projected/final payouts.
 
 ### Payout Schedule
 
-- 1st Place: 50%
-- 2nd Place: 25%
-- 3rd Place: 15%
-- 4th Place: 10%
+- 1st Place: 60%
+- 2nd Place: 30%
+- 3rd Place: 10%
 
 ## Live Scoreboard Requirements
 
@@ -133,7 +132,7 @@ After the PGA Championship cut is official, the committee will publish the eligi
 
 - Ranks teams by Sterling Grove team score only.
 - Shows players, Day 1, Day 2, team total, net to par, owner, cost, and payout.
-- Payouts: 1st 50%, 2nd 25%, 3rd 15%, 4th 10%.
+- Payouts: 1st 60%, 2nd 30%, 3rd 10%.
 - PGA player scores do not affect Calcutta standings.
 
 ### Player Notes
@@ -149,7 +148,7 @@ After the PGA Championship cut is official, the committee will publish the eligi
 - The scoreboard should show Sterling Grove team scores, drafted A/B PGA player scores, combined tournament standings, and Calcutta standings.
 - Main tournament standings should include Sterling Grove team score plus drafted A/B PGA player weekend scores.
 - Calcutta standings should use Sterling Grove team scores only.
-- Calcutta display should include team cost, total pot, payout percentages, owner/buyer, buyback status, and projected/final payouts.
+- Calcutta display should include team owner, cost, total pot, payout percentages, and projected/final payouts.
 - The scoreboard should be hosted from an always-on system, preferably the Mac mini server, or published to a public static URL from the Mac mini.
 - The first scoreboard build uses `PGA_Championship/data/scoreboard.json` as source data and `PGA_Championship/data/scoreboard-data.js` for the public website.
 - The local admin editor is `PGA_Championship/scoreboard_admin.html`, with server support in `PGA_Championship/scoreboard_server.mjs`.
