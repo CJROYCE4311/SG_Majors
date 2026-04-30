@@ -1,21 +1,24 @@
 {
-  "updatedAt": "2026-04-29T21:58:49.366Z",
+  "updatedAt": "2026-04-30T12:50:43.887Z",
   "overview": {
     "stats": [
       {
         "label": "Friday Night",
         "value": "May 15",
-        "sub": "A/B draft and Calcutta"
+        "sub": "A/B draft and Calcutta",
+        "highlight": false
       },
       {
         "label": "Day 1",
         "value": "Shamble",
-        "sub": "Both balls count, par 144"
+        "sub": "Both balls count, par 144",
+        "highlight": false
       },
       {
         "label": "Day 2",
         "value": "Best Ball",
-        "sub": "Team low ball, par 72"
+        "sub": "Team low ball, par 72",
+        "highlight": false
       },
       {
         "label": "Confirmed",
@@ -35,7 +38,7 @@
       },
       {
         "label": "Field",
-        "text": "Current field is 18 confirmed players; 3 two-man teams are assigned and 12 players still need partners."
+        "text": "Current field is 19 confirmed players; 4 two-man teams are assigned."
       },
       {
         "label": "Flight",
@@ -60,10 +63,10 @@
     ]
   },
   "players": {
-    "intro": "Three two-man teams are assigned. Single-player rows show players who still need a partner.",
+    "intro": "Four two-man teams are assigned. Single-player rows show players who still need a partner.",
     "teams": [
       {
-        "teamName": "Bengram & Mash",
+        "teamName": "Benga and Ingram",
         "player1": "Paul Benga",
         "player1Handicap": "6.4",
         "player2": "Travis Ingram",
@@ -71,7 +74,7 @@
         "totalHandicap": "13.3"
       },
       {
-        "teamName": "The Lewce Cannons",
+        "teamName": "Royce and Lewis",
         "player1": "Christopher Royce",
         "player1Handicap": "13.5",
         "player2": "Mark Lewis",
@@ -79,12 +82,20 @@
         "totalHandicap": "22.9"
       },
       {
-        "teamName": "Marino Weiss Guys",
+        "teamName": "Weiss and Marino",
         "player1": "Eric Weiss",
         "player1Handicap": "0.4",
         "player2": "Ron Marino",
         "player2Handicap": "4.4",
         "totalHandicap": "4.8"
+      },
+      {
+        "teamName": "Bolosan and Wilkins",
+        "player1": "Shane Bolosan",
+        "player1Handicap": "9.4",
+        "player2": "Mike Wilkins",
+        "player2Handicap": "15.3",
+        "totalHandicap": "24.7"
       },
       {
         "teamName": "TBD 1",
@@ -120,14 +131,6 @@
       },
       {
         "teamName": "TBD 5",
-        "player1": "Shane Bolosan",
-        "player1Handicap": "9.4",
-        "player2": "",
-        "player2Handicap": "",
-        "totalHandicap": ""
-      },
-      {
-        "teamName": "TBD 6",
         "player1": "Scott Lucas",
         "player1Handicap": "9.7",
         "player2": "",
@@ -135,7 +138,7 @@
         "totalHandicap": ""
       },
       {
-        "teamName": "TBD 7",
+        "teamName": "TBD 6",
         "player1": "Rich McKeon",
         "player1Handicap": "10.9",
         "player2": "",
@@ -143,7 +146,7 @@
         "totalHandicap": ""
       },
       {
-        "teamName": "TBD 8",
+        "teamName": "TBD 7",
         "player1": "Vasan Srinivasan",
         "player1Handicap": "15.1",
         "player2": "",
@@ -151,7 +154,7 @@
         "totalHandicap": ""
       },
       {
-        "teamName": "TBD 9",
+        "teamName": "TBD 8",
         "player1": "Mark Albedyll",
         "player1Handicap": "16.0",
         "player2": "",
@@ -159,7 +162,7 @@
         "totalHandicap": ""
       },
       {
-        "teamName": "TBD 10",
+        "teamName": "TBD 9",
         "player1": "Patrick Schueppert",
         "player1Handicap": "16.5",
         "player2": "",
@@ -167,7 +170,7 @@
         "totalHandicap": ""
       },
       {
-        "teamName": "TBD 11",
+        "teamName": "TBD 10",
         "player1": "Robert Hill \"Captain\"",
         "player1Handicap": "19.4",
         "player2": "",
@@ -175,7 +178,7 @@
         "totalHandicap": ""
       },
       {
-        "teamName": "TBD 12",
+        "teamName": "TBD 11",
         "player1": "Eric Lamb",
         "player1Handicap": "26.2",
         "player2": "",
@@ -187,92 +190,116 @@
       {
         "name": "James Feutz",
         "handicap": "+0.6",
-        "whsId": "5660746"
+        "whsId": "5660746",
+        "status": "Confirmed"
       },
       {
         "name": "Eric Weiss",
         "handicap": "0.4",
-        "whsId": "9002584"
+        "whsId": "9002584",
+        "status": "Confirmed"
       },
       {
         "name": "Ron Marino",
         "handicap": "4.4",
-        "whsId": "TBD"
+        "whsId": "TBD",
+        "status": "Confirmed"
       },
       {
         "name": "Jon Vrolyks",
         "handicap": "4.8",
-        "whsId": "464737"
+        "whsId": "464737",
+        "status": "Confirmed"
       },
       {
         "name": "Zane Eisenbarth",
         "handicap": "5.4",
-        "whsId": "11664981"
+        "whsId": "11664981",
+        "status": "Confirmed"
       },
       {
         "name": "Paul Benga",
         "handicap": "6.4",
-        "whsId": "164216"
+        "whsId": "164216",
+        "status": "Confirmed"
       },
       {
         "name": "Michael Falagrady",
         "handicap": "6.9",
-        "whsId": "95016"
+        "whsId": "95016",
+        "status": "Confirmed"
       },
       {
         "name": "Travis Ingram",
         "handicap": "6.9",
-        "whsId": "3210029"
+        "whsId": "3210029",
+        "status": "Confirmed"
       },
       {
         "name": "Mark Lewis",
         "handicap": "9.4",
-        "whsId": "8450232"
+        "whsId": "8450232",
+        "status": "Confirmed"
       },
       {
         "name": "Shane Bolosan",
         "handicap": "9.4",
-        "whsId": "11994127"
+        "whsId": "11994127",
+        "status": "Confirmed"
       },
       {
         "name": "Scott Lucas",
         "handicap": "9.7",
-        "whsId": "TBD"
+        "whsId": "TBD",
+        "status": "Confirmed"
       },
       {
         "name": "Rich McKeon",
         "handicap": "10.9",
-        "whsId": "TBD"
+        "whsId": "TBD",
+        "status": "Confirmed"
       },
       {
         "name": "Christopher Royce",
         "handicap": "13.5",
-        "whsId": "11809990"
+        "whsId": "11809990",
+        "status": "Confirmed"
       },
       {
         "name": "Vasan Srinivasan",
         "handicap": "15.1",
-        "whsId": "401762"
+        "whsId": "401762",
+        "status": "Confirmed"
+      },
+      {
+        "name": "Mike Wilkins",
+        "handicap": "15.3",
+        "whsId": "2669992",
+        "status": "Confirmed"
       },
       {
         "name": "Mark Albedyll",
         "handicap": "16.0",
-        "whsId": "TBD"
+        "whsId": "TBD",
+        "status": "Confirmed"
       },
       {
         "name": "Patrick Schueppert",
         "handicap": "16.5",
-        "whsId": "11278400"
+        "whsId": "11278400",
+        "status": "Confirmed"
       },
       {
         "name": "Robert Hill \"Captain\"",
         "handicap": "19.4",
-        "whsId": "11246342"
+        "whsId": "11246342",
+        "status": "Confirmed"
       },
       {
         "name": "Eric Lamb",
         "handicap": "26.2",
-        "whsId": "TBD"
+        "whsId": "TBD",
+        "status": "Confirmed"
       }
     ]
   },
@@ -329,7 +356,7 @@
       "Auction starts at $50 per team and increases in $25 increments.",
       "If a team is not the highest bidder on itself, it may buy back half of the winning bid.",
       "Calcutta scoring is based on Sterling Grove team golf scores only, not the added PGA Championship pro scores.",
-      "The scoreboard should show team owner, cost, total pot, and projected/final payouts."
+      "The scoreboard should show team cost, total pot, buyer, buyback status, and projected/final payouts."
     ],
     "payouts": [
       {
@@ -356,7 +383,7 @@
     ],
     "calcuttaBoard": [
       "Ranks teams by Sterling Grove team score only.",
-      "Shows players, Day 1, Day 2, team total, net to par, owner, cost, and payout.",
+      "Shows players, Day 1, Day 2, team total, net to par, owner, cost, buyback, and payout.",
       "Payouts: 1st 60%, 2nd 30%, 3rd 10%.",
       "PGA player scores do not affect Calcutta standings."
     ],
@@ -443,13 +470,13 @@
       "Each two-man team will draft one A player and one B player from the eligible PGA Championship players who make the cut.",
       "The selected PGA Championship players' weekend scores from Round 3 and Round 4 will be added to each team's Sterling Grove golf scores for the flight competition.",
       "The group may meet again after the Sunday round to watch the finish of the PGA Championship and settle Calcutta payouts.",
-      "Players still needing partners should send Christopher Royce who their partners will be.",
-      "The field currently has 18 players, with 3 two-man teams assigned and 12 players still needing partners.",
+      "Players need to send Christopher Royce who their partners will be.",
+      "The field currently has 19 players, with 4 two-man teams assigned and 11 players still needing partners.",
       "If a registered player knows someone who wants to play, that person should contact Christopher Royce or receive the Squabbit sign-up link and the WhatsApp group invite."
     ],
     "flightCompetition": [
       "Entry fee: $200 per two-man team.",
-      "Flight structure: expected to be one flight because the field currently has 18 players.",
+      "Flight structure: expected to be one flight because the field currently has 19 players.",
       "Target field: at least 20 players / 10 teams.",
       "If participation grows significantly, the committee can decide whether flights are needed.",
       "Final team count, purse, and payouts should be confirmed once teams are finalized.",
@@ -469,12 +496,11 @@
       "The scoreboard should show Sterling Grove team scores, drafted A/B PGA player scores, combined tournament standings, and Calcutta standings.",
       "Main tournament standings should include Sterling Grove team score plus drafted A/B PGA player weekend scores.",
       "Calcutta standings should use Sterling Grove team scores only.",
-      "Calcutta display should include team owner, cost, total pot, payout percentages, and projected/final payouts.",
+      "Calcutta display should include team cost, total pot, payout percentages, owner/buyer, buyback status, and projected/final payouts.",
       "The scoreboard should be hosted from an always-on system, preferably the Mac mini server, or published to a public static URL from the Mac mini.",
-      "The first scoreboard build uses `PGA_Championship/data/scoreboard.json` as source data and `PGA_Championship/data/scoreboard-data.js` for the public website.",
-      "The local admin editor is `PGA_Championship/scoreboard_admin.html`, with server support in `PGA_Championship/scoreboard_server.mjs`.",
-      "The build should be finished locally first; once the scoreboard is roughly 90% complete, move the entire `SG_Majors` folder to the Mac mini and continue there.",
-      "Implementation details are tracked in `live_scoreboard_plan_2026.md`."
+      "The scoreboard build uses `PGA_Championship/pga_championship_control.xlsx` as the definitive offline workbook, then exports CSV files for website generation.",
+      "Run `node scripts/update-pga-scoreboard-from-workbook.mjs` to validate the workbook data and regenerate `PGA_Championship/data/scoreboard.json` and `PGA_Championship/data/scoreboard-data.js`.",
+      "Implementation details are tracked in `canonical_scoreboard_workflow.md` and `live_scoreboard_plan_2026.md`."
     ],
     "ruleDetails": [
       {
@@ -538,14 +564,16 @@
       "pga_championship_players.csv",
       "pga_championship_teams.csv",
       "pga_championship_pro_picks.csv",
+      "pga_championship_pro_scores.csv",
       "pga_championship_scores.csv",
       "pga_championship_calcutta_board.csv",
+      "pga_championship_payouts.csv",
+      "pga_championship_control.xlsx",
+      "canonical_scoreboard_workflow.md",
       "live_scoreboard_plan_2026.md",
       "content/site-content.json",
       "data/scoreboard.json",
-      "data/scoreboard-data.js",
-      "scoreboard_admin.html",
-      "scoreboard_server.mjs"
+      "data/scoreboard-data.js"
     ]
   }
 }

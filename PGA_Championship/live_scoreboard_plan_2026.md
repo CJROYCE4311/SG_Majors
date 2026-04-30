@@ -14,29 +14,26 @@ The scoreboard needs to show:
 
 ## Current Build
 
-The first live scoreboard shell has been added to the PGA Championship website, and the private admin app now controls the player-facing PGA website content.
+The first live scoreboard shell has been added to the PGA Championship website, and the operator workflow has pivoted to the Excel control workbook as the definitive offline source.
 
 - Public scoreboard tab: `PGA_Championship/index.html`.
-- Private site content source: `PGA_Championship/content/site-content.json`.
+- Definitive workbook: `PGA_Championship/pga_championship_control.xlsx`.
+- Exported CSV files: `PGA_Championship/pga_championship_*.csv`.
+- Site content source synced from canonical CSVs: `PGA_Championship/content/site-content.json`.
 - Generated rules / instructions markdown: `PGA_Championship/sterling_grove_pga_championship_2026.md`.
-- Source data: `PGA_Championship/data/scoreboard.json`.
+- Generated scoreboard data: `PGA_Championship/data/scoreboard.json`.
 - File-friendly website data: `PGA_Championship/data/scoreboard-data.js`.
-- Admin editor: `PGA_Championship/scoreboard_admin.html`.
-- Mac mini server: `PGA_Championship/scoreboard_server.mjs`.
+- Public site build output: `dist/`.
 
-The public page can be opened directly from a file URL because it reads from `scoreboard-data.js`. The Mac mini server uses `scoreboard.json` as the score source of truth, writes the matching JS data file, and can commit/push the managed PGA site files to the public website repo.
+The public page can be opened directly from a file URL because it reads from `scoreboard-data.js`. Tournament-night edits should be made in the workbook first, then published with:
 
-The private admin app has one editable area for each player-facing PGA website tab:
+```bash
+node scripts/update-pga-scoreboard-from-workbook.mjs
+```
 
-- Overview
-- Players, including team name, player 1, player 1 handicap, player 2, player 2 handicap, and total handicap
-- Format
-- A/B Players, including the selectable A-player and B-player PGA professional pools
-- Calcutta
-- Scorecard / Scoreboard
-- Rules
+That command exports workbook input tabs to CSV, validates the canonical data, regenerates scoreboard JSON/JS, syncs the public site content, renders `index.html` and markdown, and rebuilds `dist/`.
 
-Saving site content writes `content/site-content.json`, regenerates the matching public sections in `index.html`, and regenerates `sterling_grove_pga_championship_2026.md`. Publishing stages only the managed PGA content/scoreboard files, commits them, and pushes the current branch.
+The browser admin prototype still exists in the repo, but it is no longer the preferred update path. Accuracy comes from presenting and reviewing the workbook `Dashboard`, `Results Board`, `Pick Board`, `Calcutta Board`, and `Checks` tabs, then letting the scripts generate the website from workbook exports.
 
 Build direction: finish this locally first. Once the scoreboard is roughly 90% complete and tested, move the entire `SG_Majors` folder to the Mac mini and continue work there. Do not keep two active copies of the project.
 
@@ -58,10 +55,9 @@ Build direction: finish this locally first. Once the scoreboard is roughly 90% c
 - PGA scores count for Saturday and Sunday only.
 - Each drafted PGA player has two weekend rounds.
 - PGA player total par contribution:
-  - A player weekend par: 140.
-  - B player weekend par: 140.
+  - A player Saturday/Sunday par: 144.
+  - B player Saturday/Sunday par: 144.
   - Combined A/B PGA par: 280.
-  - Combined A/B PGA par per PGA round day: 140.
 
 ### Tournament Buy-In / Main Competition Standings
 
@@ -71,7 +67,7 @@ Build direction: finish this locally first. Once the scoreboard is roughly 90% c
   - Drafted A/B PGA weekend par: 280.
 - Ranking basis: lowest combined total score against par.
 - One flight is expected unless the field grows enough to require flights.
-- Current field: 18 players with 3 assigned teams, which is likely one flight.
+- Current field: 19 players, which is likely one flight.
 - Target field: at least 20 players / 10 teams.
 
 ### Calcutta Standings
@@ -86,13 +82,14 @@ Build direction: finish this locally first. Once the scoreboard is roughly 90% c
   - Sterling Grove total
   - score to par against 216
   - auction cost
-  - owner
+  - owner / buyer
+  - buyback status
   - projected or final payout
 - Calcutta payout percentages:
   - 1st: 60%
   - 2nd: 30%
   - 3rd: 10%
-- Total pot is the sum of all team auction prices.
+- Total pot is the sum of all team auction prices plus any buybacks that are included in the Calcutta pot.
 
 ## Data Needed
 
@@ -126,13 +123,16 @@ Use or update `pga_championship_pro_picks.csv` with:
 
 - team
 - A player
-- A player Saturday score
-- A player Sunday score
 - B player
-- B player Saturday score
-- B player Sunday score
-- PGA total
-- PGA score to par
+- notes
+
+Use or update `pga_championship_pro_scores.csv` with:
+
+- pro name
+- A/B tier
+- Saturday score
+- Sunday score
+- notes
 
 ### Calcutta
 
@@ -142,9 +142,9 @@ Use or update `pga_championship_calcutta_board.csv` with:
 - buyer / owner
 - auction price
 - team buyback amount
-- total team Calcutta cost
-- projected payout
-- final payout
+- final place
+- payout override, only when a manual final payout should override the schedule
+- notes
 
 ## Recommended Architecture
 
@@ -162,7 +162,7 @@ This is the fastest reliable version and the current first build.
   - combined tournament leaderboard
   - Calcutta standings
   - pot and payout projections
-- Updating scores means editing the JSON file and refreshing the page.
+- Updating scores means editing the workbook and running `node scripts/update-pga-scoreboard-from-workbook.mjs` when the website should be refreshed.
 
 Pros:
 
@@ -172,56 +172,35 @@ Pros:
 
 Cons:
 
-- Manual data edits unless an admin tool is added.
+- Requires running the update script after workbook edits.
 
-### Phase 2: Private PGA Site Admin Editor
+### Phase 2: Mac Mini Operator Workflow
 
-Run an admin-only site and score editor on the Mac mini:
+Use the Mac mini as the always-on publish machine once the local build is ready:
 
-- `PGA_Championship/scoreboard_admin.html`
-- Run it through `PGA_Championship/scoreboard_server.mjs`.
-- Protect private content loads, saves, and publish actions with `SCOREBOARD_ADMIN_TOKEN`.
-- Admin editor writes website section content to `content/site-content.json`.
-- Admin editor can update team names, player names, player handicaps, pairings, and team total handicaps from the Players tab.
-- Admin editor uses one simple text box for the Format tab, since the format should rarely change.
-- Admin editor uses the A/B Players tab to maintain the eligible PGA professional A-player and B-player pools.
-- Admin editor uses the Scorecard tab to select one A player and one B player for each Sterling Grove team from those pools.
-- Scorecard A/B selections are saved into `data/scoreboard.json` and mirrored into `data/scoreboard-data.js` for the public scoreboard.
-- Scorecard also has expandable Calcutta entries per team, with owner dropdowns from the tournament player list, cost entry, and a running total pot.
-- Server regenerates the public PGA page sections in `index.html`.
-- Server regenerates `sterling_grove_pga_championship_2026.md`.
-- Admin editor writes to `scoreboard.json`.
-- Server writes the matching `scoreboard-data.js` file for the public website.
-- Public scoreboard can be refreshed after score updates.
-
-Local-only run command:
-
-```bash
-SCOREBOARD_ADMIN_TOKEN='set-a-real-token' node PGA_Championship/scoreboard_server.mjs
-```
-
-Phone-accessible LAN run command from the Mac mini:
-
-```bash
-SCOREBOARD_HOST=0.0.0.0 SCOREBOARD_PORT=4173 SCOREBOARD_ADMIN_TOKEN='set-a-real-token' node PGA_Championship/scoreboard_server.mjs
-```
-
-Then open `http://<mac-mini-lan-ip>:4173/scoreboard_admin.html` from the phone, enter the token, save changes, and use Commit and Push when the public site should be updated.
+- Keep one active copy of the repo on the Mac mini.
+- Bring the laptop to the club for entry if preferred, then copy or push changes back to the Mac mini working copy.
+- Edit `pga_championship_control.xlsx`.
+- Review `Dashboard`, `Results Board`, `Pick Board`, `Calcutta Board`, and `Checks`.
+- Run `node scripts/update-pga-scoreboard-from-workbook.mjs`.
+- Preview the generated public page locally.
+- Commit/push the generated files when publishing to the public site.
 
 Pros:
 
-- Easy live updates from a phone or laptop.
+- Simple and auditable.
+- No admin token is needed for the workbook/CSV path.
 - Public users only see the scoreboard.
 
 Cons:
 
-- Needs a small backend service to write JSON safely.
+- Requires disciplined file sync if the laptop and Mac mini are both used.
 
 ### Phase 3: Git Push Workflow
 
 If the public website is hosted from Netlify:
 
-- Admin editor updates the managed PGA files on the Mac mini.
+- Workbook/CSV updates regenerate the managed PGA files on the Mac mini.
 - Mac mini commits and pushes the updated files to GitHub.
 - Netlify builds from `netlify.toml` and publishes only the allowlisted player-facing files in `dist`.
 
@@ -242,17 +221,17 @@ Use this current machine as the build machine until the scoreboard is mostly com
 1. Finish the scoreboard locally until it is about 90% ready.
 2. Test locally with sample teams, sample A/B PGA picks, sample scores, and sample Calcutta bids.
 3. Move the entire `SG_Majors` folder to the Mac mini.
-4. Verify the site, admin editor, and server from the Mac mini.
+4. Verify the workbook update command, generated site, and local preview from the Mac mini.
 5. Continue edits only from the Mac mini after the move.
 6. Public hosting:
    - Preferred: Netlify public site build from the Git repo.
    - Alternate: Mac mini served publicly through Tailscale Funnel, Cloudflare Tunnel, or another HTTPS tunnel.
 7. If using Netlify:
    - Configure the Mac mini with GitHub credentials.
-   - Run the admin server with `SCOREBOARD_ADMIN_TOKEN`.
-   - Use the admin page save button to update data and the publish button to commit/push.
+   - Run `node scripts/update-pga-scoreboard-from-workbook.mjs` after workbook edits.
+   - Commit and push the generated files.
 8. If using direct Mac mini hosting:
-   - Run `scoreboard_server.mjs` with protected admin routes.
+   - Serve the generated public files from `dist/` or run `scoreboard_server.mjs` for local previews.
    - Use HTTPS through a tunnel.
 9. Do a final rehearsal before Friday night:
    - create sample teams
@@ -289,7 +268,7 @@ Use this current machine as the build machine until the scoreboard is mostly com
 - SG-only to par
 - Projected or final payout
 
-### Admin Entry
+### Operator Entry
 
 - Team setup.
 - A/B PGA draft picks.
@@ -297,7 +276,7 @@ Use this current machine as the build machine until the scoreboard is mostly com
 - Sunday team score entry.
 - PGA player score entry.
 - Calcutta auction entry.
-- Publish/update button.
+- Workbook update command.
 
 ## Immediate Decisions
 
@@ -305,9 +284,9 @@ Use this current machine as the build machine until the scoreboard is mostly com
 - Confirm Saturday and Sunday handicap allowances, if net scoring is used.
 - Confirm whether Calcutta pot includes buybacks.
 - Confirm Netlify site settings and build hook / deploy trigger timing.
-- Confirm admin update method: use the private admin editor for site sections and scoreboard data.
+- Confirm publishing method: Netlify from GitHub, direct Mac mini hosting, or tunnel.
 - Confirm migration timing: move the entire `SG_Majors` folder to the Mac mini only after the local build is mostly complete.
 
 ## First Build Recommendation
 
-The static scoreboard, data file, admin editor, and Mac mini server scaffold are now in place. The next build step is to keep building locally, add finalized teams when ready, and run a sample-data rehearsal before moving the entire `SG_Majors` folder to the Mac mini.
+The static scoreboard, canonical CSVs, control workbook, and Mac mini publish plan are now in place. The next build step is to keep building locally, add finalized teams as they arrive, and run a sample-data rehearsal before moving the entire `SG_Majors` folder to the Mac mini.

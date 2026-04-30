@@ -1,4 +1,16 @@
-team,flight,player_1,player_1_handicap_index,player_2,player_2_handicap_index,team_course_handicap,notes
-Bengram & Mash,Main,Paul Benga,6.4,Travis Ingram,6.9,13.3,Assigned in Squabbit
-The Lewce Cannons,Main,Christopher Royce,13.5,Mark Lewis,9.4,22.9,Assigned in Squabbit
-Marino Weiss Guys,Main,Eric Weiss,0.4,Ron Marino,4.4,4.8,Assigned in Squabbit
+team,player_1,p1_handicap,player_2,p2_handicap,total_handicap,flight,notes
+Benga and Ingram,Paul Benga,6.4,Travis Ingram,6.9,13.3,,
+Royce and Lewis,Christopher Royce,13.5,Mark Lewis,9.4,22.9,,
+Weiss and Marino,Eric Weiss,0.4,Ron Marino,4.4,4.8,,
+Bolosan and Wilkins,Shane Bolosan,9.4,Mike Wilkins,15.3,24.7,,
+TBD 1,James Feutz,+0.6,,,,,
+TBD 2,Jon Vrolyks,4.8,,,,,
+TBD 3,Zane Eisenbarth,5.4,,,,,
+TBD 4,Michael Falagrady,6.9,,,,,
+TBD 5,Scott Lucas,9.7,,,,,
+TBD 6,Rich McKeon,10.9,,,,,
+TBD 7,Vasan Srinivasan,15.1,,,,,
+TBD 8,Mark Albedyll,16.0,,,,,
+TBD 9,Patrick Schueppert,16.5,,,,,
+TBD 10,"Robert Hill ""Captain""",19.4,,,,,
+TBD 11,Eric Lamb,26.2,,,,,

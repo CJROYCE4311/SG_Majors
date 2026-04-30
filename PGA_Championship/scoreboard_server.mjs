@@ -25,6 +25,8 @@ const managedFiles = [
     'PGA_Championship/data/scoreboard-data.js',
 ];
 
+const adminPagePaths = new Set(['/admin', '/input', '/scoreboard_admin.html']);
+
 const contentTypes = {
     '.css': 'text/css; charset=utf-8',
     '.html': 'text/html; charset=utf-8',
@@ -94,7 +96,13 @@ const server = createServer(async (request, response) => {
             return sendText(response, 405, 'Method not allowed');
         }
 
-        return await serveStatic(url.pathname === '/' ? '/index.html' : url.pathname, response);
+        const staticPath = url.pathname === '/'
+            ? '/index.html'
+            : adminPagePaths.has(url.pathname)
+                ? '/scoreboard_admin.html'
+                : url.pathname;
+
+        return await serveStatic(staticPath, response);
     } catch (error) {
         const status = error.statusCode || 500;
         return sendText(response, status, error.message || 'Server error');
@@ -360,11 +368,12 @@ ${renderPlainList(scoreboard.calcuttaBoard, 32)}
                                         <th>Net To Par</th>
                                         <th>Owner</th>
                                         <th>Cost</th>
+                                        <th>Buyback</th>
                                         <th>Payout</th>
                                     </tr>
                                 </thead>
                                 <tbody id="calcutta-board-body">
-                                    <tr><td colspan="10">Loading Calcutta data...</td></tr>
+                                    <tr><td colspan="11">Loading Calcutta data...</td></tr>
                                 </tbody>
                             </table>
                         </div>

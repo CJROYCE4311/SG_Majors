@@ -11,7 +11,7 @@
 - Event: 2026 PGA Championship Invitational at Sterling Grove Country Club
 - Tournament rounds: Saturday, May 16, 2026 and Sunday, May 17, 2026
 - Format: 2-man teams; Saturday shamble with both balls counting, Sunday best ball
-- Current status: 18 players are registered, 3 two-man teams are assigned, and tee times still need to be finalized
+- Current status: 19 players are registered; four two-man teams are assigned and tee times still need to be finalized
 
 ## Confirmed Registered Players
 
@@ -31,6 +31,7 @@
 | Rich McKeon | 10.9 | TBD |
 | Christopher Royce | 13.5 | 11809990 |
 | Vasan Srinivasan | 15.1 | 401762 |
+| Mike Wilkins | 15.3 | 2669992 |
 | Mark Albedyll | 16.0 | TBD |
 | Patrick Schueppert | 16.5 | 11278400 |
 | Robert Hill "Captain" | 19.4 | 11246342 |
@@ -44,7 +45,7 @@ Pulled from the Sterling Grove member directory for PGA Championship coordinatio
 | --- | --- | --- | --- | --- | --- |
 | James Feutz | Mr. James Feutz | 2533801401 | 253-380-1401 | jamesfeutzgolf@gmail.com |  |
 | Eric Weiss | Eric Weiss |  | 6232623835 | ericweiss1019@gmail.com |  |
-| Ron Marino | TBD |  |  |  | Added from Squabbit; contact info not yet recorded. |
+| Ron Marino | TBD |  |  |  | Verify member directory contact information. |
 | Jon Vrolyks | Not found |  |  |  | No matching Vrolyks/Vrolyk record found in member directory search. |
 | Zane Eisenbarth | Mr. Zane Eisenbarth |  | 315-491-0614 | zane.eisenbarth@yahoo.com |  |
 | Paul Benga | Mr Paul Benga |  | 480-620-2088 | benga7@gmail.com |  |
@@ -56,6 +57,7 @@ Pulled from the Sterling Grove member directory for PGA Championship coordinatio
 | Rich McKeon | Richard McKeon |  | 3104907416 | richmckeon@gmail.com | Directory uses Richard. |
 | Christopher Royce | Christopher Royce | 719.510.4311 |  | christopher.royce@gmail.com |  |
 | Vasan Srinivasan | Possible match: Kumar Srinivasan |  | 917.833.7769 | kumar.srinivasan2@gmail.com | No exact Vasan record found; verify before using. |
+| Mike Wilkins | TBD |  |  |  | Verify member directory contact information. |
 | Mark Albedyll | Mark Albedyll |  | 206-321-1911 | malbedyll@yahoo.com |  |
 | Patrick Schueppert | Mr. Patrick Schueppert | 480-469-2552 | 702-499-6923 | pschueppert2@gmail.com |  |
 | Robert Hill "Captain" | Mr. Robert Hill |  | 623-256-2407 | hankhill34@gmail.com |  |
@@ -75,8 +77,7 @@ Pulled from the Sterling Grove member directory for PGA Championship coordinatio
 - Sunday scoring: both players play their own ball, and the team's lower score on each hole counts.
 - Sunday team par: 72.
 - Sterling Grove team weekend par: 216.
-- Drafted A/B PGA player weekend par: 280, based on a par-70 PGA Championship setup.
-- Drafted A/B PGA player daily par: 140 combined.
+- Drafted A/B PGA player weekend par: 280.
 - Main tournament total par: 496.
 - Main tournament standings include Sterling Grove team scores plus drafted A/B PGA player weekend scores.
 - Calcutta standings are based only on Sterling Grove team scores.
@@ -101,24 +102,19 @@ Pulled from the Sterling Grove member directory for PGA Championship coordinatio
   - payout percentages
   - projected or final payouts
 - Use one flight unless the field grows enough to justify flights.
-- First build is in place:
-  - public scoreboard tab in `index.html`
-  - source data in `data/scoreboard.json`
-  - file-friendly public data in `data/scoreboard-data.js`
-  - private admin editor in `scoreboard_admin.html`
-  - Mac mini admin server in `scoreboard_server.mjs`
-  - private website section source in `content/site-content.json`
-  - generated public website sections and rules markdown from the private content source
-- The admin editor has editable areas for Overview, Players, Format, A/B Players, Calcutta, Scoreboard, and Rules.
-- The Players editor now controls team name, player 1, player 1 handicap, player 2, player 2 handicap, and total handicap.
-- The Format editor is one simple text box for rare format updates.
-- The A/B Players editor controls the selectable PGA professional A-player and B-player pools.
-- The Scorecard editor lets each Sterling Grove team select one A player and one B player from those pools, then saves those picks into the scoreboard data.
-- The Scorecard editor includes expandable Calcutta entries per team, owner dropdowns from the player list, cost entry, and a running pot total.
-- Saving site content regenerates `index.html` and `sterling_grove_pga_championship_2026.md`.
-- Saving scoreboard data updates `data/scoreboard.json` and `data/scoreboard-data.js`.
-- Commit and Push publishes only the managed PGA site and scoreboard files, after the Mac mini has Git credentials configured.
-- Preferred hosting/operator setup: finish the build locally first, then move the entire `SG_Majors` folder to the always-on Mac mini server, run the admin server there, and publish updates from there.
+- Current operator workflow:
+  - update `pga_championship_control.xlsx` or the canonical CSV files
+  - run `node scripts/update-pga-scoreboard-from-workbook.mjs`
+  - validate the generated scoreboard locally
+  - commit and publish the generated public site data
+- Canonical score data now lives in:
+  - `pga_championship_teams.csv`
+  - `pga_championship_scores.csv`
+  - `pga_championship_pro_picks.csv`
+  - `pga_championship_pro_scores.csv`
+  - `pga_championship_calcutta_board.csv`
+  - `pga_championship_payouts.csv`
+- The browser admin prototype is no longer the preferred update path. Accuracy comes from workbook/CSV review plus script validation.
 - See `live_scoreboard_plan_2026.md` for the full implementation and deployment plan.
 
 ## Tee-Time Booking Plan
@@ -184,7 +180,7 @@ If you are able to grab a tee time for either day, please do it and post the day
 
 Also, please start pairing up into 2-man teams. Once you have a team, send me both player names or post them here. If you need a partner, just say so and we will help match people up.
 
-We have 18 players as of now and would love to get more participation. If you know someone who wants to play, have them contact me, or send them the Squabbit sign-up link and the WhatsApp group invite.
+We have 19 players as of now, with four teams assigned, and would love to get more participation. If you know someone who wants to play, have them contact me, or send them the Squabbit sign-up link and the WhatsApp group invite.
 
 Thanks everyone.
 
@@ -199,7 +195,18 @@ Thanks everyone.
 
 | Team | Player 1 | Player 2 | Status |
 | --- | --- | --- | --- |
-| Bengram & Mash | Paul Benga | Travis Ingram | Assigned |
-| The Lewce Cannons | Christopher Royce | Mark Lewis | Assigned |
-| Marino Weiss Guys | Eric Weiss | Ron Marino | Assigned |
-| TBD | TBD | TBD | Needed |
+| Benga and Ingram | Paul Benga | Travis Ingram | Confirmed |
+| Royce and Lewis | Christopher Royce | Mark Lewis | Confirmed |
+| Weiss and Marino | Eric Weiss | Ron Marino | Confirmed |
+| Bolosan and Wilkins | Shane Bolosan | Mike Wilkins | Confirmed |
+| TBD 1 | James Feutz | TBD | Needs partner |
+| TBD 2 | Jon Vrolyks | TBD | Needs partner |
+| TBD 3 | Zane Eisenbarth | TBD | Needs partner |
+| TBD 4 | Michael Falagrady | TBD | Needs partner |
+| TBD 5 | Scott Lucas | TBD | Needs partner |
+| TBD 6 | Rich McKeon | TBD | Needs partner |
+| TBD 7 | Vasan Srinivasan | TBD | Needs partner |
+| TBD 8 | Mark Albedyll | TBD | Needs partner |
+| TBD 9 | Patrick Schueppert | TBD | Needs partner |
+| TBD 10 | Robert Hill "Captain" | TBD | Needs partner |
+| TBD 11 | Eric Lamb | TBD | Needs partner |
