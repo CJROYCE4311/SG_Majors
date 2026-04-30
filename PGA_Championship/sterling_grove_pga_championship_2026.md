@@ -1,12 +1,12 @@
 # 1st Annual PGA Championship Invitational at Sterling Grove CC
 
-_Last generated from `content/site-content.json` on 4/29/2026, 1:46:05 PM Arizona time._
+_Last generated from `content/site-content.json` on 4/30/2026, 5:34:43 AM Arizona time._
 
 ## Event Snapshot
 
 - Dates: Weekend runs Friday, May 15, 2026 through Sunday, May 17, 2026.
 - Rounds: Tournament rounds are Saturday, May 16 and Sunday, May 17.
-- Field: Current field is 17 confirmed players; two-man teams are still pending.
+- Field: Current field is 19 confirmed players; 4 two-man teams are assigned.
 - Flight: One flight is expected unless participation grows enough to justify flights.
 - Buy-in: $200 per two-man team once teams are formed.
 - Main Scoring: Sterling Grove team score plus drafted A/B PGA Championship weekend pro scores.
@@ -15,29 +15,27 @@ _Last generated from `content/site-content.json` on 4/29/2026, 1:46:05 PM Arizon
 
 ## Team Assignments
 
-Team assignments can be updated as pairings are confirmed. Single-player rows show players who still need a partner.
+Four two-man teams are assigned. Single-player rows show players who still need a partner.
 
-Current confirmed players: 17
+Current confirmed players: 19
 
 | Team | Player 1 | P1 HDCP | Player 2 | P2 HDCP | Total HDCP |
 | --- | --- | ---: | --- | ---: | ---: |
+| Benga and Ingram | Paul Benga | 6.4 | Travis Ingram | 6.9 | 13.3 |
+| Royce and Lewis | Christopher Royce | 13.5 | Mark Lewis | 9.4 | 22.9 |
+| Weiss and Marino | Eric Weiss | 0.4 | Ron Marino | 4.4 | 4.8 |
+| Bolosan and Wilkins | Shane Bolosan | 9.4 | Mike Wilkins | 15.3 | 24.7 |
 | TBD 1 | James Feutz | +0.6 | TBD | TBD | -- |
-| TBD 2 | Eric Weiss | 0.4 | TBD | TBD | -- |
-| TBD 3 | Jon Vrolyks | 4.8 | TBD | TBD | -- |
-| TBD 4 | Zane Eisenbarth | 5.4 | TBD | TBD | -- |
-| TBD 5 | Paul Benga | 6.4 | TBD | TBD | -- |
-| TBD 6 | Michael Falagrady | 6.9 | TBD | TBD | -- |
-| TBD 7 | Travis Ingram | 6.9 | TBD | TBD | -- |
-| TBD 8 | Mark Lewis | 9.4 | TBD | TBD | -- |
-| TBD 9 | Shane Bolosan | 9.4 | TBD | TBD | -- |
-| TBD 10 | Scott Lucas | 9.7 | TBD | TBD | -- |
-| TBD 11 | Rich McKeon | 10.9 | TBD | TBD | -- |
-| TBD 12 | Christopher Royce | 13.5 | TBD | TBD | -- |
-| TBD 13 | Vasan Srinivasan | 15.1 | TBD | TBD | -- |
-| TBD 14 | Mark Albedyll | 16.0 | TBD | TBD | -- |
-| TBD 15 | Patrick Schueppert | 16.5 | TBD | TBD | -- |
-| TBD 16 | Robert Hill "Captain" | 19.4 | TBD | TBD | -- |
-| TBD 17 | Eric Lamb | 26.2 | TBD | TBD | -- |
+| TBD 2 | Jon Vrolyks | 4.8 | TBD | TBD | -- |
+| TBD 3 | Zane Eisenbarth | 5.4 | TBD | TBD | -- |
+| TBD 4 | Michael Falagrady | 6.9 | TBD | TBD | -- |
+| TBD 5 | Scott Lucas | 9.7 | TBD | TBD | -- |
+| TBD 6 | Rich McKeon | 10.9 | TBD | TBD | -- |
+| TBD 7 | Vasan Srinivasan | 15.1 | TBD | TBD | -- |
+| TBD 8 | Mark Albedyll | 16.0 | TBD | TBD | -- |
+| TBD 9 | Patrick Schueppert | 16.5 | TBD | TBD | -- |
+| TBD 10 | Robert Hill "Captain" | 19.4 | TBD | TBD | -- |
+| TBD 11 | Eric Lamb | 26.2 | TBD | TBD | -- |
 
 ## Weekend Logistics
 
@@ -48,7 +46,7 @@ Current confirmed players: 17
 - The selected PGA Championship players' weekend scores from Round 3 and Round 4 will be added to each team's Sterling Grove golf scores for the flight competition.
 - The group may meet again after the Sunday round to watch the finish of the PGA Championship and settle Calcutta payouts.
 - Players need to send Christopher Royce who their partners will be.
-- The field currently has 17 players, and the group should encourage additional participation.
+- The field currently has 19 players, with 4 two-man teams assigned and 11 players still needing partners.
 - If a registered player knows someone who wants to play, that person should contact Christopher Royce or receive the Squabbit sign-up link and the WhatsApp group invite.
 
 ## Official Format
@@ -70,7 +68,7 @@ Sunday: Best Ball
 ## Flight Competition
 
 - Entry fee: $200 per two-man team.
-- Flight structure: expected to be one flight because the field currently has 17 players.
+- Flight structure: expected to be one flight because the field currently has 19 players.
 - Target field: at least 20 players / 10 teams.
 - If participation grows significantly, the committee can decide whether flights are needed.
 - Final team count, purse, and payouts should be confirmed once teams are finalized.
@@ -114,10 +112,9 @@ After the PGA Championship cut is official, the committee will publish the eligi
 
 ### Payout Schedule
 
-- 1st Place: 50%
-- 2nd Place: 25%
-- 3rd Place: 15%
-- 4th Place: 10%
+- 1st Place: 60%
+- 2nd Place: 30%
+- 3rd Place: 10%
 
 ## Live Scoreboard Requirements
 
@@ -132,8 +129,8 @@ After the PGA Championship cut is official, the committee will publish the eligi
 ### Calcutta Board
 
 - Ranks teams by Sterling Grove team score only.
-- Shows players, Day 1, Day 2, team total, net to par, owner, cost, and payout.
-- Payouts: 1st 50%, 2nd 25%, 3rd 15%, 4th 10%.
+- Shows players, Day 1, Day 2, team total, net to par, owner, cost, buyback, and payout.
+- Payouts: 1st 60%, 2nd 30%, 3rd 10%.
 - PGA player scores do not affect Calcutta standings.
 
 ### Player Notes
@@ -151,10 +148,9 @@ After the PGA Championship cut is official, the committee will publish the eligi
 - Calcutta standings should use Sterling Grove team scores only.
 - Calcutta display should include team cost, total pot, payout percentages, owner/buyer, buyback status, and projected/final payouts.
 - The scoreboard should be hosted from an always-on system, preferably the Mac mini server, or published to a public static URL from the Mac mini.
-- The first scoreboard build uses `PGA_Championship/data/scoreboard.json` as source data and `PGA_Championship/data/scoreboard-data.js` for the public website.
-- The local admin editor is `PGA_Championship/scoreboard_admin.html`, with server support in `PGA_Championship/scoreboard_server.mjs`.
-- The build should be finished locally first; once the scoreboard is roughly 90% complete, move the entire `SG_Majors` folder to the Mac mini and continue there.
-- Implementation details are tracked in `live_scoreboard_plan_2026.md`.
+- The scoreboard build uses `PGA_Championship/pga_championship_control.xlsx` as the definitive offline workbook, then exports CSV files for website generation.
+- Run `node scripts/update-pga-scoreboard-from-workbook.mjs` to validate the workbook data and regenerate `PGA_Championship/data/scoreboard.json` and `PGA_Championship/data/scoreboard-data.js`.
+- Implementation details are tracked in `canonical_scoreboard_workflow.md` and `live_scoreboard_plan_2026.md`.
 
 ## Rules and Scoring
 
@@ -230,11 +226,13 @@ Free relief is available when an abnormal course condition or immovable obstruct
 - pga_championship_players.csv
 - pga_championship_teams.csv
 - pga_championship_pro_picks.csv
+- pga_championship_pro_scores.csv
 - pga_championship_scores.csv
 - pga_championship_calcutta_board.csv
+- pga_championship_payouts.csv
+- pga_championship_control.xlsx
+- canonical_scoreboard_workflow.md
 - live_scoreboard_plan_2026.md
 - content/site-content.json
 - data/scoreboard.json
 - data/scoreboard-data.js
-- scoreboard_admin.html
-- scoreboard_server.mjs

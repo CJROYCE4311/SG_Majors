@@ -80,6 +80,42 @@
             color: var(--primary);
         }
 
+        .inline-actions {
+            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .inline-actions button,
+        .row-action {
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 700;
+            min-height: 38px;
+            padding: 0.55rem 0.8rem;
+        }
+
+        .inline-actions button {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .row-action {
+            background: #fee2e2;
+            color: #991b1b;
+            width: auto;
+        }
+
+        .readonly-input {
+            background: #f8fafc;
+            color: var(--text-muted);
+        }
+
         .section-tabs {
             margin: 0 0 1rem;
         }
@@ -132,6 +168,19 @@
         textarea {
             min-height: 170px;
             resize: vertical;
+        }
+
+        .table-input {
+            min-width: 5.75rem;
+            padding: 0.55rem;
+        }
+
+        .score-input {
+            text-align: center;
+        }
+
+        .select-input {
+            min-width: 12rem;
         }
 
         .compact-textarea {
@@ -295,9 +344,57 @@
                 <textarea id="playersIntro" class="compact-textarea"></textarea>
             </div>
             <div class="field-row">
-                <label for="playersList">Teams and players</label>
-                <p class="field-hint">One per line: Team Name | Player 1 | P1 HDCP | Player 2 | P2 HDCP | Total HDCP. Leave total blank to auto-calculate when both handicaps are entered.</p>
-                <textarea id="playersList"></textarea>
+                <div class="inline-actions">
+                    <div>
+                        <label>Players</label>
+                        <p class="field-hint">Add or edit the player roster used by team selects and Calcutta owner dropdowns.</p>
+                    </div>
+                    <button id="addPlayerRow" type="button">Add Player</button>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>HDCP</th>
+                                <th>WHS ID</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="playerRows">
+                            <tr><td colspan="5" class="empty-state">Load latest content to edit players.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="field-row">
+                <div class="inline-actions">
+                    <div>
+                        <label>Teams</label>
+                        <p class="field-hint">Select two players, enter a team name, and the team handicap will calculate from the roster.</p>
+                    </div>
+                    <button id="addTeamRow" type="button">Add Team</button>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Team Name</th>
+                                <th>Player 1</th>
+                                <th>P1 HDCP</th>
+                                <th>Player 2</th>
+                                <th>P2 HDCP</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="teamRows">
+                            <tr><td colspan="7" class="empty-state">Load latest content to edit teams.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <textarea id="playersList" hidden></textarea>
             </div>
         </section>
 
@@ -350,13 +447,50 @@
                 <p class="field-hint">One per line: Label | Value.</p>
                 <textarea id="calcuttaPayouts" class="compact-textarea"></textarea>
             </div>
+            <div class="admin-subsection">
+                <div class="field-row">
+                    <label>Calcutta entries</label>
+                    <p class="field-hint">Expand each team to choose the owner, auction cost, buyback, final place, and any final payout override.</p>
+                    <div class="stats-grid" style="margin-bottom: 1rem;">
+                        <div class="stat-card glass-panel">
+                            <h4>Total Pot</h4>
+                            <div class="stat-value compact" id="calcuttaPotTotal">$0</div>
+                            <p class="stat-sub">Auction costs plus buybacks</p>
+                        </div>
+                    </div>
+                    <div id="calcuttaTeamCards" class="team-admin-list">
+                        <div class="empty-state">Load latest content to build Calcutta entries.</div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="section-scoreboard" class="editor-section card glass-panel admin-panel">
             <h2 class="card-title">Scorecard</h2>
             <div class="field-row">
-                <label>Team A/B PGA picks</label>
-                <p class="field-hint">Choose one A player and one B player for each team. These selections are saved into the scoreboard data and appear on the public scoreboard.</p>
+                <label>Team scores</label>
+                <p class="field-hint">Enter the official Sterling Grove team scores from the signed paper scorecards.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Team</th>
+                                <th>Players</th>
+                                <th>Day 1 P1</th>
+                                <th>Day 1 P2</th>
+                                <th>Day 1 Total</th>
+                                <th>Day 2 Team</th>
+                            </tr>
+                        </thead>
+                        <tbody id="teamScoreRows">
+                            <tr><td colspan="6" class="empty-state">Load latest content to build team score rows.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="field-row">
+                <label>Team A/B PGA picks and scores</label>
+                <p class="field-hint">Choose one A player and one B player for each team, then enter each drafted pro's Saturday and Sunday scores.</p>
                 <div class="table-wrap">
                     <table>
                         <thead>
@@ -364,29 +498,17 @@
                                 <th>Team</th>
                                 <th>Players</th>
                                 <th>A Player</th>
+                                <th>A Sat</th>
+                                <th>A Sun</th>
                                 <th>B Player</th>
+                                <th>B Sat</th>
+                                <th>B Sun</th>
                             </tr>
                         </thead>
                         <tbody id="teamPickRows">
-                            <tr><td colspan="4" class="empty-state">Load latest content to build team pick rows.</td></tr>
+                            <tr><td colspan="8" class="empty-state">Load latest content to build team pick rows.</td></tr>
                         </tbody>
                     </table>
-                </div>
-            </div>
-            <div class="admin-subsection">
-                <div class="field-row">
-                    <label>Calcutta entries</label>
-                    <p class="field-hint">Expand each team to choose the owner and enter the amount paid. The running pot total updates as costs change.</p>
-                    <div class="stats-grid" style="margin-bottom: 1rem;">
-                        <div class="stat-card glass-panel">
-                            <h4>Total Pot</h4>
-                            <div class="stat-value compact" id="calcuttaPotTotal">$0</div>
-                            <p class="stat-sub">Sum of team costs entered below</p>
-                        </div>
-                    </div>
-                    <div id="calcuttaTeamCards" class="team-admin-list">
-                        <div class="empty-state">Load latest content to build Calcutta entries.</div>
-                    </div>
                 </div>
             </div>
             <div class="admin-grid">
@@ -408,7 +530,7 @@
                 <div>
                     <div class="field-row">
                         <label for="scoreboardEditor">Live scoreboard data</label>
-                        <p class="field-hint">This controls teams, scores, A/B pro picks, Calcutta buyers, costs, and payouts.</p>
+                        <p class="field-hint">Teams come from the Players tab. Matched teams keep their scores, A/B pro picks, Calcutta buyers, costs, and payouts.</p>
                         <textarea id="scoreboardEditor" class="json-textarea" spellcheck="false"></textarea>
                     </div>
                 </div>
@@ -435,6 +557,8 @@
         let activeSection = 'overview';
         let siteContent = null;
         let scoreboardData = window.PGA_SCOREBOARD_DATA || { teams: [] };
+        const playerRows = document.getElementById('playerRows');
+        const teamRows = document.getElementById('teamRows');
 
         const fields = {
             overviewStats: document.getElementById('overviewStats'),
@@ -472,9 +596,21 @@
         document.getElementById('publishServer').addEventListener('click', () => run('Publishing managed PGA changes...', publishServerData));
         document.getElementById('downloadContent').addEventListener('click', () => downloadFile('site-content.json', 'application/json', JSON.stringify(formToContent(), null, 2) + '\n'));
         document.getElementById('downloadScoreboard').addEventListener('click', () => downloadFile('scoreboard.json', 'application/json', JSON.stringify(readScoreboardEditor(), null, 2) + '\n'));
-        fields.playersList.addEventListener('input', renderAdminTeamControls);
+        document.getElementById('addPlayerRow').addEventListener('click', () => {
+            addPlayerEditorRow();
+            syncStructuredPlayersToFields();
+            refreshTeamSelectOptions();
+            renderAdminTeamControls();
+        });
+        document.getElementById('addTeamRow').addEventListener('click', () => {
+            addTeamEditorRow();
+            syncStructuredPlayersToFields();
+            renderAdminTeamControls();
+        });
         fields.pickaproAPlayers.addEventListener('input', renderTeamPickRows);
         fields.pickaproBPlayers.addEventListener('input', renderTeamPickRows);
+        fields.calcuttaPayouts.addEventListener('input', syncCalcuttaToScoreboardData);
+        fields.calcuttaPayouts.addEventListener('change', syncCalcuttaToScoreboardData);
 
         if (token.value) {
             run('Loading saved admin content...', loadLatest);
@@ -495,6 +631,7 @@
         async function loadLatest() {
             await loadSiteContent();
             await loadScoreboardData();
+            syncTeamEditorFromLoadedData();
             renderAdminTeamControls();
             return 'Loaded private site content and scoreboard data.';
         }
@@ -516,17 +653,20 @@
         }
 
         async function saveCurrentSection() {
+            const savesScoreboard = ['players', 'calcutta', 'scoreboard'].includes(activeSection);
+            if (savesScoreboard) confirmPendingScoreboardTeamRemoval();
             const contentResult = await saveSiteContent();
-            if (activeSection === 'scoreboard') {
-                const scoreboardResult = await saveScoreboardData();
+            if (savesScoreboard) {
+                const scoreboardResult = await saveScoreboardData({ skipRemovalConfirm: true });
                 return `${contentResult} ${scoreboardResult}`;
             }
             return `${contentResult} Public ${activeSection} section and markdown regenerated.`;
         }
 
         async function saveAll() {
+            confirmPendingScoreboardTeamRemoval();
             const contentResult = await saveSiteContent();
-            const scoreboardResult = await saveScoreboardData();
+            const scoreboardResult = await saveScoreboardData({ skipRemovalConfirm: true });
             return `${contentResult} ${scoreboardResult}`;
         }
 
@@ -548,9 +688,11 @@
             return result.message || 'Site content saved.';
         }
 
-        async function saveScoreboardData() {
+        async function saveScoreboardData(options = {}) {
             requireToken();
             syncAdminControlsToScoreboardData();
+            if (!options.skipRemovalConfirm) confirmPendingScoreboardTeamRemoval();
+            syncAdminControlsToScoreboardData({ dropUnmatched: true });
             const response = await fetch('/api/scoreboard', {
                 method: 'POST',
                 headers: {
@@ -580,7 +722,9 @@
             fields.overviewStats.value = joinPiped(content.overview?.stats, ['label', 'value', 'sub', 'highlight']);
             fields.overviewSnapshot.value = joinPiped(content.overview?.snapshot, ['label', 'text']);
             fields.playersIntro.value = content.players?.intro || '';
-            fields.playersList.value = joinPiped(teamRowsFromContent(content), ['teamName', 'player1', 'player1Handicap', 'player2', 'player2Handicap', 'totalHandicap']);
+            renderPlayerEditorRows(content.players?.players);
+            renderTeamEditorRows(teamRowsFromContent(content));
+            syncStructuredPlayersToFields();
             fields.formatEntry.value = formatToText(content.format);
             fields.pickaproTitle.value = content.pickapro?.title || '';
             fields.pickaproIntro.value = content.pickapro?.intro || '';
@@ -595,7 +739,14 @@
             fields.rulesItems.value = joinPiped(content.rules?.items, ['label', 'text']);
         }
 
+        function syncTeamEditorFromLoadedData() {
+            if (!siteContent) return;
+            renderTeamEditorRows(teamRowsForEditor(siteContent, scoreboardData));
+            syncStructuredPlayersToFields();
+        }
+
         function formToContent() {
+            syncStructuredPlayersToFields();
             const baseMarkdown = siteContent?.markdown || {};
             const teams = parseTeams(fields.playersList.value);
             return {
@@ -607,7 +758,7 @@
                 players: {
                     intro: fields.playersIntro.value.trim(),
                     teams,
-                    players: playersFromTeams(teams, siteContent?.players?.players)
+                    players: playerRowsFromEditor()
                 },
                 format: {
                     body: fields.formatEntry.value.trim(),
@@ -639,9 +790,199 @@
             };
         }
 
+        function renderPlayerEditorRows(players = []) {
+            const rows = Array.isArray(players) ? players : [];
+            playerRows.innerHTML = rows.length
+                ? rows.map((player) => playerEditorRow(player)).join('')
+                : playerEditorRow();
+            bindPlayerEditorRows();
+        }
+
+        function addPlayerEditorRow(player = {}) {
+            if (playerRows.querySelector('.empty-state')) playerRows.innerHTML = '';
+            playerRows.insertAdjacentHTML('beforeend', playerEditorRow(player));
+            bindPlayerEditorRows();
+        }
+
+        function playerEditorRow(player = {}) {
+            return `
+                <tr data-player-row>
+                    <td><input class="table-input" data-player-name type="text" value="${escapeAttribute(player.name || '')}" placeholder="Player name"></td>
+                    <td><input class="table-input score-input" data-player-handicap type="text" value="${escapeAttribute(player.handicap || '')}" placeholder="HDCP"></td>
+                    <td><input class="table-input" data-player-whs type="text" value="${escapeAttribute(player.whsId || '')}" placeholder="WHS ID"></td>
+                    <td><input class="table-input" data-player-status type="text" value="${escapeAttribute(player.status || 'Confirmed')}" placeholder="Status"></td>
+                    <td><button class="row-action" data-remove-player type="button">Remove</button></td>
+                </tr>
+            `;
+        }
+
+        function bindPlayerEditorRows() {
+            playerRows.querySelectorAll('[data-remove-player]').forEach((button) => {
+                button.onclick = () => {
+                    button.closest('[data-player-row]')?.remove();
+                    if (!playerRows.querySelector('[data-player-row]')) addPlayerEditorRow();
+                    syncStructuredPlayersToFields();
+                    refreshTeamSelectOptions();
+                    renderAdminTeamControls();
+                };
+            });
+            playerRows.querySelectorAll('input').forEach((input) => {
+                input.oninput = () => {
+                    syncStructuredPlayersToFields();
+                    refreshTeamSelectOptions();
+                    renderAdminTeamControls();
+                };
+            });
+        }
+
+        function renderTeamEditorRows(teams = []) {
+            const rows = Array.isArray(teams) ? teams : [];
+            teamRows.innerHTML = rows.length
+                ? rows.map((team) => teamEditorRow(team)).join('')
+                : teamEditorRow();
+            bindTeamEditorRows();
+            updateTeamHandicapRows();
+        }
+
+        function addTeamEditorRow(team = {}) {
+            if (teamRows.querySelector('.empty-state')) teamRows.innerHTML = '';
+            teamRows.insertAdjacentHTML('beforeend', teamEditorRow(team));
+            bindTeamEditorRows();
+            updateTeamHandicapRows();
+        }
+
+        function teamEditorRow(team = {}) {
+            return `
+                <tr data-team-row>
+                    <td><input class="table-input" data-team-name type="text" value="${escapeAttribute(team.teamName || '')}" placeholder="Team name"></td>
+                    <td>${renderTeamPlayerSelect('player1', team.player1 || '')}</td>
+                    <td><input class="table-input score-input readonly-input" data-team-player1-handicap type="text" value="${escapeAttribute(team.player1Handicap || '')}" readonly></td>
+                    <td>${renderTeamPlayerSelect('player2', team.player2 || '')}</td>
+                    <td><input class="table-input score-input readonly-input" data-team-player2-handicap type="text" value="${escapeAttribute(team.player2Handicap || '')}" readonly></td>
+                    <td><input class="table-input score-input readonly-input" data-team-total-handicap type="text" value="${escapeAttribute(team.totalHandicap || '')}" readonly></td>
+                    <td><button class="row-action" data-remove-team type="button">Remove</button></td>
+                </tr>
+            `;
+        }
+
+        function bindTeamEditorRows() {
+            teamRows.querySelectorAll('[data-remove-team]').forEach((button) => {
+                button.onclick = () => {
+                    button.closest('[data-team-row]')?.remove();
+                    if (!teamRows.querySelector('[data-team-row]')) addTeamEditorRow();
+                    syncStructuredPlayersToFields();
+                    renderAdminTeamControls();
+                };
+            });
+            teamRows.querySelectorAll('input, select').forEach((input) => {
+                input.oninput = () => {
+                    updateTeamHandicapRows();
+                    syncStructuredPlayersToFields();
+                    renderAdminTeamControls();
+                };
+                input.onchange = input.oninput;
+            });
+        }
+
+        function renderTeamPlayerSelect(role, selectedValue) {
+            const options = ['']
+                .concat(playerRowsFromEditor().map((player) => player.name).filter(Boolean))
+                .concat(selectedValue && !playerRowsFromEditor().some((player) => player.name === selectedValue) ? [selectedValue] : [])
+                .map((name) => {
+                    const selected = name === selectedValue ? ' selected' : '';
+                    return `<option value="${escapeAttribute(name)}"${selected}>${escapeHtml(name || 'Select player')}</option>`;
+                })
+                .join('');
+            return `<select class="select-input" data-team-player="${role}">${options}</select>`;
+        }
+
+        function refreshTeamSelectOptions() {
+            const currentTeams = teamRowsFromEditor();
+            renderTeamEditorRows(currentTeams);
+        }
+
+        function updateTeamHandicapRows() {
+            const handicapByName = new Map(playerRowsFromEditor().map((player) => [player.name, player.handicap]));
+            teamRows.querySelectorAll('[data-team-row]').forEach((row) => {
+                const player1 = row.querySelector('select[data-team-player="player1"]')?.value || '';
+                const player2 = row.querySelector('select[data-team-player="player2"]')?.value || '';
+                const player1Handicap = handicapByName.get(player1) || '';
+                const player2Handicap = handicapByName.get(player2) || '';
+                row.querySelector('[data-team-player1-handicap]').value = player1Handicap;
+                row.querySelector('[data-team-player2-handicap]').value = player2Handicap;
+                row.querySelector('[data-team-total-handicap]').value = calculateTeamHandicap(player1Handicap, player2Handicap);
+            });
+        }
+
+        function playerRowsFromEditor() {
+            return Array.from(playerRows.querySelectorAll('[data-player-row]'))
+                .map((row) => ({
+                    name: row.querySelector('[data-player-name]')?.value.trim() || '',
+                    handicap: row.querySelector('[data-player-handicap]')?.value.trim() || '',
+                    whsId: row.querySelector('[data-player-whs]')?.value.trim() || '',
+                    status: row.querySelector('[data-player-status]')?.value.trim() || 'Confirmed'
+                }))
+                .filter((player) => player.name || player.handicap || player.whsId);
+        }
+
+        function teamRowsFromEditor() {
+            updateTeamHandicapRows();
+            return Array.from(teamRows.querySelectorAll('[data-team-row]'))
+                .map((row) => normalizeTeamRow({
+                    teamName: row.querySelector('[data-team-name]')?.value.trim() || '',
+                    player1: row.querySelector('select[data-team-player="player1"]')?.value || '',
+                    player1Handicap: row.querySelector('[data-team-player1-handicap]')?.value || '',
+                    player2: row.querySelector('select[data-team-player="player2"]')?.value || '',
+                    player2Handicap: row.querySelector('[data-team-player2-handicap]')?.value || '',
+                    totalHandicap: row.querySelector('[data-team-total-handicap]')?.value || ''
+                }))
+                .filter((team) => team.teamName || team.player1 || team.player2);
+        }
+
+        function syncStructuredPlayersToFields() {
+            fields.playersList.value = joinPiped(teamRowsFromEditor(), ['teamName', 'player1', 'player1Handicap', 'player2', 'player2Handicap', 'totalHandicap']);
+        }
+
         function renderAdminTeamControls() {
+            syncStructuredPlayersToFields();
+            renderTeamScoreRows();
             renderTeamPickRows();
             renderCalcuttaTeamCards();
+        }
+
+        function renderTeamScoreRows() {
+            const body = document.getElementById('teamScoreRows');
+            if (!body) return;
+
+            const teams = parseTeams(fields.playersList.value);
+            const data = safeScoreboardData();
+
+            if (!teams.length) {
+                body.innerHTML = '<tr><td colspan="6" class="empty-state">Add teams in the Players tab first.</td></tr>';
+                return;
+            }
+
+            body.innerHTML = teams.map((team, index) => {
+                const existing = findExistingScoreboardTeam(data.teams, team, index);
+                const player1Score = existing?.scores?.saturdayPlayer1 ?? '';
+                const player2Score = existing?.scores?.saturdayPlayer2 ?? '';
+                const saturdayTotal = saturdayTeamTotal(player1Score, player2Score, team);
+                return `
+                    <tr data-score-index="${index}">
+                        <td class="font-bold">${escapeHtml(team.teamName || `Team ${index + 1}`)}</td>
+                        <td>${escapeHtml([team.player1, team.player2].filter(Boolean).join(' / ') || '--')}</td>
+                        <td>${renderScoreInput('saturdayPlayer1', player1Score, team.player1 || 'P1')}</td>
+                        <td>${renderScoreInput('saturdayPlayer2', player2Score, team.player2 || 'P2')}</td>
+                        <td class="font-bold" data-saturday-total>${formatScoreText(saturdayTotal)}</td>
+                        <td>${renderScoreInput('sunday', existing?.scores?.sunday, 'Team')}</td>
+                    </tr>
+                `;
+            }).join('');
+
+            body.querySelectorAll('input[data-team-score]').forEach((input) => {
+                input.addEventListener('input', syncScorecardToScoreboardData);
+                input.addEventListener('change', syncScorecardToScoreboardData);
+            });
         }
 
         function renderTeamPickRows() {
@@ -654,7 +995,7 @@
             const data = safeScoreboardData();
 
             if (!teams.length) {
-                body.innerHTML = '<tr><td colspan="4" class="empty-state">Add teams in the Players tab first.</td></tr>';
+                body.innerHTML = '<tr><td colspan="8" class="empty-state">Add teams in the Players tab first.</td></tr>';
                 return;
             }
 
@@ -663,17 +1004,22 @@
                 const aPick = existing?.pros?.a?.name || '';
                 const bPick = existing?.pros?.b?.name || '';
                 return `
-                    <tr data-team-index="${index}">
+                    <tr data-pick-index="${index}">
                         <td class="font-bold">${escapeHtml(team.teamName || `Team ${index + 1}`)}</td>
                         <td>${escapeHtml([team.player1, team.player2].filter(Boolean).join(' / ') || '--')}</td>
                         <td>${renderPickSelect('a', aPlayers, aPick)}</td>
+                        <td>${renderProScoreInput('a', 'round3', existing?.pros?.a?.round3, 'Sat')}</td>
+                        <td>${renderProScoreInput('a', 'round4', existing?.pros?.a?.round4, 'Sun')}</td>
                         <td>${renderPickSelect('b', bPlayers, bPick)}</td>
+                        <td>${renderProScoreInput('b', 'round3', existing?.pros?.b?.round3, 'Sat')}</td>
+                        <td>${renderProScoreInput('b', 'round4', existing?.pros?.b?.round4, 'Sun')}</td>
                     </tr>
                 `;
             }).join('');
 
-            body.querySelectorAll('select[data-pick]').forEach((select) => {
-                select.addEventListener('change', syncScorecardToScoreboardData);
+            body.querySelectorAll('select[data-pick], input[data-pro-score]').forEach((input) => {
+                input.addEventListener('input', syncScorecardToScoreboardData);
+                input.addEventListener('change', syncScorecardToScoreboardData);
             });
         }
 
@@ -695,6 +1041,9 @@
                 const existing = findExistingScoreboardTeam(data.teams, team, index);
                 const owner = existing?.calcutta?.owner || existing?.calcutta?.buyer || '';
                 const cost = existing?.calcutta?.auctionPrice ?? '';
+                const buyback = existing?.calcutta?.buybackAmount ?? '';
+                const finalPlace = existing?.calcutta?.finalPlace ?? '';
+                const payout = existing?.calcutta?.payout ?? '';
                 return `
                     <details class="team-admin-card" data-calcutta-index="${index}">
                         <summary>
@@ -702,7 +1051,7 @@
                                 <span class="team-admin-title">${escapeHtml(team.teamName || `Team ${index + 1}`)}</span>
                                 <span class="team-admin-detail">${escapeHtml([team.player1, team.player2].filter(Boolean).join(' / ') || '--')}</span>
                             </span>
-                            <span class="badge badge-gold" data-card-cost>${formatMoneyText(cost)}</span>
+                            <span class="badge badge-gold" data-card-cost>${formatMoneyText(moneyNumber(cost) + moneyNumber(buyback))}</span>
                         </summary>
                         <div class="team-admin-body">
                             <div class="admin-grid">
@@ -714,13 +1063,25 @@
                                     <label for="calcuttaCost${index}">Cost</label>
                                     <input id="calcuttaCost${index}" data-calcutta-cost type="number" min="0" step="25" inputmode="numeric" value="${escapeAttribute(cost)}" placeholder="0">
                                 </div>
+                                <div class="field-row">
+                                    <label for="calcuttaBuyback${index}">Buyback</label>
+                                    <input id="calcuttaBuyback${index}" data-calcutta-buyback type="number" min="0" step="25" inputmode="numeric" value="${escapeAttribute(buyback)}" placeholder="0">
+                                </div>
+                                <div class="field-row">
+                                    <label for="calcuttaFinalPlace${index}">Final place</label>
+                                    <input id="calcuttaFinalPlace${index}" data-calcutta-final-place type="number" min="1" step="1" inputmode="numeric" value="${escapeAttribute(finalPlace)}" placeholder="Auto">
+                                </div>
+                                <div class="field-row">
+                                    <label for="calcuttaPayout${index}">Payout override</label>
+                                    <input id="calcuttaPayout${index}" data-calcutta-payout type="number" min="0" step="1" inputmode="numeric" value="${escapeAttribute(payout)}" placeholder="Auto">
+                                </div>
                             </div>
                         </div>
                     </details>
                 `;
             }).join('');
 
-            target.querySelectorAll('select[data-calcutta-owner], input[data-calcutta-cost]').forEach((input) => {
+            target.querySelectorAll('select[data-calcutta-owner], input[data-calcutta-cost], input[data-calcutta-buyback], input[data-calcutta-final-place], input[data-calcutta-payout]').forEach((input) => {
                 input.addEventListener('input', syncCalcuttaToScoreboardData);
                 input.addEventListener('change', syncCalcuttaToScoreboardData);
             });
@@ -738,7 +1099,15 @@
                     return `<option value="${escapeAttribute(value)}"${selected}>${escapeHtml(label)}</option>`;
                 })
                 .join('');
-            return `<select data-pick="${pick}">${options}</select>`;
+            return `<select class="select-input" data-pick="${pick}">${options}</select>`;
+        }
+
+        function renderScoreInput(field, value, placeholder) {
+            return `<input class="table-input score-input" data-team-score="${field}" type="number" min="0" step="1" inputmode="numeric" value="${escapeAttribute(numberInputValue(value))}" placeholder="${escapeAttribute(placeholder)}">`;
+        }
+
+        function renderProScoreInput(pick, round, value, placeholder) {
+            return `<input class="table-input score-input" data-pro-score="${pick}.${round}" type="number" min="0" step="1" inputmode="numeric" value="${escapeAttribute(numberInputValue(value))}" placeholder="${escapeAttribute(placeholder)}">`;
         }
 
         function renderOwnerSelect(index, owners, selectedValue) {
@@ -768,32 +1137,77 @@
             return names;
         }
 
-        function syncScorecardToScoreboardData() {
+        function scoreboardPayoutsFromAdmin() {
+            return parsePiped(fields.calcuttaPayouts.value, ['label', 'value'])
+                .map((payout, index) => {
+                    const place = payoutPlaceFromLabel(payout.label, index);
+                    return {
+                        place,
+                        label: payout.label || `${place}`,
+                        percent: payoutPercentFromText(payout.value)
+                    };
+                })
+                .filter((payout) => payout.label || payout.percent);
+        }
+
+        function payoutPlaceFromLabel(label, index) {
+            const match = String(label || '').match(/\d+/);
+            return match ? Number(match[0]) : index + 1;
+        }
+
+        function payoutPercentFromText(value) {
+            const text = String(value || '').trim();
+            if (!text) return 0;
+            const number = Number(text.replace('%', '').trim());
+            if (!Number.isFinite(number)) return 0;
+            if (text.includes('%') || number > 1) return number / 100;
+            return number;
+        }
+
+        function syncScorecardToScoreboardData(options = {}) {
             const teams = parseTeams(fields.playersList.value);
             if (!teams.length) return;
 
             const data = safeScoreboardData();
-            const rows = Array.from(document.querySelectorAll('#teamPickRows tr[data-team-index]'));
+            const scoreRows = Array.from(document.querySelectorAll('#teamScoreRows tr[data-score-index]'));
+            const pickRows = Array.from(document.querySelectorAll('#teamPickRows tr[data-pick-index]'));
             const syncedTeams = teams.map((team, index) => {
                 const existing = findExistingScoreboardTeam(data.teams, team, index) || {};
-                const row = rows.find((candidate) => Number(candidate.dataset.teamIndex) === index);
-                const aPick = row?.querySelector('select[data-pick="a"]')?.value || '';
-                const bPick = row?.querySelector('select[data-pick="b"]')?.value || '';
+                const scoreRow = scoreRows.find((candidate) => Number(candidate.dataset.scoreIndex) === index);
+                const pickRow = pickRows.find((candidate) => Number(candidate.dataset.pickIndex) === index);
+                const aPick = pickRow?.querySelector('select[data-pick="a"]')?.value || '';
+                const bPick = pickRow?.querySelector('select[data-pick="b"]')?.value || '';
+                const saturdayPlayer1 = numberOrBlank(scoreRow?.querySelector('input[data-team-score="saturdayPlayer1"]')?.value);
+                const saturdayPlayer2 = numberOrBlank(scoreRow?.querySelector('input[data-team-score="saturdayPlayer2"]')?.value);
+                const saturday = saturdayTeamTotal(saturdayPlayer1, saturdayPlayer2, team);
+                const saturdayTotalCell = scoreRow?.querySelector('[data-saturday-total]');
+                if (saturdayTotalCell) saturdayTotalCell.textContent = formatScoreText(saturday);
                 return {
                     ...existing,
                     id: existing.id || slugify(team.teamName || `team-${index + 1}`),
                     teamName: team.teamName || `Team ${index + 1}`,
                     players: [team.player1, team.player2].filter(Boolean),
                     handicapTotal: team.totalHandicap || calculateTeamHandicap(team.player1Handicap, team.player2Handicap),
+                    scores: {
+                        ...(existing.scores || {}),
+                        saturdayPlayer1,
+                        saturdayPlayer2,
+                        saturday,
+                        sunday: numberOrBlank(scoreRow?.querySelector('input[data-team-score="sunday"]')?.value)
+                    },
                     pros: {
                         ...(existing.pros || {}),
                         a: {
                             ...(existing.pros?.a || {}),
-                            name: aPick
+                            name: aPick,
+                            round3: numberOrBlank(pickRow?.querySelector('input[data-pro-score="a.round3"]')?.value),
+                            round4: numberOrBlank(pickRow?.querySelector('input[data-pro-score="a.round4"]')?.value)
                         },
                         b: {
                             ...(existing.pros?.b || {}),
-                            name: bPick
+                            name: bPick,
+                            round3: numberOrBlank(pickRow?.querySelector('input[data-pro-score="b.round3"]')?.value),
+                            round4: numberOrBlank(pickRow?.querySelector('input[data-pro-score="b.round4"]')?.value)
                         }
                     }
                 };
@@ -801,23 +1215,40 @@
 
             const nextData = {
                 ...data,
-                teams: mergeTeamCollections(data.teams, syncedTeams)
+                teams: mergeTeamCollections(data.teams, syncedTeams, options)
             };
             scoreboardData = nextData;
             scoreboardEditor.value = JSON.stringify(nextData, null, 2);
         }
 
-        function syncCalcuttaToScoreboardData() {
+        function syncCalcuttaToScoreboardData(options = {}) {
             const teams = parseTeams(fields.playersList.value);
-            if (!teams.length) return;
-
             const data = safeScoreboardData();
+
+            if (!teams.length) {
+                const nextData = {
+                    ...data,
+                    calcutta: {
+                        ...(data.calcutta || {}),
+                        payouts: scoreboardPayoutsFromAdmin()
+                    }
+                };
+                scoreboardData = nextData;
+                scoreboardEditor.value = JSON.stringify(nextData, null, 2);
+                updateCalcuttaPotTotal();
+                updateCardCostBadges();
+                return;
+            }
+
             const cards = Array.from(document.querySelectorAll('#calcuttaTeamCards [data-calcutta-index]'));
             const syncedTeams = teams.map((team, index) => {
                 const existing = findExistingScoreboardTeam(data.teams, team, index) || {};
                 const card = cards.find((candidate) => Number(candidate.dataset.calcuttaIndex) === index);
                 const owner = card?.querySelector('select[data-calcutta-owner]')?.value || '';
                 const cost = numberOrBlank(card?.querySelector('input[data-calcutta-cost]')?.value);
+                const buybackAmount = numberOrBlank(card?.querySelector('input[data-calcutta-buyback]')?.value);
+                const finalPlace = numberOrBlank(card?.querySelector('input[data-calcutta-final-place]')?.value);
+                const payout = numberOrBlank(card?.querySelector('input[data-calcutta-payout]')?.value);
                 return {
                     ...existing,
                     id: existing.id || slugify(team.teamName || `team-${index + 1}`),
@@ -828,14 +1259,21 @@
                         ...(existing.calcutta || {}),
                         owner,
                         buyer: owner,
-                        auctionPrice: cost
+                        auctionPrice: cost,
+                        buybackAmount,
+                        finalPlace,
+                        payout
                     }
                 };
             });
 
             const nextData = {
                 ...data,
-                teams: mergeTeamCollections(data.teams, syncedTeams)
+                calcutta: {
+                    ...(data.calcutta || {}),
+                    payouts: scoreboardPayoutsFromAdmin()
+                },
+                teams: mergeTeamCollections(data.teams, syncedTeams, options)
             };
             scoreboardData = nextData;
             scoreboardEditor.value = JSON.stringify(nextData, null, 2);
@@ -843,30 +1281,134 @@
             updateCardCostBadges();
         }
 
-        function syncAdminControlsToScoreboardData() {
-            syncScorecardToScoreboardData();
-            syncCalcuttaToScoreboardData();
+        function syncAdminControlsToScoreboardData(options = {}) {
+            const teams = parseTeams(fields.playersList.value);
+            if (!teams.length) {
+                const data = safeScoreboardData();
+                const nextData = {
+                    ...data,
+                    calcutta: {
+                        ...(data.calcutta || {}),
+                        payouts: scoreboardPayoutsFromAdmin()
+                    },
+                    teams: options.dropUnmatched ? [] : data.teams
+                };
+                scoreboardData = nextData;
+                scoreboardEditor.value = JSON.stringify(nextData, null, 2);
+                updateCalcuttaPotTotal();
+                updateCardCostBadges();
+                return;
+            }
+
+            syncScorecardToScoreboardData(options);
+            syncCalcuttaToScoreboardData(options);
         }
 
-        function mergeTeamCollections(_existingTeams, syncedTeams) {
-            return syncedTeams;
+        function confirmPendingScoreboardTeamRemoval() {
+            syncAdminControlsToScoreboardData();
+            const teamsPendingRemoval = unmatchedScoreboardTeamsForPlayers();
+            if (teamsPendingRemoval.length && !confirmScoreboardTeamRemoval(teamsPendingRemoval)) {
+                throw new Error('Scoreboard save canceled; no teams were removed.');
+            }
+        }
+
+        function mergeTeamCollections(existingTeams, syncedTeams, options = {}) {
+            if (options.dropUnmatched) return syncedTeams;
+            const unmatchedTeams = findUnmatchedScoreboardTeams(existingTeams, syncedTeams);
+            return [...syncedTeams, ...unmatchedTeams];
+        }
+
+        function unmatchedScoreboardTeamsForPlayers() {
+            const data = safeScoreboardData();
+            const playerTeams = parseTeams(fields.playersList.value)
+                .map((team, index) => scoreboardIdentityFromPlayerTeam(team, index));
+            return findUnmatchedScoreboardTeams(data.teams, playerTeams);
+        }
+
+        function findUnmatchedScoreboardTeams(existingTeams, sourceTeams) {
+            return (Array.isArray(existingTeams) ? existingTeams : [])
+                .filter((existing) => !sourceTeams.some((source) => teamsRepresentSameEntry(existing, source)));
+        }
+
+        function scoreboardIdentityFromPlayerTeam(team, index) {
+            return {
+                id: slugify(team.teamName || `team-${index + 1}`),
+                teamName: team.teamName || `Team ${index + 1}`,
+                players: [team.player1, team.player2].filter(Boolean)
+            };
+        }
+
+        function teamsRepresentSameEntry(left, right) {
+            if (!left || !right) return false;
+            const leftId = normalizedTeamText(left.id);
+            const rightId = normalizedTeamText(right.id);
+            if (leftId && rightId && leftId === rightId) return true;
+
+            const leftName = normalizedTeamText(left.teamName);
+            const rightName = normalizedTeamText(right.teamName);
+            if (leftName && rightName && leftName === rightName) return true;
+
+            const leftPlayers = teamPlayersKey(left);
+            const rightPlayers = teamPlayersKey(right);
+            return Boolean(leftPlayers && rightPlayers && leftPlayers === rightPlayers);
+        }
+
+        function teamPlayersKey(team) {
+            const players = Array.isArray(team?.players)
+                ? team.players
+                : [team?.player1, team?.player2];
+            return players.map(normalizedTeamText).filter(Boolean).join('|');
+        }
+
+        function normalizedTeamText(value) {
+            return String(value || '').trim().toLowerCase();
+        }
+
+        function confirmScoreboardTeamRemoval(teams) {
+            const labels = teams.map(scoreboardTeamLabel);
+            const preview = labels.slice(0, 8).map((label) => `- ${label}`).join('\n');
+            const remaining = labels.length > 8 ? `\n- and ${labels.length - 8} more` : '';
+            return window.confirm([
+                'The Players tab is the source of truth for teams.',
+                '',
+                `Saving will remove ${labels.length} scoreboard-only team${labels.length === 1 ? '' : 's'}:`,
+                preview + remaining,
+                '',
+                'Scores, picks, and Calcutta data for matched teams will be kept.',
+                'Continue?'
+            ].join('\n'));
+        }
+
+        function scoreboardTeamLabel(team, index) {
+            return team?.teamName || team?.id || formatPlayersForLabel(team?.players) || `Scoreboard team ${index + 1}`;
+        }
+
+        function formatPlayersForLabel(players) {
+            return Array.isArray(players) && players.length ? players.join(' / ') : '';
         }
 
         function updateCalcuttaPotTotal() {
             const target = document.getElementById('calcuttaPotTotal');
             if (!target) return;
-            const costs = Array.from(document.querySelectorAll('#calcuttaTeamCards input[data-calcutta-cost]'));
-            const total = costs.length
-                ? costs.reduce((sum, input) => sum + moneyNumber(input.value), 0)
-                : safeScoreboardData().teams.reduce((sum, team) => sum + moneyNumber(team.calcutta?.auctionPrice), 0);
+            const cards = Array.from(document.querySelectorAll('#calcuttaTeamCards [data-calcutta-index]'));
+            const total = cards.length
+                ? cards.reduce((sum, card) => {
+                    const cost = card.querySelector('input[data-calcutta-cost]')?.value;
+                    const buyback = card.querySelector('input[data-calcutta-buyback]')?.value;
+                    return sum + moneyNumber(cost) + moneyNumber(buyback);
+                }, 0)
+                : safeScoreboardData().teams.reduce((sum, team) => (
+                    sum + moneyNumber(team.calcutta?.auctionPrice) + moneyNumber(team.calcutta?.buybackAmount)
+                ), 0);
             target.textContent = formatMoneyText(total);
         }
 
         function updateCardCostBadges() {
             document.querySelectorAll('#calcuttaTeamCards [data-calcutta-index]').forEach((card) => {
-                const input = card.querySelector('input[data-calcutta-cost]');
+                const cost = card.querySelector('input[data-calcutta-cost]')?.value;
+                const buyback = card.querySelector('input[data-calcutta-buyback]')?.value;
                 const badge = card.querySelector('[data-card-cost]');
-                if (badge) badge.textContent = formatMoneyText(input?.value || 0);
+                if (badge) badge.textContent = formatMoneyText(moneyNumber(cost) + moneyNumber(buyback));
             });
         }
 
@@ -874,6 +1416,25 @@
             if (value === null || value === undefined || value === '') return '';
             const number = Number(value);
             return Number.isFinite(number) ? number : '';
+        }
+
+        function numberInputValue(value) {
+            const number = numberOrBlank(value);
+            return typeof number === 'number' ? String(number) : '';
+        }
+
+        function saturdayTeamTotal(player1Score, player2Score, team = {}) {
+            const player1 = numberOrBlank(player1Score);
+            const player2 = numberOrBlank(player2Score);
+            const hasPlayer2 = Boolean(team.player2);
+            if (typeof player1 === 'number' && typeof player2 === 'number') return player1 + player2;
+            if (!hasPlayer2 && typeof player1 === 'number') return player1;
+            return '';
+        }
+
+        function formatScoreText(value) {
+            const number = numberOrBlank(value);
+            return typeof number === 'number' ? String(number) : '--';
         }
 
         function moneyNumber(value) {
@@ -941,6 +1502,75 @@
                 return content.players.teams.map(normalizeTeamRow);
             }
             return teamsFromPlayers(content.players?.players);
+        }
+
+        function teamRowsForEditor(content, data) {
+            const contentTeams = teamRowsFromContent(content);
+            const scoreboardTeams = teamRowsFromScoreboard(data?.teams, content.players?.players);
+            const definedScoreboardTeams = scoreboardTeams.filter(isDefinedTeamRow);
+            if (!definedScoreboardTeams.length) return contentTeams;
+
+            const primaryTeams = contentTeams.some(isDefinedTeamRow)
+                ? mergeTeamRows(contentTeams, definedScoreboardTeams)
+                : definedScoreboardTeams;
+            return mergeTeamRows(primaryTeams, unpairedPlayerTeams(content.players?.players, primaryTeams));
+        }
+
+        function teamRowsFromScoreboard(teams, players = []) {
+            const handicapByName = playerHandicapMap(players);
+            return (Array.isArray(teams) ? teams : []).map((team) => {
+                const teamPlayers = Array.isArray(team.players) ? team.players : [];
+                const player1 = teamPlayers[0] || team.player1 || '';
+                const player2 = teamPlayers[1] || team.player2 || '';
+                const player1Handicap = team.player1Handicap || handicapByName.get(normalizedTeamText(player1)) || '';
+                const player2Handicap = team.player2Handicap || handicapByName.get(normalizedTeamText(player2)) || '';
+                return normalizeTeamRow({
+                    teamName: team.teamName || team.id || '',
+                    player1,
+                    player1Handicap,
+                    player2,
+                    player2Handicap,
+                    totalHandicap: team.handicapTotal || team.totalHandicap || calculateTeamHandicap(player1Handicap, player2Handicap)
+                });
+            });
+        }
+
+        function unpairedPlayerTeams(players, teams) {
+            const paired = new Set((Array.isArray(teams) ? teams : []).flatMap((team) => [team.player1, team.player2])
+                .map(normalizedTeamText)
+                .filter(Boolean));
+            return (Array.isArray(players) ? players : [])
+                .filter((player) => player?.name && !paired.has(normalizedTeamText(player.name)))
+                .map((player, index) => normalizeTeamRow({
+                    teamName: `TBD ${index + 1}`,
+                    player1: player.name || '',
+                    player1Handicap: player.handicap || '',
+                    player2: '',
+                    player2Handicap: '',
+                    totalHandicap: ''
+                }));
+        }
+
+        function mergeTeamRows(primaryTeams, secondaryTeams) {
+            const merged = [...(Array.isArray(primaryTeams) ? primaryTeams : [])];
+            (Array.isArray(secondaryTeams) ? secondaryTeams : []).forEach((team) => {
+                if (!merged.some((existing) => teamsRepresentSameEntry(existing, team))) {
+                    merged.push(team);
+                }
+            });
+            return merged;
+        }
+
+        function isDefinedTeamRow(team) {
+            const hasTwoPlayers = Boolean(team?.player1 && team?.player2);
+            const hasRealName = Boolean(team?.teamName && !/^TBD\s+\d+$/i.test(team.teamName.trim()));
+            return hasTwoPlayers || hasRealName;
+        }
+
+        function playerHandicapMap(players = []) {
+            return new Map((Array.isArray(players) ? players : [])
+                .filter((player) => player?.name)
+                .map((player) => [normalizedTeamText(player.name), player.handicap || '']));
         }
 
         function teamsFromPlayers(players) {

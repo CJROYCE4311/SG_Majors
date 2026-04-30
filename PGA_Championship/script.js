@@ -104,7 +104,7 @@ function renderCalcuttaBoard(teams, payouts, pot) {
     const body = document.getElementById('calcutta-board-body');
     if (!body) return;
     if (!teams.length) {
-        body.innerHTML = emptyRow(10, 'Calcutta bids will appear after Friday night auction.');
+        body.innerHTML = emptyRow(11, 'Calcutta bids will appear after Friday night auction.');
         return;
     }
 
@@ -119,6 +119,7 @@ function renderCalcuttaBoard(teams, payouts, pot) {
             <td>${formatToPar(team.sgToPar)}</td>
             <td>${escapeHtml(team.calcutta?.owner || team.calcutta?.buyer || '--')}</td>
             <td>${formatMoney(team.calcutta?.auctionPrice)}</td>
+            <td>${formatMoney(team.calcutta?.buybackAmount)}</td>
             <td class="font-bold">${formatMoney(calcuttaPayoutForTeam(team, index, payouts, pot))}</td>
         </tr>
     `).join('');
@@ -150,7 +151,7 @@ function setScoreboardEmptyState(message) {
     setText('scoreboard-status', message);
     const emptyTables = [
         ['main-leaderboard-body', 9],
-        ['calcutta-board-body', 10],
+        ['calcutta-board-body', 11],
         ['pga-picks-body', 8],
     ];
     emptyTables.forEach(([id, colspan]) => {
